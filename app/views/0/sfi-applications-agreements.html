@@ -6,6 +6,8 @@
 {% set 0pid = ("0" + (pid + 1)).slice(-2) %}
 {% set pageid = 27 %}
 
+{% include pid +  "/includes/account-header.html" %}
+
 <!-- Before content area -->
 {% block beforeContent %}
 {{ super() }}

@@ -29,6 +29,11 @@ module.exports = {
             email: "rachel@hippodigital.co.uk"
                 },
         {
+            role: "Research",
+            name: "Vika Nightingale",
+            email: "vika.nightingale@kainos.com"
+                },
+        {
             role: "Design",
             name: "Jon Maher",
             email: "jon@hippoddigital.co.uk"
@@ -37,6 +42,11 @@ module.exports = {
             role: "Delivery",
             name: "Charles Newman",
             email: "charles.newman@kainos.com"
+           },
+        {
+            role: "Service Design",
+            name: "Marcela Salcedo",
+            email: "marcela.salcedo@kainos.com"
            },
         {
             role: "Content",
@@ -48,16 +58,15 @@ module.exports = {
         {
             url: "https://miro.com/app/board/uXjVOxw7sZE=/",
             title: "User journey map (Miro)"
-},
+        },
         {
             url: "#",
             title: "Research plan"
-},
+        },
         {
             url: "#",
             title: "Inception deck"
-}
-
+        }
     ],
     prototypes: [
         {
@@ -70,7 +79,66 @@ module.exports = {
             end: "TBC",
             participants: "TBC",
             home: "gov-uk",
-
+            application: [
+                {
+                    id: 0,
+                    sections: [
+                        {
+                            number: "1",
+                            title: "Your land",
+                            status: "Not started",
+                            subtasks: [
+                                {
+                                    title: "Check and confirm your land details",
+                                    url: "#",
+                                    status: "Not started"
+                        }
+                            ]
+                        },
+                        {
+                            number: "2",
+                            title: "Select your standards",
+                            status: "Not started",
+                            subtasks: [
+                                {
+                                    title: "Select your standards",
+                                    url: "#",
+                                    status: "Cannot start yet"
+                                }
+                              ]
+                                },
+                        {
+                            number: "3",
+                            title: "Choose the level of actions you aggree to",
+                            status: "Not started",
+                            subtasks: [
+                                {
+                                    title: "Choose which actions to do",
+                                    url: "#",
+                                    status: "Cannot start yet"
+                                }
+                              ]
+                                },
+                        {
+                            number: "4",
+                            title: "Review and submit your application",
+                            status: "Not started",
+                            subtasks: [
+                                {
+                                    title: "Check your answers",
+                                    url: "#",
+                                    status: "Cannot start yet"
+                                },
+                                {
+                                    title: "Submit your application",
+                                    url: "#",
+                                    status: "Cannot start yet"
+                                }
+                              ]
+                                }
+                            ]
+}
+],
             pages: [
                 {
                     title: "GOV.UK homepage",
@@ -328,11 +396,21 @@ module.exports = {
                     back: "account-business-overview",
                     next: "crn-check-email",
                     complete: "no"
+                },
+                {
+                    title: "Apply for SFI",
+                    template: "Application",
+                    content: "Application",
+                    url: "apply-for-sfi",
+                    pageid: 28,
+                    back: "account-business-overview",
+                    next: "crn-check-email",
+                    complete: "no"
                 }
 
             ]
-        }
-        ],
+}
+],
     fullname: "Joe Bloggs",
     businessname: "Imaginary Farm Ltd",
 }

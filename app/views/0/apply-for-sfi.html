@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = 0 + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 28 %}
+
+{% include pid +  "/includes/account-header.html" %}
+
+{% set totalsections = data['prototypes'][pid]['application'][0]['sections'].length %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to business overview</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l govuk-!-padding-bottom-2">{{ data['maintitle'] }}</span>
+
+        {% block h1 %}
+        <h1 class="govuk-heading-l">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+
+
+        <span class="govuk-caption-l govuk-!-padding-bottom-8">
+            {% block subheader %}
+            {% endblock %}
+        </span>
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+        <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of {{ totalsections }} sections.</p>
+
+        <ol class="app-task-list">
+
+            {% for section in data['prototypes'][pid]['application'][0]['sections'] %}
+
+            <li>
+                <h2 class="app-task-list__section">
+                    <span class="app-task-list__section-number">{{ section.number }}. </span> {{ section.title }}
+                </h2>
+                <ul class="app-task-list__items">
+
+                    {% for subtask in section.subtasks %}
+
+                    <li class="app-task-list__item"> <span class="app-task-list__task-name"><a href="{{ subtask.url }}">{{ subtask.title }}</a></span>
+
+                        {% if subtask.status == "Completed" %}
+
+                        <strong class="govuk-tag app-task-list__tag govuk-tag--green">{{ subtask.status }}</strong>
+
+                        {% else %}
+
+                        <strong class="govuk-tag app-task-list__tag govuk-tag--grey">{{ subtask.status }}</strong>
+
+                        {% endif %}
+
+                    </li>
+
+                    {% endfor %}
+
+
+                    <!--        <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                            <a href="#" aria-describedby="eligibility-status">
+                                {{ section.subtasks[0].title }}
+                            </a>
+                        </span>
+                        <strong class="govuk-tag app-task-list__tag" id="eligibility-status">{{ subtask.status }}</strong>
+                    </li> -->
+
+
+                </ul>
+            </li>
+
+            {% endfor %}
+
+        </ol>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
