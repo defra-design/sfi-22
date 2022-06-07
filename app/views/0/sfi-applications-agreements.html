@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = 0 + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 27 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to business overview</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }} <br /><span class="govuk-caption-l">{{ data['fullname'] }}</span>
+        </h1>
+    </div>
+
+</div>
+{% endblock %}
+
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-full">
+
+        <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Year</th>
+                    <th scope="col" class="govuk-table__header">App. number</th>
+                    <th scope="col" class="govuk-table__header">Type</th>
+                    <th scope="col" class="govuk-table__header">Active</th>
+                    <th scope="col" class="govuk-table__header">Submit date</th>
+                    <th scope="col" class="govuk-table__header">Status</th>
+                    <th scope="col" class="govuk-table__header">&nbsp;
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">2022</td>
+                    <td class="govuk-table__cell">12345678</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }}</td>
+                    <td class="govuk-table__cell">Yes</td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                    <td class="govuk-table__cell">Withdrawn</td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

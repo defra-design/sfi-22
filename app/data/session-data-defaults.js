@@ -307,7 +307,7 @@ module.exports = {
                     pageid: 25,
                     back: "crn-sign-in",
                     next: "crn-check-email",
-                    complete: "no"
+                    complete: "yes"
                 },
                 {
                     title: "Business overview",
@@ -316,6 +316,16 @@ module.exports = {
                     url: "account-business-overview",
                     pageid: 26,
                     back: "account-business-messages",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "SFI applications and agreements",
+                    template: "Account",
+                    content: "Manage your account",
+                    url: "sfi-applications-agreements",
+                    pageid: 27,
+                    back: "account-business-overview",
                     next: "crn-check-email",
                     complete: "no"
                 }
