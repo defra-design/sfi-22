@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = 0 + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+<h1 class="govuk-heading-l govuk-!-padding-bottom-4">Placeholder for GOV.UK homepage</h1>
+
+<!--
+{% for content, pages in data['prototypes'][0]['pages'] | groupby("content") %}
+
+<span class="govuk-caption-m govuk-!-padding-bottom-4 govuk-!-padding-top-8">{{ content | capitalize  }}</span>
+
+<ul class="govuk-list govuk-list--bullet">
+    {% for page in pages %}
+    <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a></li> {% endfor %}
+
+</ul> {% endfor %}
+-->
+
+
+
+
+<br /><br /><br />
+
+{% for template, templates in data['prototypes'][pid]['pages'] | groupby("template") %}
+
+<span class="govuk-caption-l govuk-!-padding-bottom-4 govuk-!-padding-top-8">
+    {{ template | capitalize  }}</span>
+
+
+{% for content, types in templates | groupby("content") %}
+
+<span class="govuk-caption-m govuk-!-padding-bottom-4 govuk-!-padding-top-2">{{ content | capitalize  }}</span>
+
+<ul class="govuk-list govuk-list--spaced govuk-!-padding-bottom-4">
+    {% for page in types %}
+    <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+
+</ul>
+
+{% endfor %}
+<br /><br />
+{% endfor %}
+
+{% endblock %}

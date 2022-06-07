@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ super() }}
+<style>
+    .number {
+        display: none;
+    }
+
+</style>
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="#" class="govuk-breadcrumbs__link govuk-link--no-underline">{{ data['prototypes'][pid]['pages'][pageid]['title'] }}</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l govuk-!-padding-bottom-2">Guidance</span>
+
+        {% block h1 %}
+        <h1 class="govuk-heading-l">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+
+
+        <span class="govuk-caption-l govuk-!-padding-bottom-8">
+            {% block subheader %}
+            {% endblock %}
+        </span>
+    </div>
+
+</div>
+{% endblock %}
+
+<hr>
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-top-4 govuk-!-padding-bottom-8">
+        <section class="devolved-nations">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+                Applies to England
+            </h2>
+        </section>
+
+        <p>Contents</p>
+        {% block contents %}
+        {% endblock %}
+
+        {% block left %}
+        {% include pid + "/includes/" + pageid + ".html" %}
+        {% endblock %}
+    </div>
+
+    <div class="govuk-grid-column-one-third govuk-!-padding-top-4 govuk-!-padding-bottom-8">
+        {% block right %}
+        <h3 class="govuk-heading-s">Related content</h3>
+        {% endblock %}
+    </div>
+</div>
+
+{% endblock %}

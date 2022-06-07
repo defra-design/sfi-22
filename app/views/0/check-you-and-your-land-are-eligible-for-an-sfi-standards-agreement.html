@@ -1,0 +1,37 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 5 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Find out if you and your land are eligible for an SFI standards agreement.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#your-eligibility-to-apply-for-an-agreement">Your eligibility to apply for an agreement</a></li>
+    <li><a href="#your-lands-eligibility">Your land’s eligibility</a></li>
+    <li><a href="#eligible-land-cover-and-type-of-landt">Eligible land cover and type of land</a></li>
+    <li><a href="#management-control-of-land">Management control of land</a></li>
+    <li><a href="#other-land-eligibility-issues-to-consider">Other land eligibility issues to consider</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

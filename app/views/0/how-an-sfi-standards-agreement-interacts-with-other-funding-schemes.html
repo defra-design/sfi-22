@@ -1,0 +1,41 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 7 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Find out when land can be included in an SFI standards agreement and other agri-environment schemes and funding sources at the same time.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#including-land-in-an-sfi-standards-agreement-and-other-schemes-at-the-same-time">Including land in an SFI standards agreement and other schemes at the same time</a></li>
+    <li><a href="#basic-payment-scheme">Basic Payment Scheme</a></li>
+    <li><a href="#countryside-stewardship">Countryside Stewardship</a></li>
+    <li><a href="#environmental-stewardship">Environmental Stewardship</a></li>
+    <li><a href="#sustainable-farming-incentive-pilot">Sustainable Farming Incentive pilot</a></li>
+    <li><a href="#local-nature-recovery">Local Nature Recovery</a></li>
+    <li><a href="#landscape-recovery">Landscape Recovery</a></li>
+    <li><a href="#farming-in-protected-landscapes">Farming in Protected Landscapes</a></li>
+    <li><a href="#private-sector-schemes">Private sector schemes</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

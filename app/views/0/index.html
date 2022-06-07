@@ -1,0 +1,39 @@
+{% extends "layout_prototype.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = 0 + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+
+<!-- Main content area -->
+
+
+{% block acc1 %}
+{{ super() }}
+{% endblock %}
+
+{% block acc2 %}
+{% endblock %}
+
+{% block acc3 %}
+{% endblock %}
+
+{% block acc4 %}
+{% endblock %}
+
+
+
+<!-- Side panel -->
+{% block right %}
+
+<!-- Prototype details -->
+{{ super() }}
+
+{% endblock %}

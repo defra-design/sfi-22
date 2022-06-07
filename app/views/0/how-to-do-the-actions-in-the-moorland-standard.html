@@ -1,0 +1,40 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 20 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Advice for farmers on how to complete the actions in the moorland standard of the Sustainable Farming Incentive (SFI).
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#what-this-guide-covers">What this guide covers</a></li>
+    <li><a href="#how-to-prepare-to-do-the-survey-of-the-moorland">How to prepare to do the survey of the moorland</a></li>
+    <li><a href="#step-1-select-your-sample-points">Step 1: Select your sample points</a></li>
+    <li><a href="#step-2-carry-out-the-survey-at-each-sample-point">Step 2: Carry out the survey at each sample point</a></li>
+    <li><a href="#step-2a-how-to-survey-the-features-relevant-to-all-soil-types">Step 2(a): How to survey the features relevant to all soil types</a></li>
+    <li><a href="#step-2b-how-to-survey-the-features-relevant-to-peat-soils">Step 2(b): How to survey the features relevant to peat soils</a></li>
+    <li><a href="#step-3-how-to-assess-the-public-goods-provided-by-your-moorland">Step 3: How to assess the public goods provided by your moorland</a></li>
+    <li><a href="#step-4-identify-potential-opportunities-to-maintain-or-enhance-the-public-goods-your-moorland-provides">Step 4: Identify potential opportunities to maintain or enhance the public goods your moorland provides</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

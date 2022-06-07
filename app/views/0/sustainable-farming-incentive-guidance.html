@@ -1,0 +1,32 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 22 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Guidance on how the Sustainable Farming Incentive (SFI) will work for farmers.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+
+{% endblock %}

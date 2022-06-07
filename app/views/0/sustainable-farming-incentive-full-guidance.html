@@ -1,0 +1,71 @@
+{% extends "layout_guidance_hub.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+
+<!-- Update pageid   
+{% set pageid = 1 %}
+ -->
+
+{% set arrayLength = data['prototypes'][pid]['pages'].length %}
+
+<!-- Set anchor link   -->
+{% set anchor = "#" %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+<br />
+<p><b>Contents</b></p>
+
+<p class="govuk-body-s">
+
+</p>
+
+<ol class="govuk-list govuk-list--number govuk-list--spaced govuk-body-s">
+
+    {% for i in range(2, 22) -%}
+    <!-- {{ data.prototypes[pid].pages[i].pageid }} -->
+    <li>
+        <a href="#{{ data.prototypes[pid].pages[i].url }}">{{ data.prototypes[pid].pages[i].title }}</a></li>
+    {%- endfor %}
+
+</ol>
+
+{% endblock %}
+
+<!-- Sidebar area -->
+{% block right %}
+
+<br />
+
+{% for i in range(2, 22) -%}
+<!-- {{ data.prototypes[pid].pages[i].pageid }} -->
+<h2 class="govuk-heading-l" id="{{ data.prototypes[pid].pages[i].url }}">{{ data.prototypes[pid].pages[i].title }}</h2>
+{% include pid + "/includes/" + data.prototypes[pid].pages[i].pageid + ".html" %}
+<br /><br /><br />
+{%- endfor %}
+
+
+<!--
+<div>
+
+    {% for page in data['prototypes'][pid]['pages'] %}
+
+    <h2 class="govuk-heading-l" id="{{ page.url }}">
+        {{ page.title }}
+    </h2>
+
+    {% endfor %}
+
+
+
+</div> -->
+
+
+{% endblock %}

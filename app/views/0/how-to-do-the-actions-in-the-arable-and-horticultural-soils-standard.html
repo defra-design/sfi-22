@@ -1,0 +1,38 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 18 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Advice for farmers on how to complete the actions in the arable and horticultural soils standard of the Sustainable Farming Incentive (SFI).
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#action-1-complete-a-soil-assessment-and-produce-a-soil-management-plan">Action 1: Complete a soil assessment and produce a soil management plan</a></li>
+    <li><a href="#assess-risks-relating-to-soil">Assess risks relating to soil</a></li>
+    <li><a href="#how-to-produce-a-soil-management-plan">How to produce a soil management plan</a></li>
+    <li><a href="#test-som">Action 2: Test soil organic matter</a></li>
+    <li><a href="#action-3-add-organic-matter">Action 3: Add organic matter</a></li>
+    <li><a href="#action-4-winter-cover">Action 4: Winter cover</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

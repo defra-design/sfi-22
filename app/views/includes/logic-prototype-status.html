@@ -1,0 +1,27 @@
+{% if prototype.status === "done" %}
+
+<strong class="govuk-tag govuk-tag--green">
+    Testing completed
+</strong>
+
+{% elif prototype.status === "testing" %}
+
+<strong class="govuk-tag">
+    In testing
+</strong>
+
+{% elif prototype.status === "built" %}
+
+<strong class="govuk-tag govuk-tag--blue">
+    Ready to test
+</strong>
+
+{% elif prototype.status === "building" %}
+
+<strong class="govuk-tag govuk-tag--grey">
+    In design
+</strong>
+
+{% else %}
+<p>Prototype status not set</p>
+{% endif %}

@@ -1,0 +1,36 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 10 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+How you will be paid under your SFI standards agreement
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#how-your-payment-is-calculated">How your payment is calculated</a></li>
+    <li><a href="#when-you-will-be-paid">When you will be paid</a></li>
+    <li><a href="#what-you-must-do-to-get-paid">What you must do to get paid</a></li>
+    <li><a href="#future-changes-to-actions-in-the-standards-and-payment-rates">Future changes to actions in the standards and payment rates</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="#" class="govuk-breadcrumbs__link govuk-link--no-underline">{{ data['prototypes'][pid]['pages'][pageid]['title'] }}</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full inverse-header govuk-!-padding-top-8">
+
+        <span class="govuk-caption-l white govuk-!-padding-bottom-2">Guidance</span>
+
+        {% block h1 %}
+        <h1 class="govuk-heading-xl white">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-quarter govuk-!-padding-top-4 govuk-!-padding-bottom-8">
+        {% block left %}
+
+
+        {% endblock %}
+    </div>
+
+    <div class="govuk-grid-column-three-quarters govuk-!-padding-top-4 govuk-!-padding-bottom-8">
+        {% block right %}
+
+        {% endblock %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 9 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Find out about how a Sustainable Farming Incentive standards agreement works, including when you can make changes to it.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#entering-into-an-agreement">Entering into an agreement</a></li>
+    <li><a href="#when-your-agreement-will-start">When your agreement will start</a></li>
+    <li><a href="#submit-an-annual-declaration-to-confirm-progress-of-your-agreement">Submit an annual declaration to confirm progress of your agreement</a></li>
+    <li><a href="#requesting-changes-to-your-agreement">Requesting changes to your agreement</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

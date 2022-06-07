@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = 0 + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 23 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+<h1 class="govuk-heading-xl">Sign in</h1>
+
+<form action="{{ data['prototypes'][pid]['pages'][pageid]['next'] }}" method="POST">
+
+    <div class="govuk-form-group govuk-!-padding-top-2">
+        <label class="govuk-label" for="CRYN">
+            Customer reference number (CRN)
+        </label>
+        <div id="account-number-hint" class="govuk-hint">
+            This is the 10 digit number emailed to you when you created your account
+        </div>
+        <input class="govuk-input govuk-input--width-10" id="account-number" name="account-number" type="text" spellcheck="false" aria-describedby="account-number-hint" pattern="[0-9]*" inputmode="numeric">
+
+        <br /><br />
+
+        <label for="password" class="gem-c-label govuk-label">Password</label>
+        <!-- <div id="password-hint" class="gem-c-hint govuk-hint govuk-!-margin-bottom-3">
+            It must be at least 8 characters long and must include at least one number.
+        </div> -->
+        <div class="gem-c-show-password__input-wrapper">
+            <input name="user[password]" class="gem-c-input govuk-input gem-c-input--with-password govuk-!-width-two-thirds" id="password" type="password" autocomplete="new-password" aria-describedby="hint-password">
+            <span class="govuk-visually-hidden" aria-live="polite">Your password is hidden</span>
+        </div> <!-- /. gem-c-show-password__input-wrapper -->
+        <div class="govuk-!-padding-bottom-2"></div>
+        <a href="#" class="govuk-link">I've forgotten my password</a>
+    </div> <!-- /. govuk-form-group -->
+
+    <button class="govuk-button" data-module="govuk-button">Sign in</button>
+
+</form>
+
+
+<div class="govuk-!-padding-top-8">
+
+    <p>Forgotten your password - <a href="/customer-account/reset-password/send-code">create a new one here</a>.</p>
+    <p>Started creating a new password and received the security code by email - <a href="/customer-account/reset-password/enter-details-code">enter it here</a></p>
+    <p>Lost your customer reference number (CRN), call 03000 200 301.</p>
+</div>
+
+{% endblock %}

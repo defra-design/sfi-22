@@ -1,0 +1,39 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 6 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Find out the eligibility requirements for common land or shared grazing for an SFI standards agreement.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#definition-of-common-land-and-shared-grazing">Definition of common land and shared grazing</a></li>
+    <li><a href="#applying-for-an-agreement-on-common-land">Applying for an agreement on common land</a></li>
+    <li><a href="#eligibility-to-enter-common-land-into-an-agreement">Eligibility to enter common land into an agreement</a></li>
+    <li><a href="#common-land-eligibility">Common land eligibility</a></li>
+    <li><a href="#eligible-land-cover-and-type-of-land">Eligible land cover and type of land</a></li>
+    <li><a href="#management-control">Management control</a></li>
+    <li><a href="#entering-into-an-sfi-standards-agreement">Entering into an SFI standards agreement</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

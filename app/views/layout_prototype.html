@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['indexlink'] }}" class="govuk-breadcrumbs__link">Hub</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="#" class="govuk-breadcrumbs__link govuk-link--no-underline">Prototype v{{ pid }}</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+        <p>
+            {% if data['prototypes'][pid]['status'] === "done" %}
+
+            <strong class="govuk-tag govuk-tag--green">
+                Testing completed
+            </strong>
+
+            {% elif data['prototypes'][pid]['status'] === "testing" %}
+
+            <strong class="govuk-tag">
+                In testing
+            </strong>
+
+            {% elif data['prototypes'][pid]['status'] === "built" %}
+
+            <strong class="govuk-tag govuk-tag--blue">
+                Ready to test
+            </strong>
+
+            {% elif data['prototypes'][pid]['status'] === "building" %}
+
+            <strong class="govuk-tag govuk-tag--grey">
+                In design
+            </strong>
+        </p>
+        {% else %}
+        <p>Prototype status not set</p>
+        {% endif %}
+
+
+        <h1 class="govuk-heading-xl">
+            v{{ pid }}
+        </h1>
+
+        <p>{{ data['prototypes'][pid]['desc'] }}</p>
+
+        <a href="/{{ pid }}/{{ data['prototypes'][pid]['home'] }}" class="govuk-button">Launch prototype v{{ ppid }}</a>
+
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        {% block left %}
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                            Pages
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+                    {% block acc1 %}
+
+                    {% for template, pages in data['prototypes'][pid]['pages'] | groupby("template") %}
+
+                    <span class="govuk-caption-m govuk-!-padding-bottom-2 govuk-!-padding-top-4">{{ template | capitalize  }}</span>
+
+                    <ul class="govuk-list govuk-list--spaced">
+                        {% for page in pages %}
+                        <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a>{% if page.complete == "yes" %} ✅
+                            {% else %}
+                            {% endif %}</li> {% endfor %}
+
+                    </ul>
+                    {% endfor %}
+
+                    <!--   <ol class="govuk-list govuk-list--spaced govuk-list--number">
+                        {% for page in data['prototypes'][pid]['pages'] | sort(attribute="id") %}
+
+                        <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a>&nbsp;
+                            {% if page.complete == "yes" %} ✅
+                            {% else %}
+                            {% endif %}
+                        </li>
+
+                        {% endfor %}
+
+                    </ol> -->
+
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                            Objectives
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+                    {% block acc2 %}
+                    <p class='govuk-body'>This is the accordion 2 content</p>
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                            Hypotheses / assumptions
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                    {% block acc3 %}
+                    <p class='govuk-body'>This is the accordion 3 content</p>
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                            Insights / learnings
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+                    {% block acc4 %}
+                    <p class='govuk-body'>This is the accordion 4 content</p>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        {% block right %}
+        <p class="govuk-body-s">
+            Updated: <br /> <b>{{ data['prototypes'][pid]['updated'] }}</b> <br /><br />
+            Testing dates: <br /><b>{{ data['prototypes'][pid]['start'] }}</b> - <b>{{ data['prototypes'][pid]['end'] }}</b><br /><br />
+            Participants: <br /><b>{{ data['prototypes'][pid]['participants'] }}</b>
+        </p>
+        {% endblock %}
+    </div>
+</div>
+
+{% endblock %}

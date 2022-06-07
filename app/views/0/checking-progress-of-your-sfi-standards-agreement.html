@@ -1,0 +1,40 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 11 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+How we will check progress of your SFI standards agreement.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#what-we-may-check">What we may check</a></li>
+    <li><a href="#how-well-check-your-agreement">How we’ll check your agreement</a></li>
+    <li><a href="#what-happens-if-you-cannot-deliver-your-agreement-or-your-circumstances-change">What happens if you cannot deliver your agreement, or your circumstances change</a></li>
+    <li><a href="#how-you-could-breach-your-agreement">How you could breach your agreement</a></li>
+    <li><a href="#what-happens-if-there-has-been-a-suspected-breach">What happens if there has been a suspected breach</a></li>
+    <li><a href="#what-happens-if-a-breach-is-confirmed">What happens if a breach is confirmed</a></li>
+    <li><a href="#good-reasons-for-a-breach">Good reasons for a breach</a></li>
+    <li><a href="#what-action-we-may-take-when-there-is-a-breach">What action we may take when there is a breach</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}
