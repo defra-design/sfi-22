@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Rural Payments",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "account-business-overview",
+      text: "Your businesses"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 31 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        {% block h1 %}
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <p>You must have management control of the land parcels you select in your SFI standards application for the three-year duration of your SFI agreement.</p>
+
+        <p>If you occupy land under a tenancy on a rolling year-by-year basis, you can only enter this land into your SFI standards agreement if you expect to have management control of that land for its 3-year duration.</p>
+
+        <p>Read <a href="#">Management control of land</a> on GOV.UK for more information.</p>
+
+        <br />
+
+        <form action="/0/land-management-control-form" method="POST">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="-hint">
+
+                    <div class="govuk-radios govuk-radios--conditional">
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="management-control" type="radio" value="yes" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                Yes
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="management-control" type="radio" value="no" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                No
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+                        <input type="hidden" id="land-status" name="landstatus" value="Completed">
+                        <input type="hidden" id="standard-status" name="standardstatus" value="Not started">
+                        <br />
+                        <button class="govuk-button " data-module="govuk-button">
+                            Continue
+                        </button>
+
+                    </div>
+
+                </fieldset>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}

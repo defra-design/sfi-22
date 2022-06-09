@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Rural Payments",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "account-business-overview",
+      text: "Your businesses"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 29 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        {% block h1 %}
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <p>When you select your standard(s), you can only select land parcels that:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>are linked to your Single Business Identifier (SBI)</li>
+            <li>have an eligible land cover for the standard you select</li>
+        </ul>
+
+        <h2 class="govuk-heading-l">Land summary</h2>
+
+        <p>The land summary below shows what is currently registered against your SBI:</p>
+
+        <ul class="govuk-list">
+            <li>94.99 hectares across 26 parcels</li>
+            <li>69 hectares of arable land across 10 parcels</li>
+            <li>25.37 hectares of permanent grassland across 12 parcels</li>
+            <li>0.06 hectares of pond across 1 parcels</li>
+
+        </ul>
+
+        <h2 class="govuk-heading-l">Check your land details before selecting your standard(s)</h2>
+
+        <p>Before you select your standard(s), use the <a href="#">Land Viewer</a> to check the land parcels you'll be selecting are linked to your SBI and have correctly registered:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>land covers</li>
+            <li>permanent boundaries</li>
+        </ul>
+
+        <p>Read <a href="check-your-land-details.html">Check your land details before you apply for an SFI standards agreement</a> on GOV.UK for more information.</p>
+
+        <form action="/0/land-details-form" method="POST" class="govuk-!-padding-top-4">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Are your land details up to date?
+                        </h1>
+                    </legend>
+                    <div id="-hint" class="govuk-hint">
+
+                    </div>
+                    <div class="govuk-radios govuk-radios--conditional">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="land-details-update" name="land-details-update" type="radio" value="yes" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                Yes, my land details are up to date
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="land-details-update-2" name="land-details-update" type="radio" value="no" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                No, I need to update my land details
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="land-status" name="landstatus" value="Started">
+                        <input type="hidden" id="application-status" name="applicationstatus" value="Started">
+
+                        <br />
+                        <button class="govuk-button " data-module="govuk-button">
+                            Continue
+                        </button>
+
+
+
+                    </div>
+
+                </fieldset>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}

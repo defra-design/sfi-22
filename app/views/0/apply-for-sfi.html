@@ -1,5 +1,25 @@
 {% extends "layout.html" %}
 
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Rural Payments",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "account-business-overview",
+      text: "Your businesses"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
 {% set serviceName %}
 Rural Payments
 {% endset%}
@@ -9,8 +29,6 @@ Rural Payments
 {% set ppid = 0 + 1 %}
 {% set 0pid = ("0" + (pid + 1)).slice(-2) %}
 {% set pageid = 28 %}
-
-{% include pid +  "/includes/account-header.html" %}
 
 {% set totalsections = data['prototypes'][pid]['application'][0]['sections'].length %}
 
@@ -81,7 +99,7 @@ Rural Payments
 
                         {% if subtask.status == "Completed" %}
 
-                        <strong class="govuk-tag app-task-list__tag govuk-tag--green">{{ subtask.status }}</strong>
+                        <strong class="govuk-tag app-task-list__tag govuk-tag">{{ subtask.status }}</strong>
 
                         {% else %}
 

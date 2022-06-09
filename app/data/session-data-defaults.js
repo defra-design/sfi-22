@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
     indexlink: "/index",
-    updated: "07-Jun-22",
+    updated: "09-Jun-22",
     maintitle: "Sustainable Farming Incentive",
     team: [
         {
@@ -74,7 +74,7 @@ module.exports = {
             url: "/0",
             status: "building",
             desc: "Control. Prototype version of the live as-is private beta.",
-            updated: "07-Jun-22",
+            updated: "09-Jun-22",
             start: "TBC",
             end: "TBC",
             participants: "TBC",
@@ -90,7 +90,7 @@ module.exports = {
                             subtasks: [
                                 {
                                     title: "Check and confirm your land details",
-                                    url: "#",
+                                    url: "apply-your-land",
                                     status: "Not started"
                         }
                             ]
@@ -102,7 +102,7 @@ module.exports = {
                             subtasks: [
                                 {
                                     title: "Select your standards",
-                                    url: "#",
+                                    url: "apply-standards",
                                     status: "Cannot start yet"
                                 }
                               ]
@@ -114,7 +114,7 @@ module.exports = {
                             subtasks: [
                                 {
                                     title: "Choose which actions to do",
-                                    url: "#",
+                                    url: "apply-arable-levels",
                                     status: "Cannot start yet"
                                 }
                               ]
@@ -136,9 +136,10 @@ module.exports = {
                                 }
                               ]
                                 }
-                            ]
-}
-],
+                            ],
+                    status: "Not started"
+            }
+             ],
             pages: [
                 {
                     title: "GOV.UK homepage",
@@ -404,6 +405,66 @@ module.exports = {
                     url: "apply-for-sfi",
                     pageid: 28,
                     back: "account-business-overview",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Your land details",
+                    template: "Application",
+                    content: "Land",
+                    url: "apply-your-land",
+                    pageid: 29,
+                    back: "apply-for-sfi",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Update your land details",
+                    template: "Application",
+                    content: "Land",
+                    url: "apply-update-land-details",
+                    pageid: 30,
+                    back: "apply-your-land",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Will you have management control of the land in your SFI application?",
+                    template: "Application",
+                    content: "Land",
+                    url: "apply-management-control",
+                    pageid: 31,
+                    back: "apply-your-land",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Your land is not eligible for SFI",
+                    template: "Application",
+                    content: "Land",
+                    url: "apply-land-not-eligible",
+                    pageid: 32,
+                    back: "apply-management-control",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Which standards do you want to apply for?",
+                    template: "Application",
+                    content: "Standards",
+                    url: "apply-standards",
+                    pageid: 33,
+                    back: "apply-management-control",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Arable and Horticultural soils",
+                    template: "Application",
+                    content: "Levels",
+                    url: "apply-arable-levels",
+                    pageid: 34,
+                    back: "apply-management-control",
                     next: "crn-check-email",
                     complete: "no"
                 }

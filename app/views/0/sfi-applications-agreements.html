@@ -6,8 +6,6 @@
 {% set 0pid = ("0" + (pid + 1)).slice(-2) %}
 {% set pageid = 27 %}
 
-{% include pid +  "/includes/account-header.html" %}
-
 <!-- Before content area -->
 {% block beforeContent %}
 {{ super() }}
@@ -71,7 +69,18 @@
                     <td class="govuk-table__cell">Withdrawn</td>
                     <td class="govuk-table__cell">&nbsp;</td>
                 </tr>
-
+                {% if data['prototypes'][pid]['application'][0]['status'] == "Not started" %}
+                {% else %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">2022</td>
+                    <td class="govuk-table__cell">12345678</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }}</td>
+                    <td class="govuk-table__cell">Yes</td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                    <td class="govuk-table__cell">{{ data['prototypes'][pid]['application'][0]['status'] }}</td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                {% endif %}
             </tbody>
         </table>
 

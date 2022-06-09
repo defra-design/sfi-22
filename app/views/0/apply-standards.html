@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Rural Payments",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "account-business-overview",
+      text: "Your businesses"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = 0 + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 33 %}
+
+{% set totalsections = data['prototypes'][pid]['application'][0]['sections'].length %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <form action="/0/choose-standard-form" method="POST">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="nationality-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+                        </h1>
+                    </legend>
+                    <div id="nationality-hint" class="govuk-hint">
+
+                        The standard(s) you're eligible for a shown below. Choose all that apply.
+                    </div>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="nationality" name="standard" type="checkbox" value="arable" aria-describedby="nationality-item-hint">
+                            <label class="govuk-label govuk-checkboxes__label" for="nationality">
+                                <b> Arable and horticultural soils</b>
+                            </label>
+                            <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                                £22.00 to £40.00 per hectare per year based on what actions you do. <br /><br />
+                                Based on the land cover, you have land available for the standard. You must check the land type is eligible. Read <a href="the-sfi-arable-and-horticultural-soils-standard"> Eligible land for the arable and horticultural soil standard</a> on GOV.UK for more information about eligible land type.
+                            </div>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="nationality-2" name="standard" type="checkbox" value="grassland">
+                            <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
+                                <b>Improved grassland soils</b>
+                            </label>
+
+                            <div id="nationality-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                                £28.00 to £58.00 per hectare per year based on what actions you do. <br /><br />
+                                Based on the land cover, you have land available for the standard. You must check the land type is eligible. Read <a href="https://www.gov.uk/guidance/the-sfi-improved-grassland-soils-standard">Eligible land for the improved grassland soil standard</a> on GOV.UK for more information about eligible land type.
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+
+            <input type="hidden" id="standards-status" name="standardstatus" value="Completed">
+            <input type="hidden" id="levels-status" name="levelsstatus" value="Not started">
+
+            <button class="govuk-button " data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}
