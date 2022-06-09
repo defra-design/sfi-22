@@ -56,16 +56,8 @@ module.exports = {
            ],
     links: [
         {
-            url: "https://miro.com/app/board/uXjVOxw7sZE=/",
-            title: "User journey map (Miro)"
-        },
-        {
             url: "#",
-            title: "Research plan"
-        },
-        {
-            url: "#",
-            title: "Inception deck"
+            title: "Links to key docs etc will go here"
         }
     ],
     prototypes: [
