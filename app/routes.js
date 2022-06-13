@@ -102,4 +102,58 @@ router.post('/0/choose-standard-form', function (req, res) {
     }
 
 })
+
+// pid0 - Choose levels
+router.post('/0/arable-levels-form', function (req, res) {
+
+    let levelsstatus = req.session.data.levelsstatus
+
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].sections[2].subtasks[0].status = levelsstatus
+
+    // The content in the "" is the name of the radio button
+    var option = req.session.data['arable-action-1']
+    var option2 = req.session.data['arable-action-2']
+    var option3 = req.session.data['arable-action-3']
+    var option4 = req.session.data['arable-action-4']
+
+    // The content in the "" is the value of the radio button
+    if (option === 'no') {
+        // Send user to this page
+        res.redirect('apply-levels-not-eligible')
+    } else if (option2 === 'no') {
+        // Or send user to this page
+        res.redirect('apply-levels-not-eligible')
+    } else if (option3 === 'no') {
+        // Or send user to this page
+        res.redirect('apply-levels-not-eligible')
+    } else if (option4 === 'no') {
+        // Or send user to this page
+        res.redirect('apply-levels-not-eligible')
+    } else {
+        // Or send user to this page
+        res.redirect('apply-arable-levels-intermediate')
+    }
+})
+
+// pid0 - Choose levels - intermediate
+router.post('/0/arable-levels-intermediate-form', function (req, res) {
+
+    let levelsstatus = req.session.data.levelsstatus
+
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].sections[2].subtasks[0].status = levelsstatus
+
+    // The content in the "" is the name of the radio button
+    var option = req.session.data['arable-action-5']
+
+    // The content in the "" is the value of the radio button
+    if (option === 'no') {
+        // Send user to this page
+        res.redirect('apply-levels-eligible')
+    } else {
+        // Or send user to this page
+        res.redirect('apply-levels-eligible-intermediate')
+    }
+})
 module.exports = router

@@ -107,7 +107,12 @@ module.exports = {
                                 {
                                     title: "Choose which actions to do",
                                     url: "apply-arable-levels",
-                                    status: "Cannot start yet"
+                                    status: "Cannot start yet",
+                                    action1: "Action 1: Will you complete a soil assessment and produce a written soil management plan covering the land entered into the standard in the first year of your SFI standards agreement?",
+                                    action2: "Action 2: Will you make sure all the land parcels entered into the standard have been tested for soil organic matter within the last five years?",
+                                    action3: "Action 3: Will you add organic matter to the soil all the land parcels entered into the standard at least once during your 3-year SFI standards agreement?",
+                                    action4: "Action 4: Will you make sure that at least 70% of total area of land entered into this level of the standard as well establish green cover over the winter months (December until end of February)?",
+                                    action5: "Action 5:  Will you make sure there is a well-established screen cover on at least 50% and multi species cover crops on at least an additional 20% of the land entered into this level of the standard, over the winter months (December until end of February)?"
                                 }
                               ]
                                 },
@@ -453,10 +458,70 @@ module.exports = {
                 {
                     title: "Arable and Horticultural soils",
                     template: "Application",
-                    content: "Levels",
+                    content: "Standards",
                     url: "apply-arable-levels",
                     pageid: 34,
                     back: "apply-management-control",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Your are not eligible for the Arable and Horticultural soils standard",
+                    template: "Application",
+                    content: "Standards",
+                    url: "apply-levels-not-eligible",
+                    pageid: 35,
+                    back: "apply-arable-levels",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Your are eligible for the introductory level",
+                    template: "Application",
+                    content: "Standards",
+                    url: "apply-levels-eligible",
+                    pageid: 36,
+                    back: "apply-arable-levels",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Arable and Horticultural soils",
+                    template: "Application",
+                    content: "Standards",
+                    url: "apply-arable-levels-intermediate",
+                    pageid: 37,
+                    back: "apply-arable-levels",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Your are eligible for the intermediate level",
+                    template: "Application",
+                    content: "Standards",
+                    url: "apply-levels-eligible-intermediate",
+                    pageid: 38,
+                    back: "apply-arable-levels",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Select available land parcels for this standard",
+                    template: "Application",
+                    content: "Standards",
+                    url: "apply-select-land-parcels",
+                    pageid: 39,
+                    back: "apply-arable-levels",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Your SFI payment value summary for this standard",
+                    template: "Application",
+                    content: "Payment",
+                    url: "apply-payment-standard",
+                    pageid: 40,
+                    back: "apply-arable-levels",
                     next: "crn-check-email",
                     complete: "no"
                 }

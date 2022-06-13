@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Rural Payments",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "account-business-overview",
+      text: "Your businesses"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 37 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        {% block h1 %}
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }} <br />
+            <span class="govuk-caption-l">Intermediate level actions</span>
+        </h1>
+        {% endblock %}
+
+
+
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        <span class="govuk-caption-m">This intermediate level action is in addition to actions 1 to 3 in the introductory level.</span>
+
+        <form action="/0/arable-levels-intermediate-form" method="POST" class="govuk-!-padding-top-4">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h2 class="govuk-fieldset__heading">
+                            {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][0]['action5'] }}
+                        </h2>
+                    </legend>
+                    <div id="-hint" class="govuk-hint">
+
+                    </div>
+                    <div class="govuk-radios govuk-radios--conditional">
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="arable-action-5" type="radio" value="yes" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                Yes
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="arable-action-5" type="radio" value="no" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                No
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <input type="hidden" id="arable-levels-status" name="levelsstatus" value="Completed">
+
+            <button class="govuk-button " data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}
