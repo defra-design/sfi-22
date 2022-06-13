@@ -69,7 +69,35 @@ Rural Payments
 
     <div class="govuk-grid-column-two-thirds">
 
-        <p>Placeholder content</p>
+
+        <!--  <p class="orange">User selected standard(s): {{ data['standard'] }}</p> -->
+
+
+        {% if "arable" in data['standard'] %}
+        <p>Your indicative SFI payment for completing the actions in the <b>Arable and Horticultural soils</b> standard will be <b>£xx</b> per year.</p>
+
+        <p>This is made up of:</p>
+        <ul class="govuk-list govuk-list--bullet">
+
+
+            {% if data['arableintroductorylevel'] %}
+
+            <li>Introductory level bullet</li>
+
+            {% else %}
+            {% endif %}
+
+            {% if data['arableintermediatelevel'] %}
+
+            <li>Intermediate level bullet</li>
+
+            {% else %}
+            {% endif %}
+
+        </ul>
+
+        {% else %}
+        {% endif %}
 
         <br />
 

@@ -53,12 +53,11 @@ router.post('/0/withdraw-application-form', function (req, res) {
 // pid0 - Land management control form
 router.post('/0/land-management-control-form', function (req, res) {
 
-    let landstatus = req.session.data.landstatus
+    let landdetailsstatus = req.session.data.landdetailsstatus
     // overwrite values in the session data
-    req.session.data.prototypes[0].application[0].sections[0].subtasks[0].status = landstatus
+    req.session.data.prototypes[0].application[0].sections[0].subtasks[0].status = landdetailsstatus
 
     let standardstatus = req.session.data.standardstatus
-
     // overwrite values in the session data
     req.session.data.prototypes[0].application[0].sections[1].subtasks[0].status = standardstatus
 

@@ -50,3 +50,15 @@
     padding: 20px 30px;
     margin-bottom: 50px;
 }
+
+.orange {
+    color: orange !important;
+}
+
+.bluetopborder {
+    border-top: #1d70b8 5px solid;
+}
+
+.right {
+    text-align: right;
+}

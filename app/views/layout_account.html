@@ -51,6 +51,14 @@
         </h1>
     </div>
 
+    {% block beneathtitle %}
+    <div class="govuk-grid-column-full">
+
+        <p></p>
+
+    </div>
+    {% endblock %}
+
 </div>
 {% endblock %}
 
@@ -63,7 +71,7 @@
         {% endblock %}
     </div>
 
-    <div class="govuk-grid-column-one-third govuk-!-padding-top-4 govuk-!-padding-bottom-8">
+    <div class="govuk-grid-column-one-third govuk-!-padding-top-4 govuk-!-padding-bottom-8 bluetopborder">
         {% block right %}
 
         <h3 class="govuk-heading-s">Account options</h3>

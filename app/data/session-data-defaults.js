@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
     indexlink: "/index",
-    updated: "09-Jun-22",
+    updated: "13-Jun-22",
     maintitle: "Sustainable Farming Incentive",
     team: [
         {
@@ -66,7 +66,7 @@ module.exports = {
             url: "/0",
             status: "building",
             desc: "Control. Prototype version of the live as-is private beta.",
-            updated: "09-Jun-22",
+            updated: "13-Jun-22",
             start: "TBC",
             end: "TBC",
             participants: "TBC",
@@ -101,7 +101,7 @@ module.exports = {
                                 },
                         {
                             number: "3",
-                            title: "Choose the level of actions you aggree to",
+                            title: "Choose the level of actions you agree to",
                             status: "Not started",
                             subtasks: [
                                 {
@@ -524,6 +524,16 @@ module.exports = {
                     back: "apply-arable-levels",
                     next: "crn-check-email",
                     complete: "no"
+                },
+                {
+                    title: "Check your answers before submitting your application",
+                    template: "Application",
+                    content: "Check your answers",
+                    url: "apply-check-your-answers",
+                    pageid: 41,
+                    back: "apply-payment-standard",
+                    next: "crn-check-email",
+                    complete: "no"
                 }
 
             ]
@@ -531,4 +541,7 @@ module.exports = {
 ],
     fullname: "Joe Bloggs",
     businessname: "Imaginary Farm Ltd",
+    email: "email@address.co.uk",
+    landline: "01234567890",
+    mobile: "07123456789"
 }

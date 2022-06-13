@@ -30,6 +30,8 @@ Rural Payments
 {% set 0pid = ("0" + (pid + 1)).slice(-2) %}
 {% set pageid = 36 %}
 
+{% set arableintroductorylevel = "yes" %}
+
 <!-- Before content area -->
 {% block beforeContent %}
 {{ super() }}
@@ -75,9 +77,7 @@ Rural Payments
 
         <br />
 
-        <form action="/0/withdraw-application-form" method="POST">
-
-            <input type="hidden" id="application-status" name="applicationstatus" value="Withdrawn">
+        <form action="/0/apply-select-land-parcels" method="POST">
 
             <button class="govuk-button " data-module="govuk-button">
                 Continue

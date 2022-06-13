@@ -26,7 +26,7 @@ Rural Payments
 
 <!-- Update prototype id -->
 {% set pid = 0 %}
-{% set ppid = 0 + 1 %}
+{% set ppid = pid + 1 %}
 {% set 0pid = ("0" + (pid + 1)).slice(-2) %}
 {% set pageid = 33 %}
 
@@ -72,8 +72,9 @@ Rural Payments
                     </div>
                     <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="nationality" name="standard" type="checkbox" value="arable" aria-describedby="nationality-item-hint">
-                            <label class="govuk-label govuk-checkboxes__label" for="nationality">
+
+                            <input class="govuk-checkboxes__input" id="arable" name="standard" type="checkbox" value="arable" aria-describedby="nationality-item-hint">
+                            <label class="govuk-label govuk-checkboxes__label" for="arable">
                                 <b> Arable and horticultural soils</b>
                             </label>
                             <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
@@ -82,8 +83,9 @@ Rural Payments
                             </div>
                         </div>
                         <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="nationality-2" name="standard" type="checkbox" value="grassland">
-                            <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
+
+                            <input class="govuk-checkboxes__input" id="grassland" name="standard" type="checkbox" value="grassland">
+                            <label class="govuk-label govuk-checkboxes__label" for="grassland">
                                 <b>Improved grassland soils</b>
                             </label>
 

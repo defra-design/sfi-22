@@ -95,13 +95,23 @@ Rural Payments
 
                     {% for subtask in section.subtasks %}
 
-                    <li class="app-task-list__item"> <span class="app-task-list__task-name"><a href="{{ subtask.url }}">{{ subtask.title }}</a></span>
+                    <li class="app-task-list__item">
 
                         {% if subtask.status == "Completed" %}
 
+                        <span class="app-task-list__task-name"><a href="{{ subtask.url }}">{{ subtask.title }}</a></span>
+
                         <strong class="govuk-tag app-task-list__tag govuk-tag">{{ subtask.status }}</strong>
 
+                        {% elif subtask.status == "Cannot start yet" %}
+
+                        <span class="app-task-list__task-name">{{ subtask.title }}</span>
+
+                        <strong class="govuk-tag app-task-list__tag govuk-tag--grey">{{ subtask.status }}</strong>
+
                         {% else %}
+
+                        <span class="app-task-list__task-name"><a href="{{ subtask.url }}">{{ subtask.title }}</a></span>
 
                         <strong class="govuk-tag app-task-list__tag govuk-tag--grey">{{ subtask.status }}</strong>
 
