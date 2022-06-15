@@ -51,7 +51,7 @@ Rural Payments
 
 
 {% block content %}
-
+{% include "0/includes/button-save-return.html" %}
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
@@ -75,23 +75,35 @@ Rural Payments
 
                             <input class="govuk-checkboxes__input" id="arable" name="standard" type="checkbox" value="arable" aria-describedby="nationality-item-hint">
                             <label class="govuk-label govuk-checkboxes__label" for="arable">
-                                <b> Arable and horticultural soils</b>
+                                <b> {{ data['prototypes'][pid]['standards'][0]['name'] }}</b>
                             </label>
                             <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
                                 £22.00 to £40.00 per hectare per year based on what actions you do. <br /><br />
-                                Based on the land cover, you have land available for the standard. You must check the land type is eligible. Read <a href="the-sfi-arable-and-horticultural-soils-standard"> Eligible land for the arable and horticultural soil standard</a> on GOV.UK for more information about eligible land type.
+                                Based on the land cover, you have land available for this standard. You must check the land type is eligible. Read <a href="the-sfi-arable-and-horticultural-soils-standard"> Eligible land for the arable and horticultural soil standard</a> on GOV.UK for more information about eligible land type.
                             </div>
                         </div>
                         <div class="govuk-checkboxes__item">
 
                             <input class="govuk-checkboxes__input" id="grassland" name="standard" type="checkbox" value="grassland">
                             <label class="govuk-label govuk-checkboxes__label" for="grassland">
-                                <b>Improved grassland soils</b>
+                                <b> {{ data['prototypes'][pid]['standards'][1]['name'] }}</b>
                             </label>
 
                             <div id="nationality-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
                                 £28.00 to £58.00 per hectare per year based on what actions you do. <br /><br />
-                                Based on the land cover, you have land available for the standard. You must check the land type is eligible. Read <a href="https://www.gov.uk/guidance/the-sfi-improved-grassland-soils-standard">Eligible land for the improved grassland soil standard</a> on GOV.UK for more information about eligible land type.
+                                Based on the land cover, you have land available for this standard. You must check the land type is eligible. Read <a href="the-sfi-improved-grassland-soils-standard.html">Eligible land for the Improved Grassland soils standard</a> on GOV.UK for more information about eligible land type.
+                            </div>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+
+                            <input class="govuk-checkboxes__input" id="moorland" name="standard" type="checkbox" value="moorland">
+                            <label class="govuk-label govuk-checkboxes__label" for="moorland">
+                                <b> {{ data['prototypes'][pid]['standards'][2]['name'] }}</b>
+                            </label>
+
+                            <div id="nationality-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                                £10.30 per hectare per year based on what actions you do. <br /><br />
+                                Based on the land cover, you have land available for this standard. You must check the land type is eligible. Read <a href="the-sfi-moorland-standard.html">Eligible land for the Moorland standard</a> on GOV.UK for more information about eligible land type.
                             </div>
                         </div>
                     </div>
@@ -101,6 +113,8 @@ Rural Payments
 
             <input type="hidden" id="standards-status" name="standardstatus" value="Completed">
             <input type="hidden" id="levels-status" name="levelsstatus" value="Not started">
+            <input type="hidden" id="placeholder-status" name="levelplaceholder" value="false">
+            <input type="hidden" id="completed" name="completed" value="2">
 
             <button class="govuk-button " data-module="govuk-button">
                 Continue

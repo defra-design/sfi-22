@@ -61,13 +61,18 @@ router.post('/0/land-management-control-form', function (req, res) {
     // overwrite values in the session data
     req.session.data.prototypes[0].application[0].sections[1].subtasks[0].status = standardstatus
 
+    let completed = req.session.data.completed
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].completed = completed
+
     // The content in the "" is the name of the radio button
     var option = req.session.data['management-control']
 
     // The content in the "" is the value of the radio button
     if (option === 'yes') {
+
         // Send user to this page
-        res.redirect('apply-standards')
+        res.redirect('apply-for-sfi')
     } else {
         // Or send user to this page
         res.redirect('apply-land-not-eligible')
@@ -79,28 +84,61 @@ router.post('/0/land-management-control-form', function (req, res) {
 router.post('/0/choose-standard-form', function (req, res) {
 
     let standardstatus = req.session.data.standardstatus
-
     // overwrite values in the session data
     req.session.data.prototypes[0].application[0].sections[1].subtasks[0].status = standardstatus
 
-    let levelsstatus = req.session.data.levelsstatus
+    let levelplaceholder = req.session.data.levelplaceholder
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].sections[2].subtasks[0].show = levelplaceholder
 
+    let levelsstatus = req.session.data.levelsstatus
     // overwrite values in the session data
     req.session.data.prototypes[0].application[0].sections[2].subtasks[0].status = levelsstatus
+
+    let completed = req.session.data.completed
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].completed = completed
 
     // The content in the "" is the name of the radio button
     var option = req.session.data['standard']
 
-    // The content in the "" is the value of the radio button
-    if (option === 'arable') {
-        // Send user to this page
-        res.redirect('apply-for-sfi')
+    // Set arable standard active
+    if (option.includes('arable')) {
+
+        req.session.data['arable'] = "yes"
+        req.session.data.prototypes[0].application[0].sections[2].subtasks[1].status = "Not started"
+        req.session.data.prototypes[0].application[0].sections[2].subtasks[1].show = true
+
     } else {
-        // Or send user to this page
-        res.redirect('apply-for-sfi')
+
+        req.session.data['arable'] = "no"
     }
 
+    // Set grassland standard active
+    if (option.includes('grassland')) {
+
+        req.session.data['grassland'] = "yes"
+        req.session.data.prototypes[0].application[0].sections[2].subtasks[2].show = true
+
+    } else {
+
+        req.session.data['grassland'] = "no"
+    }
+
+    // Set moorland standard active
+    if (option.includes('moorland')) {
+
+        req.session.data['moorland'] = "yes"
+        req.session.data.prototypes[0].application[0].sections[2].subtasks[3].show = true
+
+    } else {
+
+        req.session.data['moorland'] = "no"
+    }
+
+    res.redirect('apply-for-sfi')
 })
+
 
 // pid0 - Choose levels
 router.post('/0/arable-levels-form', function (req, res) {
@@ -130,8 +168,9 @@ router.post('/0/arable-levels-form', function (req, res) {
         // Or send user to this page
         res.redirect('apply-levels-not-eligible')
     } else {
+        req.session.data['arableintroductorylevel'] = "yes"
         // Or send user to this page
-        res.redirect('apply-arable-levels-intermediate')
+        res.redirect('apply-levels-eligible')
     }
 })
 
@@ -148,11 +187,83 @@ router.post('/0/arable-levels-intermediate-form', function (req, res) {
 
     // The content in the "" is the value of the radio button
     if (option === 'no') {
+        req.session.data['arableintermediatelevel'] = "no"
         // Send user to this page
-        res.redirect('apply-levels-eligible')
+        res.redirect('apply-levels-intermediate-not-eligible')
     } else {
+
+        req.session.data['arableintermediatelevel'] = "yes"
         // Or send user to this page
         res.redirect('apply-levels-eligible-intermediate')
     }
+
 })
+
+// pid0 - select land parcels
+router.post('/0/apply-land-parcels-form', function (req, res) {
+
+    res.redirect('apply-payment-standard')
+
+})
+
+// pid0 - payment summary page
+router.post('/0/apply-payment-standard-form', function (req, res) {
+
+    let levelsstatus = req.session.data.levelsstatus
+
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].sections[2].subtasks[1].status = levelsstatus
+
+    req.session.data.prototypes[0].application[0].sections[3].subtasks[0].status = "Not started yet"
+
+    let completed = req.session.data.completed
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].completed = completed
+
+    res.redirect('apply-for-sfi')
+
+})
+
+// pid0 - check your answers page
+router.post('/0/apply-check-your-answers-form', function (req, res) {
+
+    let levelsstatus = req.session.data.levelsstatus
+
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].sections[3].subtasks[0].status = levelsstatus
+
+    let nextstatus = req.session.data.nextstatus
+
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].sections[3].subtasks[1].status = nextstatus
+
+
+    let completed = req.session.data.completed
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].completed = completed
+
+    res.redirect('apply-submit-your-application')
+
+})
+
+// pid0 - check your answers page
+router.post('/0/apply-submit-your-application-form', function (req, res) {
+
+    let levelsstatus = req.session.data.levelsstatus
+
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].sections[3].subtasks[1].status = levelsstatus
+
+    let completed = req.session.data.completed
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].completed = completed
+
+    let applicationstatus = req.session.data.applicationstatus
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].status = applicationstatus
+
+    res.redirect('apply-submitted')
+
+})
+
 module.exports = router

@@ -49,6 +49,7 @@ Rural Payments
 
 
 {% block content %}
+{% include "0/includes/button-save-return.html" %}
 {% block title %}
 <div class="govuk-grid-row">
 
@@ -103,6 +104,7 @@ Rural Payments
                             </div>
                         </div>
                         <input type="hidden" id="land-status" name="landdetailsstatus" value="Completed">
+                        <input type="hidden" id="completed" name="completed" value="1">
                         <input type="hidden" id="standard-status" name="standardstatus" value="Not started">
                         <br />
                         <button class="govuk-button " data-module="govuk-button">

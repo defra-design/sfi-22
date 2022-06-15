@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
     indexlink: "/index",
-    updated: "13-Jun-22",
+    updated: "15-Jun-22",
     maintitle: "Sustainable Farming Incentive",
     team: [
         {
@@ -66,14 +66,27 @@ module.exports = {
             url: "/0",
             status: "building",
             desc: "Control. Prototype version of the live as-is private beta.",
-            updated: "13-Jun-22",
+            updated: "15-Jun-22",
             start: "TBC",
             end: "TBC",
             participants: "TBC",
             home: "gov-uk",
+            standards: [
+                {
+                    name: "Arable and horticultural soils"
+                },
+                {
+                    name: "Improved Grassland soils"
+                },
+                {
+                    name: "Moorland"
+                }
+
+            ],
             application: [
                 {
                     id: 0,
+                    completed: 0,
                     sections: [
                         {
                             number: "1",
@@ -83,6 +96,7 @@ module.exports = {
                                 {
                                     title: "Check and confirm your land details",
                                     url: "apply-your-land",
+                                    show: true,
                                     status: "Not started"
                         }
                             ]
@@ -95,10 +109,11 @@ module.exports = {
                                 {
                                     title: "Select your standards",
                                     url: "apply-standards",
+                                    show: true,
                                     status: "Cannot start yet"
                                 }
                               ]
-                                },
+                        },
                         {
                             number: "3",
                             title: "Choose the level of actions you agree to",
@@ -106,7 +121,36 @@ module.exports = {
                             subtasks: [
                                 {
                                     title: "Choose which actions to do",
+                                    url: "#",
+                                    show: true,
+                                    status: "Cannot start yet",
+                                },
+                                {
+                                    title: "Actions on arable and horticultural soils",
                                     url: "apply-arable-levels",
+                                    show: false,
+                                    status: "Cannot start yet",
+                                    action1: "Action 1: Will you complete a soil assessment and produce a written soil management plan covering the land entered into the standard in the first year of your SFI standards agreement?",
+                                    action2: "Action 2: Will you make sure all the land parcels entered into the standard have been tested for soil organic matter within the last five years?",
+                                    action3: "Action 3: Will you add organic matter to the soil all the land parcels entered into the standard at least once during your 3-year SFI standards agreement?",
+                                    action4: "Action 4: Will you make sure that at least 70% of total area of land entered into this level of the standard as well establish green cover over the winter months (December until end of February)?",
+                                    action5: "Action 4:  Will you make sure there is a well-established screen cover on at least 50% and multi species cover crops on at least an additional 20% of the land entered into this level of the standard, over the winter months (December until end of February)?"
+                                },
+                                {
+                                    title: "Actions on improved grassland soils",
+                                    url: "apply-grassland-levels",
+                                    show: false,
+                                    status: "Cannot start yet",
+                                    action1: "Action 1: Will you complete a soil assessment and produce a written soil management plan covering the land entered into the standard in the first year of your SFI standards agreement?",
+                                    action2: "Action 2: Will you make sure all the land parcels entered into the standard have been tested for soil organic matter within the last five years?",
+                                    action3: "Action 3: Will you add organic matter to the soil all the land parcels entered into the standard at least once during your 3-year SFI standards agreement?",
+                                    action4: "Action 4: Will you make sure that at least 70% of total area of land entered into this level of the standard as well establish green cover over the winter months (December until end of February)?",
+                                    action5: "Action 5:  Will you make sure there is a well-established screen cover on at least 50% and multi species cover crops on at least an additional 20% of the land entered into this level of the standard, over the winter months (December until end of February)?"
+                                },
+                                {
+                                    title: "Actions on improved moorland",
+                                    url: "apply-moorland-levels",
+                                    show: false,
                                     status: "Cannot start yet",
                                     action1: "Action 1: Will you complete a soil assessment and produce a written soil management plan covering the land entered into the standard in the first year of your SFI standards agreement?",
                                     action2: "Action 2: Will you make sure all the land parcels entered into the standard have been tested for soil organic matter within the last five years?",
@@ -123,12 +167,14 @@ module.exports = {
                             subtasks: [
                                 {
                                     title: "Check your answers",
-                                    url: "#",
+                                    url: "apply-check-your-answers",
+                                    show: true,
                                     status: "Cannot start yet"
                                 },
                                 {
                                     title: "Submit your application",
-                                    url: "#",
+                                    url: "apply-submit-your-application",
+                                    show: true,
                                     status: "Cannot start yet"
                                 }
                               ]
@@ -458,7 +504,7 @@ module.exports = {
                 {
                     title: "Arable and Horticultural soils",
                     template: "Application",
-                    content: "Standards",
+                    content: "Levels",
                     url: "apply-arable-levels",
                     pageid: 34,
                     back: "apply-management-control",
@@ -466,9 +512,9 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "Your are not eligible for the Arable and Horticultural soils standard",
+                    title: "You are not eligible for the Arable and Horticultural soils standard",
                     template: "Application",
-                    content: "Standards",
+                    content: "Levels",
                     url: "apply-levels-not-eligible",
                     pageid: 35,
                     back: "apply-arable-levels",
@@ -476,9 +522,9 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "Your are eligible for the introductory level",
+                    title: "You are eligible for the introductory level",
                     template: "Application",
-                    content: "Standards",
+                    content: "Levels",
                     url: "apply-levels-eligible",
                     pageid: 36,
                     back: "apply-arable-levels",
@@ -488,7 +534,7 @@ module.exports = {
                 {
                     title: "Arable and Horticultural soils",
                     template: "Application",
-                    content: "Standards",
+                    content: "Levels",
                     url: "apply-arable-levels-intermediate",
                     pageid: 37,
                     back: "apply-arable-levels",
@@ -496,9 +542,9 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "Your are eligible for the intermediate level",
+                    title: "You are eligible for the intermediate level",
                     template: "Application",
-                    content: "Standards",
+                    content: "Levels",
                     url: "apply-levels-eligible-intermediate",
                     pageid: 38,
                     back: "apply-arable-levels",
@@ -508,7 +554,7 @@ module.exports = {
                 {
                     title: "Select available land parcels for this standard",
                     template: "Application",
-                    content: "Standards",
+                    content: "Levels",
                     url: "apply-select-land-parcels",
                     pageid: 39,
                     back: "apply-arable-levels",
@@ -534,6 +580,36 @@ module.exports = {
                     back: "apply-payment-standard",
                     next: "crn-check-email",
                     complete: "no"
+                },
+                {
+                    title: "You are not eligible for the intermediate Arable and Horticultural soils standard",
+                    template: "Application",
+                    content: "Levels",
+                    url: "apply-levels-intermediate-not-eligible",
+                    pageid: 42,
+                    back: "apply-arable-levels-intermediate",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Submit your SFI application",
+                    template: "Application",
+                    content: "Submission",
+                    url: "apply-submit-your-application",
+                    pageid: 43,
+                    back: "apply-check-your-answers",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Application submitted",
+                    template: "Application",
+                    content: "Submission",
+                    url: "apply-submit-your-application",
+                    pageid: 44,
+                    back: "account-business-overview",
+                    next: "crn-check-email",
+                    complete: "no"
                 }
 
             ]
@@ -543,5 +619,7 @@ module.exports = {
     businessname: "Imaginary Farm Ltd",
     email: "email@address.co.uk",
     landline: "01234567890",
-    mobile: "07123456789"
+    mobile: "07123456789",
+    SBI: "110988078",
+    appvalue: "£251.51"
 }

@@ -28,7 +28,7 @@ Rural Payments
 {% set pid = 0 %}
 {% set ppid = pid + 1 %}
 {% set 0pid = ("0" + (pid + 1)).slice(-2) %}
-{% set pageid = 35 %}
+{% set pageid = 43 %}
 
 <!-- Before content area -->
 {% block beforeContent %}
@@ -53,13 +53,15 @@ Rural Payments
 {% block title %}
 <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
         {% block h1 %}
         <h1 class="govuk-heading-xl">
             {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
         </h1>
         {% endblock %}
+
+
 
     </div>
 
@@ -70,11 +72,46 @@ Rural Payments
 
     <div class="govuk-grid-column-two-thirds">
 
-        <p>To be eligible you must complete all of the <b>introductory</b> level actions on the land parcels you enter into this standard.</p>
+        <p>By selecting 'I agree - submit my application' you confirm that"</p>
 
-        <p>You can select 'Back' and change your answer or select 'Withdraw application'.</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>the information you've given in your SFI application is correct</li>
+            <li> you will complete the actions for the level chosen in the standard selected</li>
+            <li> you will have management control of the land parcels you are selected in your SFI standards application for the 3-year duration of your SFI standards agreement</li>
 
-        <br />
+        </ul>
+
+        <p>You will be able to upgrade your SFI standards agreement annually. This will allow you to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li> add more standards as they become available</li>
+            <li> add more land</li>
+            <li> increase levels within standards</li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+
+        <form action="/0/apply-submit-your-application-form" method="post" novalidate>
+
+            <input type="hidden" id="current-status" name="levelsstatus" value="Completed">
+            <input type="hidden" id="app-status" name="applicationstatus" value="Completed">
+            <input type="hidden" id="completed" name="completed" value="4">
+
+            <button class="govuk-button" data-module="govuk-button">
+                I agree - submit my application
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-half right">
 
         <form action="/0/withdraw-application-form" method="POST">
 
@@ -85,6 +122,7 @@ Rural Payments
             </button>
 
         </form>
+
 
     </div>
 

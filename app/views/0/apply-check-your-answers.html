@@ -49,6 +49,7 @@ Rural Payments
 
 
 {% block content %}
+{% include "0/includes/button-save-return.html" %}
 {% block title %}
 <div class="govuk-grid-row">
 
@@ -69,131 +70,148 @@ Rural Payments
 
     <div class="govuk-grid-column-two-thirds">
 
-        <h2 class="govuk-heading-m">Personal details</h2>
+        <h2 class="govuk-heading-m">Details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Name
+                    Business
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ data['fullname'] }}
+                    <p>{{ data['businessname'] }}<br />
+                        Waterloo Farm <br />
+                        1 Godminster Lane <br />
+                        Drayton <br />
+                        Bideford <br />
+                        GU7 2BX
+                    </p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> name</span>
+
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    SBI number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['SBI'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Indicative Application value
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['appvalue'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Are your land details up to date?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['land-details-update'] | capitalize }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="apply-your-land.html">
+                        Change<span class="govuk-visually-hidden"> land details</span>
                     </a>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Date of birth
+                    Land management control
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    5 January 1978
+                    {{ data['management-control'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> date of birth</span>
-                    </a>
-                </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Address
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    72 Guild Street<br>London<br>SE23 6FH
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> address</span>
-                    </a>
-                </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Contact details
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    <p class="govuk-body">{{ data['mobile'] }}</p>
-                    <p class="govuk-body">{{ data['email'] }}</p>
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> contact details</span>
+                    <a class="govuk-link" href="apply-management-control.html">
+                        Change<span class="govuk-visually-hidden"> land management</span>
                     </a>
                 </dd>
             </div>
         </dl>
 
-        <h2 class="govuk-heading-m">Application details</h2>
+        <h2 class="govuk-heading-m">Arable and horticultural soils</h2>
+        <h3 class="govuk-heading-s">Introductory level</h3>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Previous application number
+                    {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action1'] }}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    502135326
+                    answer goes here
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
+                    <a class="govuk-link" href="apply-arable-levels.html">
                         Change<span class="govuk-visually-hidden"> previous application number</span>
                     </a>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Licence type
+                    {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action2'] }}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    For personal use
+                    answer goes here
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> licence type</span>
+                    <a class="govuk-link" href="apply-arable-levels.html">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
                     </a>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Home address
+                    {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action3'] }}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    72 Guild Street<br>London<br>SE23 6FH
+                    answer goes here
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> home address</span>
+                    <a class="govuk-link" href="apply-arable-levels.html">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
                     </a>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Licence period
+                    {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action4'] }}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    Valid for 6 months
+                    answer goes here
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> licence period</span>
+                    <a class="govuk-link" href="apply-arable-levels.html">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
                     </a>
                 </dd>
             </div>
+
         </dl>
 
         <h2 class="govuk-heading-m">Now send your application</h2>
 
         <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
-        <form action="/form-handler" method="post" novalidate>
+        <form action="/0/apply-check-your-answers-form" method="post" novalidate>
 
             <input type="hidden" name="answers-checked" value="true">
 
+            <input type="hidden" id="current-status" name="levelsstatus" value="Completed">
+            <input type="hidden" id="next-status" name="nextstatus" value="Not started yet">
+
             <button class="govuk-button" data-module="govuk-button">
-                Accept and send
+                Continue
             </button>
 
         </form>

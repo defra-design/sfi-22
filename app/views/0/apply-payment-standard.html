@@ -49,6 +49,7 @@ Rural Payments
 
 
 {% block content %}
+{% include "0/includes/button-save-return.html" %}
 {% block title %}
 <div class="govuk-grid-row">
 
@@ -80,14 +81,14 @@ Rural Payments
         <ul class="govuk-list govuk-list--bullet">
 
 
-            {% if data['arableintroductorylevel'] %}
+            {% if data['arableintroductorylevel'] === "yes" %}
 
             <li>Introductory level bullet</li>
 
             {% else %}
             {% endif %}
 
-            {% if data['arableintermediatelevel'] %}
+            {% if data['arableintermediatelevel'] === "yes" %}
 
             <li>Intermediate level bullet</li>
 
@@ -101,7 +102,10 @@ Rural Payments
 
         <br />
 
-        <form action="/0/apply-check-your-answers" method=" POST">
+        <form action="/0/apply-payment-standard-form" method="POST">
+
+            <input type="hidden" id="levels-status" name="levelsstatus" value="Completed">
+            <input type="hidden" id="completed" name="completed" value="3">
 
             <button class="govuk-button " data-module="govuk-button">
                 Continue

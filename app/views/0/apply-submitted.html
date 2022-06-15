@@ -28,10 +28,7 @@ Rural Payments
 {% set pid = 0 %}
 {% set ppid = pid + 1 %}
 {% set 0pid = ("0" + (pid + 1)).slice(-2) %}
-{% set pageid = 38 %}
-
-{% set arableintroductorylevel = "yes" %}
-{% set arableintermediatelevel = "yes" %}
+{% set pageid = 44 %}
 
 <!-- Before content area -->
 {% block beforeContent %}
@@ -43,7 +40,7 @@ Rural Payments
             <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
         </li> -->
         <li class="govuk-breadcrumbs__list-item">
-            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to business overview</a>
         </li>
 
     </ol>
@@ -52,11 +49,10 @@ Rural Payments
 
 
 {% block content %}
-{% include "0/includes/button-save-return.html" %}
 {% block title %}
-<div class="govuk-grid-row">
+<!-- <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
         {% block h1 %}
         <h1 class="govuk-heading-xl">
@@ -64,28 +60,32 @@ Rural Payments
         </h1>
         {% endblock %}
 
+
+
     </div>
 
-</div>
+</div> -->
 {% endblock %}
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row govuk-!-padding-top-8">
 
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
-        <p>Based on your answers you are eligible for the <b>intermediate</b> level of the <b>arable and horticultural soils</b> standard.</p>
 
-        <p>You can now select the land parcels you want to enter into the <b>introductory</b> or <b>intermediate</b> levels of the <b>arable and horticultural soils</b> standard.</p>
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+                Application complete
+            </h1>
+            <div class="govuk-panel__body">
+                Your reference number<br><strong>HDJ2123F</strong>
+            </div>
+        </div>
 
-        <br />
+        <h2 class="govuk-heading-l">What happens next</h2>
 
-        <form action="/0/apply-select-land-parcels" method="POST">
+        <p>Will review your application and contact you either to approve your agreement, or to ask for more information.</p>
 
-            <button class="govuk-button " data-module="govuk-button">
-                Continue
-            </button>
-
-        </form>
+        <a href="account-business-overview.html" class="govuk-button">Close</a>
 
     </div>
 

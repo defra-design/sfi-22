@@ -82,7 +82,14 @@
                         Yes
                         {% endif %}
                     </td>
-                    <td class="govuk-table__cell">&nbsp;</td>
+                    <td class="govuk-table__cell">
+                        {% if data['prototypes'][pid]['application'][0]['status'] == "Completed" %}
+                        {% include "includes/today.html" %}
+                        {% else %}
+
+                        {% endif %}
+
+                    </td>
                     <td class="govuk-table__cell">{{ data['prototypes'][pid]['application'][0]['status'] }}</td>
                     <td class="govuk-table__cell">
                         {% if data['prototypes'][pid]['application'][0]['status'] == "Withdrawn" %}
@@ -97,6 +104,14 @@
                 {% endif %}
             </tbody>
         </table>
+
+        {% if data['prototypes'][pid]['application'][0]['status'] == "Withdrawn" %}
+        <p class="right"><a href="apply-for-sfi.html" class="govuk-button">Apply for SFI</a></p>
+        {% else %}
+
+        {% endif %}
+
+
 
     </div>
 

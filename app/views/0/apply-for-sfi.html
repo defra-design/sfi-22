@@ -52,7 +52,7 @@ Rural Payments
 
 <!-- Main content area -->
 {% block content %}
-
+{% include "0/includes/button-save-return.html" %}
 {% block title %}
 <div class="govuk-grid-row">
 
@@ -81,7 +81,7 @@ Rural Payments
     <div class="govuk-grid-column-two-thirds">
 
         <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-        <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of {{ totalsections }} sections.</p>
+        <p class="govuk-body govuk-!-margin-bottom-7">You have completed {{ data['prototypes'][pid]['application'][0]['completed'] }} of {{ totalsections }} sections.</p>
 
         <ol class="app-task-list">
 
@@ -95,15 +95,17 @@ Rural Payments
 
                     {% for subtask in section.subtasks %}
 
+                    {% if subtask.show == true %}
+
                     <li class="app-task-list__item">
 
                         {% if subtask.status == "Completed" %}
 
                         <span class="app-task-list__task-name"><a href="{{ subtask.url }}">{{ subtask.title }}</a></span>
 
-                        <strong class="govuk-tag app-task-list__tag govuk-tag">{{ subtask.status }}</strong>
+                        <strong class="govuk-tag app-task-list__tag govuk-tag">{{ subtask.status }} </strong>
 
-                        {% elif subtask.status == "Cannot start yet" %}
+                        {% elif subtask.status == "Cannot start yet"  %}
 
                         <span class="app-task-list__task-name">{{ subtask.title }}</span>
 
@@ -118,7 +120,8 @@ Rural Payments
                         {% endif %}
 
                     </li>
-
+                    {% else %}
+                    {% endif %}
                     {% endfor %}
 
 
@@ -136,6 +139,7 @@ Rural Payments
             </li>
 
             {% endfor %}
+
 
         </ol>
 
