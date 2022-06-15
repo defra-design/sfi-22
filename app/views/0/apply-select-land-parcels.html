@@ -68,19 +68,41 @@ Rural Payments
 
 <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-one-half">
 
-        <p>Placeholder content.</p>
+        <h2 class="govuk-heading-l">{{ data['prototypes'][pid]['standards'][0]['name'] }}</h2>
+
+        <p>How to select a land parcel for the level(s) shown: Take the relevant box in the list below or select the long parcel in the map by:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>Clicking once for the introductory level</li>
+            <li>Clicking again for the intermediate level (if shown)</li>
+            <li>Clicking again to deselect it</li>
+        </ul>
+
+        <p>To select all the available land parcels tick 'select all' for the relevant level</p>
+
+        <p>Check the 'available area' is an eligible land type: A land parcel's 'available area' (which is based on the eligible land covers for this standard) was also been eligible and type. Read the <a href="eligibility-of-commons-and-shared-grazing-land-for-an-sfi-standards-agreement" target="_blank">Eligible land for the Arable and Horticultural soils standard</a> on GOV.UKk for more information.</p>
 
         <br />
+
+        <p>Form goes here</p>
 
         <form action="/0/apply-land-parcels-form" method="POST">
 
             <button class="govuk-button " data-module="govuk-button">
-                Continue
+                Update application
             </button>
 
         </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+
+        <img src="../../../public/images/fields.png">
+
+        <p>Key:</p>
 
     </div>
 
