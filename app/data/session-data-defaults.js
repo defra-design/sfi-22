@@ -148,7 +148,7 @@ module.exports = {
                                     action5: "Action 5:  Will you make sure there is a well-established screen cover on at least 50% and multi species cover crops on at least an additional 20% of the land entered into this level of the standard, over the winter months (December until end of February)?"
                                 },
                                 {
-                                    title: "Actions on improved moorland",
+                                    title: "Actions on moorland",
                                     url: "apply-moorland-levels",
                                     show: false,
                                     status: "Cannot start yet",

@@ -266,4 +266,22 @@ router.post('/0/apply-submit-your-application-form', function (req, res) {
 
 })
 
+// pid0 - CYA - Land management control form
+router.post('/0/land-management-control-form-cya', function (req, res) {
+
+    // The content in the "" is the name of the radio button
+    var option = req.session.data['management-control']
+
+    // The content in the "" is the value of the radio button
+    if (option === 'yes') {
+
+        // Send user to this page
+        res.redirect('apply-check-your-answers')
+    } else {
+        // Or send user to this page
+        res.redirect('apply-land-not-eligible')
+    }
+
+})
+
 module.exports = router

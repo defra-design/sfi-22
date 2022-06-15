@@ -105,10 +105,10 @@
             </tbody>
         </table>
 
-        {% if data['prototypes'][pid]['application'][0]['status'] == "Withdrawn" %}
-        <p class="right"><a href="apply-for-sfi.html" class="govuk-button">Apply for SFI</a></p>
-        {% else %}
+        {% if data['prototypes'][pid]['application'][0]['status'] == "Started" %}
 
+        {% else %}
+        <p class="right"><a href="apply-for-sfi.html" class="govuk-button">Apply for SFI</a></p>
         {% endif %}
 
 

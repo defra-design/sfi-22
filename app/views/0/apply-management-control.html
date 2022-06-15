@@ -78,45 +78,52 @@ Rural Payments
 
         <br />
 
-        <form action="/0/land-management-control-form" method="POST">
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="-hint">
+        {% if data['cya-refer'] == "true" %}
 
-                    <div class="govuk-radios govuk-radios--conditional">
+        <form action="/0/land-management-control-form-cya" method="POST">
 
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="management-control" type="radio" value="yes" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                Yes
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+            {% else %}
+            <form action="/0/land-management-control-form" method="POST">
+                {% endif %}
 
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="-hint">
+
+                        <div class="govuk-radios govuk-radios--conditional">
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="management-control" type="radio" value="yes" aria-describedby="-hint">
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    Yes
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="management-control" type="radio" value="no" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                No
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="management-control" type="radio" value="no" aria-describedby="-hint">
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    No
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
 
+                                </div>
                             </div>
+                            <input type="hidden" id="land-status" name="landdetailsstatus" value="Completed">
+                            <input type="hidden" id="completed" name="completed" value="1">
+                            <input type="hidden" id="standard-status" name="standardstatus" value="Not started">
+                            <br />
+                            <button class="govuk-button " data-module="govuk-button">
+                                Continue
+                            </button>
+
                         </div>
-                        <input type="hidden" id="land-status" name="landdetailsstatus" value="Completed">
-                        <input type="hidden" id="completed" name="completed" value="1">
-                        <input type="hidden" id="standard-status" name="standardstatus" value="Not started">
-                        <br />
-                        <button class="govuk-button " data-module="govuk-button">
-                            Continue
-                        </button>
 
-                    </div>
+                    </fieldset>
+                </div>
 
-                </fieldset>
-            </div>
-
-        </form>
+            </form>
 
     </div>
 

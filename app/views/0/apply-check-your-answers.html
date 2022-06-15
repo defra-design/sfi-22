@@ -70,7 +70,7 @@ Rural Payments
 
     <div class="govuk-grid-column-two-thirds">
 
-        <h2 class="govuk-heading-m">Details</h2>
+        <h2 class="govuk-heading-l">Details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
@@ -133,15 +133,16 @@ Rural Payments
                     {{ data['management-control'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="apply-management-control.html">
-                        Change<span class="govuk-visually-hidden"> land management</span>
-                    </a>
+                    <form id="changemanagemencontrol" action="apply-management-control" method="POST">
+                        <input type="hidden" name="cya-refer" value="true">
+                        <a href="" onclick="document.getElementById('changemanagemencontrol').submit(); return false;">Change</a>
+                    </form>
                 </dd>
             </div>
         </dl>
 
-        <h2 class="govuk-heading-m">Arable and horticultural soils</h2>
-        <h3 class="govuk-heading-s">Introductory level</h3>
+        <h2 class="govuk-heading-l">Arable and horticultural soils</h2>
+        <h3 class="govuk-heading-m">Introductory level</h3>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
@@ -149,7 +150,7 @@ Rural Payments
                     {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action1'] }}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    answer goes here
+                    {{ data['arable-action-1'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="apply-arable-levels.html">
@@ -162,7 +163,7 @@ Rural Payments
                     {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action2'] }}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    answer goes here
+                    {{ data['arable-action-2'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="apply-arable-levels.html">
@@ -175,7 +176,7 @@ Rural Payments
                     {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action3'] }}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    answer goes here
+                    {{ data['arable-action-3'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="apply-arable-levels.html">
@@ -188,7 +189,7 @@ Rural Payments
                     {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action4'] }}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    answer goes here
+                    {{ data['arable-action-4'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="apply-arable-levels.html">
@@ -196,12 +197,76 @@ Rural Payments
                     </a>
                 </dd>
             </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Number of selected land parcels
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    1
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="apply-arable-levels.html">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Selected area
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    5.00
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+            <br />
+            <br />
+
+            <h3 class="govuk-heading-m">Intermediate level</h3>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action5'] }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['arable-action-5'] | capitalize }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="apply-arable-levels.html">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Number of selected land parcels
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    1
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="apply-arable-levels.html">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Selected area
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    2.00
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
 
         </dl>
 
-        <h2 class="govuk-heading-m">Now send your application</h2>
-
-        <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+        <br />
 
         <form action="/0/apply-check-your-answers-form" method="post" novalidate>
 
