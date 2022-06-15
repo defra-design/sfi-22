@@ -75,7 +75,7 @@ Rural Payments
 
 
         {% if "arable" in data['standard'] %}
-        <p>Your indicative SFI payment for completing the actions in the <b>Arable and Horticultural soils</b> standard will be <b>£xx</b> per year.</p>
+        <p>Your indicative SFI payment for completing the actions in the <b>{{ data['prototypes'][pid]['standards'][0]['name'] }}</b> standard will be <b>£xx</b> per year.</p>
 
         <p>This is made up of:</p>
         <ul class="govuk-list govuk-list--bullet">

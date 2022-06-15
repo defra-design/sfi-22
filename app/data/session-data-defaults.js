@@ -73,7 +73,7 @@ module.exports = {
             home: "gov-uk",
             standards: [
                 {
-                    name: "Arable and horticultural soils"
+                    name: "Arable and Horticultural soils"
                 },
                 {
                     name: "Improved Grassland soils"
