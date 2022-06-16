@@ -120,9 +120,10 @@ Rural Payments
                     {{ data['land-details-update'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="apply-your-land.html">
-                        Change<span class="govuk-visually-hidden"> land details</span>
-                    </a>
+                    <form id="changeapplyyourland" action="apply-your-land" method="POST">
+                        <input type="hidden" name="cya-refer" value="true">
+                        <a href="" onclick="document.getElementById('changeapplyyourland').submit(); return false;">Change</a>
+                    </form>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -153,9 +154,10 @@ Rural Payments
                     {{ data['arable-action-1'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="apply-arable-levels.html">
-                        Change<span class="govuk-visually-hidden"> previous application number</span>
-                    </a>
+                    <form id="changearablelevels" action="apply-arable-levels" method="POST">
+                        <input type="hidden" name="cya-refer" value="true">
+                        <a href="" onclick="document.getElementById('changearablelevels').submit(); return false;">Change</a>
+                    </form>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -166,9 +168,10 @@ Rural Payments
                     {{ data['arable-action-2'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="apply-arable-levels.html">
-                        Change<span class="govuk-visually-hidden"> previous application number</span>
-                    </a>
+                    <form id="changearablelevels" action="apply-arable-levels" method="POST">
+                        <input type="hidden" name="cya-refer" value="true">
+                        <a href="" onclick="document.getElementById('changearablelevels').submit(); return false;">Change</a>
+                    </form>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -179,9 +182,10 @@ Rural Payments
                     {{ data['arable-action-3'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="apply-arable-levels.html">
-                        Change<span class="govuk-visually-hidden"> previous application number</span>
-                    </a>
+                    <form id="changearablelevels" action="apply-arable-levels" method="POST">
+                        <input type="hidden" name="cya-refer" value="true">
+                        <a href="" onclick="document.getElementById('changearablelevels').submit(); return false;">Change</a>
+                    </form>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -192,9 +196,10 @@ Rural Payments
                     {{ data['arable-action-4'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="apply-arable-levels.html">
-                        Change<span class="govuk-visually-hidden"> previous application number</span>
-                    </a>
+                    <form id="changearablelevels" action="apply-arable-levels" method="POST">
+                        <input type="hidden" name="cya-refer" value="true">
+                        <a href="" onclick="document.getElementById('changearablelevels').submit(); return false;">Change</a>
+                    </form>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -205,9 +210,10 @@ Rural Payments
                     1
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="apply-arable-levels.html">
-                        Change<span class="govuk-visually-hidden"> previous application number</span>
-                    </a>
+                    <form id="changelandparcels" action="apply-select-land-parcels" method="POST">
+                        <input type="hidden" name="cya-refer" value="true">
+                        <a href="" onclick="document.getElementById('changelandparcels').submit(); return false;">Change</a>
+                    </form>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -224,6 +230,9 @@ Rural Payments
             <br />
             <br />
 
+            <!-- Show intermediate level if eligible -->
+            {% if data['arableintermediatelevel'] == "yes" %}
+
             <h3 class="govuk-heading-m">Intermediate level</h3>
 
             <div class="govuk-summary-list__row">
@@ -234,9 +243,10 @@ Rural Payments
                     {{ data['arable-action-5'] | capitalize }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="apply-arable-levels.html">
-                        Change<span class="govuk-visually-hidden"> previous application number</span>
-                    </a>
+                    <form id="changearablelevelsintermediate" action="apply-arable-levels-intermediate" method="POST">
+                        <input type="hidden" name="cya-refer" value="true">
+                        <a href="" onclick="document.getElementById('changearablelevelsintermediate').submit(); return false;">Change</a>
+                    </form>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -247,9 +257,10 @@ Rural Payments
                     1
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="apply-arable-levels.html">
-                        Change<span class="govuk-visually-hidden"> previous application number</span>
-                    </a>
+                    <form id="changelandparcels" action="apply-select-land-parcels" method="POST">
+                        <input type="hidden" name="cya-refer" value="true">
+                        <a href="" onclick="document.getElementById('changelandparcels').submit(); return false;">Change</a>
+                    </form>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -263,6 +274,10 @@ Rural Payments
 
                 </dd>
             </div>
+
+
+            {% else %}
+            {% endif %}
 
         </dl>
 

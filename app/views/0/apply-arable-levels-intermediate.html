@@ -75,52 +75,60 @@ Rural Payments
 
         <span class="govuk-caption-m">This intermediate level action is in addition to actions 1 to 3 in the introductory level.</span>
 
-        <form action="/0/arable-levels-intermediate-form" method="POST" class="govuk-!-padding-top-4">
+        {% if data['cya-refer'] == "true" %}
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        <h2 class="govuk-fieldset__heading">
-                            {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action5'] }}
-                        </h2>
-                    </legend>
-                    <div id="-hint" class="govuk-hint">
+        <form action="/0/arable-levels-intermediate-form-cya" method="POST">
 
-                    </div>
-                    <div class="govuk-radios govuk-radios--conditional">
+            {% else %}
 
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-5" type="radio" value="yes" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                Yes
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+            <form action="/0/arable-levels-intermediate-form" method="POST" class="govuk-!-padding-top-4">
 
-                            </div>
+                {% endif %}
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h2 class="govuk-fieldset__heading">
+                                {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action5'] }}
+                            </h2>
+                        </legend>
+                        <div id="-hint" class="govuk-hint">
+
                         </div>
+                        <div class="govuk-radios govuk-radios--conditional">
 
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-5" type="radio" value="no" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                No
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="arable-action-5" type="radio" value="yes" aria-describedby="-hint" {{ checked("arable-action-5", "yes") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    Yes
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
 
+                                </div>
                             </div>
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="arable-action-5" type="radio" value="no" aria-describedby="-hint" {{ checked("arable-action-5", "no") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    No
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                                </div>
+                            </div>
+
                         </div>
+                    </fieldset>
+                </div>
 
-                    </div>
-                </fieldset>
-            </div>
+                <input type="hidden" id="arable-introductory-status" name="arableintroductorylevel" value="yes">
+                <input type="hidden" id="arable-levels-status" name="levelsstatus" value="Completed">
 
-            <input type="hidden" id="arable-introductory-status" name="arableintroductorylevel" value="yes">
-            <input type="hidden" id="arable-levels-status" name="levelsstatus" value="Completed">
+                <button class="govuk-button " data-module="govuk-button">
+                    Continue
+                </button>
 
-            <button class="govuk-button " data-module="govuk-button">
-                Continue
-            </button>
-
-        </form>
+            </form>
 
     </div>
 

@@ -73,37 +73,37 @@ Rural Payments
                     <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
 
-                            <input class="govuk-checkboxes__input" id="arable" name="standard" type="checkbox" value="arable" aria-describedby="nationality-item-hint">
+                            <input class="govuk-checkboxes__input" id="arable" name="standard" type="checkbox" value="arable" aria-describedby="nationality-item-hint" {{ checked("standard", "arable") }}>
                             <label class="govuk-label govuk-checkboxes__label" for="arable">
                                 <b> {{ data['prototypes'][pid]['standards'][0]['name'] }}</b>
                             </label>
                             <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
                                 £22.00 to £40.00 per hectare per year based on what actions you do. <br /><br />
-                                Based on the land cover, you have land available for this standard. You must check the land type is eligible. Read <a href="the-sfi-arable-and-horticultural-soils-standard"> Eligible land for the arable and horticultural soil standard</a> on GOV.UK for more information about eligible land type.
+                                Based on the land cover, you have land available for this standard. You must check the land type is eligible. Read <a href="the-sfi-arable-and-horticultural-soils-standard" target="_blank"> Eligible land for the arable and horticultural soil standard</a> on GOV.UK for more information about eligible land type.
                             </div>
                         </div>
                         <div class="govuk-checkboxes__item">
 
-                            <input class="govuk-checkboxes__input" id="grassland" name="standard" type="checkbox" value="grassland">
+                            <input class="govuk-checkboxes__input" id="grassland" name="standard" type="checkbox" value="grassland" {{ checked("standard", "grassland") }}>
                             <label class="govuk-label govuk-checkboxes__label" for="grassland">
                                 <b> {{ data['prototypes'][pid]['standards'][1]['name'] }}</b>
                             </label>
 
                             <div id="nationality-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
                                 £28.00 to £58.00 per hectare per year based on what actions you do. <br /><br />
-                                Based on the land cover, you have land available for this standard. You must check the land type is eligible. Read <a href="the-sfi-improved-grassland-soils-standard.html">Eligible land for the Improved Grassland soils standard</a> on GOV.UK for more information about eligible land type.
+                                Based on the land cover, you have land available for this standard. You must check the land type is eligible. Read <a href="the-sfi-improved-grassland-soils-standard.html" target="_blank">Eligible land for the Improved Grassland soils standard</a> on GOV.UK for more information about eligible land type.
                             </div>
                         </div>
                         <div class="govuk-checkboxes__item">
 
-                            <input class="govuk-checkboxes__input" id="moorland" name="standard" type="checkbox" value="moorland">
+                            <input class="govuk-checkboxes__input" id="moorland" name="standard" type="checkbox" value="moorland" {{ checked("standard", "moorland") }}>
                             <label class="govuk-label govuk-checkboxes__label" for="moorland">
                                 <b> {{ data['prototypes'][pid]['standards'][2]['name'] }}</b>
                             </label>
 
                             <div id="nationality-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
                                 £10.30 per hectare per year based on what actions you do. <br /><br />
-                                Based on the land cover, you have land available for this standard. You must check the land type is eligible. Read <a href="the-sfi-moorland-standard.html">Eligible land for the Moorland standard</a> on GOV.UK for more information about eligible land type.
+                                Based on the land cover, you have land available for this standard. You must check the land type is eligible. Read <a href="the-sfi-moorland-standard.html" target="_blank">Eligible land for the Moorland standard</a> on GOV.UK for more information about eligible land type.
                             </div>
                         </div>
                     </div>

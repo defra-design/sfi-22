@@ -72,162 +72,167 @@ Rural Payments
 
     <div class="govuk-grid-column-full">
 
+        {% if data['cya-refer'] == "true" %}
 
+        <form action="/0/arable-levels-form-cya" method="POST">
 
-        <form action="/0/arable-levels-form" method="POST" class="govuk-!-padding-top-4">
+            {% else %}
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        <h2 class="govuk-fieldset__heading">
-                            {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action1'] }}
-                        </h2>
-                    </legend>
-                    <div id="-hint" class="govuk-hint">
+            <form action="/0/arable-levels-form" method="POST" class="govuk-!-padding-top-4">
+                {% endif %}
 
-                    </div>
-                    <div class="govuk-radios govuk-radios--conditional">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h2 class="govuk-fieldset__heading">
+                                {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action1'] }}
+                            </h2>
+                        </legend>
+                        <div id="-hint" class="govuk-hint">
 
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="yes" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                Yes
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
-
-                            </div>
                         </div>
+                        <div class="govuk-radios govuk-radios--conditional">
 
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="no" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                No
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="yes" aria-describedby="-hint" {{ checked("arable-action-1", "yes") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    Yes
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
 
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                </fieldset>
-            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="no" aria-describedby="-hint" {{ checked("arable-action-1", "no") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    No
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        <h2 class="govuk-fieldset__heading">
-                            {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action2'] }}
-                        </h2>
-                    </legend>
-                    <div id="-hint" class="govuk-hint">
-
-                    </div>
-                    <div class="govuk-radios govuk-radios--conditional">
-
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-2" type="radio" value="yes" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                Yes
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
-
+                                </div>
                             </div>
+
                         </div>
+                    </fieldset>
+                </div>
 
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-2" type="radio" value="no" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                No
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h2 class="govuk-fieldset__heading">
+                                {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action2'] }}
+                            </h2>
+                        </legend>
+                        <div id="-hint" class="govuk-hint">
 
+                        </div>
+                        <div class="govuk-radios govuk-radios--conditional">
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="arable-action-2" type="radio" value="yes" aria-describedby="-hint" {{ checked("arable-action-2", "yes") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    Yes
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                </fieldset>
-            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="arable-action-2" type="radio" value="no" aria-describedby="-hint" {{ checked("arable-action-2", "no") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    No
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        <h2 class="govuk-fieldset__heading">
-                            {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action3'] }}
-                        </h2>
-                    </legend>
-                    <div id="-hint" class="govuk-hint">
-
-                    </div>
-                    <div class="govuk-radios govuk-radios--conditional">
-
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-3" type="radio" value="yes" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                Yes
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
-
+                                </div>
                             </div>
+
                         </div>
+                    </fieldset>
+                </div>
 
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-3" type="radio" value="no" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                No
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h2 class="govuk-fieldset__heading">
+                                {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action3'] }}
+                            </h2>
+                        </legend>
+                        <div id="-hint" class="govuk-hint">
 
+                        </div>
+                        <div class="govuk-radios govuk-radios--conditional">
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="arable-action-3" type="radio" value="yes" aria-describedby="-hint" {{ checked("arable-action-3", "yes") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    Yes
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                </fieldset>
-            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="arable-action-3" type="radio" value="no" aria-describedby="-hint" {{ checked("arable-action-3", "no") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    No
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        <h2 class="govuk-fieldset__heading">
-
-                            {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action4'] }}
-                        </h2>
-                    </legend>
-                    <div id="-hint" class="govuk-hint">
-
-                    </div>
-                    <div class="govuk-radios govuk-radios--conditional">
-
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-4" type="radio" value="yes" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                Yes
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
-
+                                </div>
                             </div>
+
                         </div>
+                    </fieldset>
+                </div>
 
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-4" type="radio" value="no" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                No
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h2 class="govuk-fieldset__heading">
 
+                                {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action4'] }}
+                            </h2>
+                        </legend>
+                        <div id="-hint" class="govuk-hint">
+
+                        </div>
+                        <div class="govuk-radios govuk-radios--conditional">
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="arable-action-4" type="radio" value="yes" aria-describedby="-hint" {{ checked("arable-action-4", "yes") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    Yes
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                                </div>
                             </div>
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="id" name="arable-action-4" type="radio" value="no" aria-describedby="-hint" {{ checked("arable-action-4", "no") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    No
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                                </div>
+                            </div>
+
                         </div>
+                    </fieldset>
+                </div>
 
-                    </div>
-                </fieldset>
-            </div>
+                <!-- <input type="hidden" id="arable-levels-status" name="levelsstatus" value="Completed"> -->
 
-            <!-- <input type="hidden" id="arable-levels-status" name="levelsstatus" value="Completed"> -->
+                <button class="govuk-button " data-module="govuk-button">
+                    Continue
+                </button>
 
-            <button class="govuk-button " data-module="govuk-button">
-                Continue
-            </button>
-
-        </form>
+            </form>
 
     </div>
 

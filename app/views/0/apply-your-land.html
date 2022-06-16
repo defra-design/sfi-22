@@ -100,54 +100,60 @@ Rural Payments
 
         <p>Read <a href="check-your-land-details.html" target="_blank">Check your land details before you apply for an SFI standards agreement</a> on GOV.UK for more information.</p>
 
-        <form action="/0/land-details-form" method="POST" class="govuk-!-padding-top-4">
+        {% if data['cya-refer'] == "true" %}
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                        <h1 class="govuk-fieldset__heading">
-                            Are your land details up to date?
-                        </h1>
-                    </legend>
-                    <div id="-hint" class="govuk-hint">
+        <form action="/0/land-details-form-cya" method="POST">
 
-                    </div>
-                    <div class="govuk-radios govuk-radios--conditional">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="land-details-update" name="land-details-update" type="radio" value="yes" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                Yes, my land details are up to date
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+            {% else %}
+            <form action="/0/land-details-form" method="POST" class="govuk-!-padding-top-4">
+                {% endif %}
 
-                            </div>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <h1 class="govuk-fieldset__heading">
+                                Are your land details up to date?
+                            </h1>
+                        </legend>
+                        <div id="-hint" class="govuk-hint">
+
                         </div>
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="land-details-update-2" name="land-details-update" type="radio" value="no" aria-describedby="-hint">
-                            <label class="govuk-label govuk-radios__label" for="id">
-                                No, I need to update my land details
-                            </label>
-                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+                        <div class="govuk-radios govuk-radios--conditional">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="land-details-update" name="land-details-update" type="radio" value="yes" aria-describedby="-hint" {{ checked("land-details-update", "yes") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    Yes, my land details are up to date
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
 
+                                </div>
                             </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="land-details-update-2" name="land-details-update" type="radio" value="no" aria-describedby="-hint" {{ checked("land-details-update", "no") }}>
+                                <label class="govuk-label govuk-radios__label" for="id">
+                                    No, I need to update my land details
+                                </label>
+                                <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                                </div>
+                            </div>
+
+                            <input type="hidden" id="land-status" name="landstatus" value="Started">
+                            <input type="hidden" id="application-status" name="applicationstatus" value="Started">
+
+                            <br />
+                            <button class="govuk-button " data-module="govuk-button">
+                                Continue
+                            </button>
+
+
+
                         </div>
 
-                        <input type="hidden" id="land-status" name="landstatus" value="Started">
-                        <input type="hidden" id="application-status" name="applicationstatus" value="Started">
+                    </fieldset>
+                </div>
 
-                        <br />
-                        <button class="govuk-button " data-module="govuk-button">
-                            Continue
-                        </button>
-
-
-
-                    </div>
-
-                </fieldset>
-            </div>
-
-        </form>
+            </form>
 
     </div>
 

@@ -93,7 +93,7 @@ Rural Payments
                         <div class="govuk-radios govuk-radios--conditional">
 
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="id" name="management-control" type="radio" value="yes" aria-describedby="-hint">
+                                <input class="govuk-radios__input" id="id" name="management-control" type="radio" value="yes" aria-describedby="-hint" {{ checked("management-control", "yes") }}>
                                 <label class="govuk-label govuk-radios__label" for="id">
                                     Yes
                                 </label>
@@ -102,7 +102,7 @@ Rural Payments
                                 </div>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="id" name="management-control" type="radio" value="no" aria-describedby="-hint">
+                                <input class="govuk-radios__input" id="id" name="management-control" type="radio" value="no" aria-describedby="-hint" {{ checked("management-control", "no") }}>
                                 <label class="govuk-label govuk-radios__label" for="id">
                                     No
                                 </label>

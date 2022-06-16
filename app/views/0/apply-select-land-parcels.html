@@ -86,7 +86,26 @@ Rural Payments
 
         <br />
 
+        <p class="govuk-body-l">Total SFI available area (ha): {{ data['landsfitotalavailable'] }}</p>
+
+        <p class="govuk-body-l">Total SFI available area (ha) selected for Inductory level: {{ data['landarableintroselected'] }}</p>
+
+        <!-- <p>Total used: {{ data['landarableintroselected'] + data['landarableinterselected'] | round(2) }}</p> -->
+
+        {% if data['arableintermediatelevel'] == "yes" %}
+        <p class="govuk-body-l">Total SFI available area (ha) selected for Intermediate level: {{ data['landarableinterselected'] }}</p>
+        {% else %}
+        {% endif %}
+
+        <hr>
+
+        <p class="orange">OS Map Sheet reference</p>
+        <br />
+        <hr>
+
         <p>Form goes here</p>
+
+        <br />
 
         <form action="/0/apply-land-parcels-form" method="POST">
 

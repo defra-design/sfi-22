@@ -140,7 +140,7 @@ router.post('/0/choose-standard-form', function (req, res) {
 })
 
 
-// pid0 - Choose levels
+// pid0 - Choose arable levels
 router.post('/0/arable-levels-form', function (req, res) {
 
     let levelsstatus = req.session.data.levelsstatus
@@ -174,7 +174,7 @@ router.post('/0/arable-levels-form', function (req, res) {
     }
 })
 
-// pid0 - Choose levels - intermediate
+// pid0 - Choose arable levels - intermediate
 router.post('/0/arable-levels-intermediate-form', function (req, res) {
 
     let levelsstatus = req.session.data.levelsstatus
@@ -266,6 +266,24 @@ router.post('/0/apply-submit-your-application-form', function (req, res) {
 
 })
 
+// pid0 - Land details form CYA
+router.post('/0/land-details-form-cya', function (req, res) {
+
+
+    // The content in the "" is the name of the radio button
+    var option = req.session.data['land-details-update']
+
+    // The content in the "" is the value of the radio button
+    if (option === 'yes') {
+        // Send user to this page
+        res.redirect('apply-check-your-answers')
+    } else {
+        // Or send user to this page
+        res.redirect('apply-update-land-details')
+    }
+
+})
+
 // pid0 - CYA - Land management control form
 router.post('/0/land-management-control-form-cya', function (req, res) {
 
@@ -280,6 +298,66 @@ router.post('/0/land-management-control-form-cya', function (req, res) {
     } else {
         // Or send user to this page
         res.redirect('apply-land-not-eligible')
+    }
+
+})
+
+
+// pid0 - Choose arable levels cya
+router.post('/0/arable-levels-form-cya', function (req, res) {
+
+    let levelsstatus = req.session.data.levelsstatus
+
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].sections[2].subtasks[0].status = levelsstatus
+
+    // The content in the "" is the name of the radio button
+    var option = req.session.data['arable-action-1']
+    var option2 = req.session.data['arable-action-2']
+    var option3 = req.session.data['arable-action-3']
+    var option4 = req.session.data['arable-action-4']
+
+    // The content in the "" is the value of the radio button
+    if (option === 'no') {
+        // Send user to this page
+        res.redirect('apply-levels-not-eligible')
+    } else if (option2 === 'no') {
+        // Or send user to this page
+        res.redirect('apply-levels-not-eligible')
+    } else if (option3 === 'no') {
+        // Or send user to this page
+        res.redirect('apply-levels-not-eligible')
+    } else if (option4 === 'no') {
+        // Or send user to this page
+        res.redirect('apply-levels-not-eligible')
+    } else {
+        req.session.data['arableintroductorylevel'] = "yes"
+        // Or send user to this page
+        res.redirect('apply-check-your-answers')
+    }
+})
+
+// pid0 - Choose arable levels - intermediate cya
+router.post('/0/arable-levels-intermediate-form-cya', function (req, res) {
+
+    let levelsstatus = req.session.data.levelsstatus
+
+    // overwrite values in the session data
+    req.session.data.prototypes[0].application[0].sections[2].subtasks[0].status = levelsstatus
+
+    // The content in the "" is the name of the radio button
+    var option = req.session.data['arable-action-5']
+
+    // The content in the "" is the value of the radio button
+    if (option === 'no') {
+        req.session.data['arableintermediatelevel'] = "no"
+        // Send user to this page
+        res.redirect('apply-levels-intermediate-not-eligible')
+    } else {
+
+        req.session.data['arableintermediatelevel'] = "yes"
+        // Or send user to this page
+        res.redirect('apply-check-your-answers')
     }
 
 })

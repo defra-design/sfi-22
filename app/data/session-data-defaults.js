@@ -621,5 +621,8 @@ module.exports = {
     landline: "01234567890",
     mobile: "07123456789",
     SBI: "110988078",
-    appvalue: "£251.51"
+    appvalue: "£251.51",
+    landsfitotalavailable: 30.00,
+    landarableintroselected: 0.00,
+    landarableinterselected: 0.00
 }
