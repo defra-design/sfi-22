@@ -619,6 +619,8 @@ module.exports = {
     SBI: "110988078",
     appvalue: "£251.51",
     totalarea: 40.00,
+    totalparcels: 4,
+    totalsfiavailableparcels: 3,
     landsfitotalavailable: 30.00,
     landarableintroselected: 0.00,
     landarableinterselected: 0.00,
