@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
     indexlink: "/index",
-    updated: "15-Jun-22",
+    updated: "17-Jun-22",
     maintitle: "Sustainable Farming Incentive",
     team: [
         {
@@ -66,7 +66,7 @@ module.exports = {
             url: "/0",
             status: "building",
             desc: "Control. Prototype version of the live as-is private beta.",
-            updated: "15-Jun-22",
+            updated: "17-Jun-22",
             start: "TBC",
             end: "TBC",
             participants: "TBC",
@@ -143,20 +143,16 @@ module.exports = {
                                     status: "Cannot start yet",
                                     action1: "Action 1: Will you complete a soil assessment and produce a written soil management plan covering the land entered into the standard in the first year of your SFI standards agreement?",
                                     action2: "Action 2: Will you make sure all the land parcels entered into the standard have been tested for soil organic matter within the last five years?",
-                                    action3: "Action 3: Will you add organic matter to the soil all the land parcels entered into the standard at least once during your 3-year SFI standards agreement?",
-                                    action4: "Action 4: Will you make sure that at least 70% of total area of land entered into this level of the standard as well establish green cover over the winter months (December until end of February)?",
-                                    action5: "Action 5:  Will you make sure there is a well-established screen cover on at least 50% and multi species cover crops on at least an additional 20% of the land entered into this level of the standard, over the winter months (December until end of February)?"
+                                    action3: "Action 3: Will you minimise bare ground by having no more than 5% of the total area of land entered into the standard left bare over winter (December until end of February)?"
                                 },
                                 {
                                     title: "Actions on moorland",
                                     url: "apply-moorland-levels",
                                     show: false,
                                     status: "Cannot start yet",
-                                    action1: "Action 1: Will you complete a soil assessment and produce a written soil management plan covering the land entered into the standard in the first year of your SFI standards agreement?",
-                                    action2: "Action 2: Will you make sure all the land parcels entered into the standard have been tested for soil organic matter within the last five years?",
-                                    action3: "Action 3: Will you add organic matter to the soil all the land parcels entered into the standard at least once during your 3-year SFI standards agreement?",
-                                    action4: "Action 4: Will you make sure that at least 70% of total area of land entered into this level of the standard as well establish green cover over the winter months (December until end of February)?",
-                                    action5: "Action 5:  Will you make sure there is a well-established screen cover on at least 50% and multi species cover crops on at least an additional 20% of the land entered into this level of the standard, over the winter months (December until end of February)?"
+                                    action1: "Action 1: Will you  identify and record the soil and vegetation types and condition, and presence of historic and archaeological features?",
+                                    action2: "Action 2: Will you assess the public goods the moorland is already providing?",
+                                    action3: "Action 3: Will you identify opportunities to maintain or enhance the public goods provided by the moorland?"
                                 }
                               ]
                                 },
@@ -507,7 +503,7 @@ module.exports = {
                     content: "Levels",
                     url: "apply-arable-levels",
                     pageid: 34,
-                    back: "apply-management-control",
+                    back: "apply-for-sfi",
                     next: "crn-check-email",
                     complete: "no"
                 },
@@ -567,7 +563,7 @@ module.exports = {
                     content: "Payment",
                     url: "apply-payment-standard",
                     pageid: 40,
-                    back: "apply-arable-levels",
+                    back: "apply-select-land-parcels",
                     next: "crn-check-email",
                     complete: "no"
                 },
@@ -622,7 +618,11 @@ module.exports = {
     mobile: "07123456789",
     SBI: "110988078",
     appvalue: "£251.51",
+    totalarea: 40.00,
     landsfitotalavailable: 30.00,
     landarableintroselected: 0.00,
-    landarableinterselected: 0.00
+    landarableinterselected: 0.00,
+    parcel1: 5.00,
+    parcel2: 15.00,
+    parcel3: 10.00
 }
