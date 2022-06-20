@@ -30,6 +30,88 @@ Rural Payments
 {% set 0pid = ("0" + (pid + 1)).slice(-2) %}
 {% set pageid = 40 %}
 
+{% if data['landparcel1'] == "introductory" %}
+
+{% set parcel1introamount = 5 %}
+{% set parcel1introcount = 1 %}
+
+{% else %}
+
+{% set parcel1introamount = 0 %}
+{% set parcel1introcount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel2'] == "introductory" %}
+
+{% set parcel2introamount = 15 %}
+{% set parcel2introcount = 1 %}
+
+{% else %}
+
+{% set parcel2introamount = 0 %}
+{% set parcel2introcount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel3'] == "introductory" %}
+
+{% set parcel3introamount = 10 %}
+{% set parcel3introcount = 1 %}
+
+{% else %}
+
+{% set parcel3introamount = 0 %}
+{% set parcel3introcount = 0 %}
+
+{% endif %}
+
+{% set totalintroparcels = parcel1introamount + parcel2introamount + parcel3introamount %}
+{% set totalintrocount = parcel1introcount + parcel2introcount + parcel3introcount %}
+
+{% if data['landparcel1'] == "intermediate" %}
+
+{% set parcel1interamount = 5 %}
+{% set parcel1intercount = 1 %}
+
+{% else %}
+
+{% set parcel1interamount = 0 %}
+{% set parcel1intercount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel2'] == "intermediate" %}
+
+{% set parcel2interamount = 15 %}
+{% set parcel2intercount = 1 %}
+
+{% else %}
+
+{% set parcel2interamount = 0 %}
+{% set parcel2intercount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel3'] == "intermediate" %}
+
+{% set parcel3interamount = 10 %}
+{% set parcel3intercount = 1 %}
+
+{% else %}
+
+{% set parcel3interamount = 0 %}
+{% set parcel3intercount = 0 %}
+
+{% endif %}
+
+{% set totalinterparcels = parcel1interamount + parcel2interamount + parcel3interamount %}
+{% set totalintercount = parcel1intercount + parcel2intercount + parcel3intercount %}
+
+{% set intromoney = 22 * totalintroparcels %}
+{% set intermoney = 40 * totalinterparcels %}
+{% set totalmoney = intromoney + intermoney %}
+
 <!-- Before content area -->
 {% block beforeContent %}
 {{ super() }}
@@ -75,7 +157,7 @@ Rural Payments
 
 
         {% if "arable" in data['standard'] %}
-        <p>Your indicative SFI payment for completing the actions in the <b>{{ data['prototypes'][pid]['standards'][0]['name'] }}</b> standard will be <b>£xx</b> per year.</p>
+        <p>Your indicative SFI payment for completing the actions in the <b>{{ data['prototypes'][pid]['standards'][0]['name'] }}</b> standard will be <b>£{{ totalmoney }}</b> per year.</p>
 
         <p>This is made up of:</p>
         <ul class="govuk-list govuk-list--bullet">
@@ -83,14 +165,14 @@ Rural Payments
 
             {% if data['arableintroductorylevel'] === "yes" %}
 
-            <li>Introductory level bullet</li>
+            <li><b>£{{ intromoney }}</b> Per year under the <b>introductory</b> level. This is based on entering <b>20.00 ha</b> of land into this level at a payment rate of £22 per hectare.</li>
 
             {% else %}
             {% endif %}
 
             {% if data['arableintermediatelevel'] === "yes" %}
 
-            <li>Intermediate level bullet</li>
+            <li><b>£{{ intermoney }}</b> Per year under the <b>intermediate</b> level. This is based on entering <b>10.00 ha</b> of land into this level at a payment rate of £40 per hectare.</li>
 
             {% else %}
             {% endif %}
@@ -106,6 +188,7 @@ Rural Payments
 
             <input type="hidden" id="levels-status" name="levelsstatus" value="Completed">
             <input type="hidden" id="completed" name="completed" value="3">
+            <input type="hidden" id="totalmoney" name="totalmoneyinput" value="{{ totalmoney }}">
 
             <button class="govuk-button " data-module="govuk-button">
                 Continue

@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 51 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="environmental-management" class="govuk-breadcrumbs__link">Environmental management</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full govuk-!-padding-bottom-2">
+
+
+        {% block h1 %}
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+    </div>
+
+</div>
+{% endblock %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-padding-top-4">
+
+        <ul class="govuk-list app-c-topic-list" lang="en">
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="1" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Air quality&quot;}" data-track-label="/topic/environmental-management/air-quality" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/air-quality">Air quality</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="2" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Assessing environmental impact&quot;}" data-track-label="/topic/environmental-management/assessing-environmental-impact" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/assessing-environmental-impact">Assessing environmental impact</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="3" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Boating&quot;}" data-track-label="/topic/environmental-management/boating" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/boating">Boating</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="4" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Chemicals&quot;}" data-track-label="/topic/environmental-management/chemicals" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/chemicals">Chemicals</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="5" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Environmental permits&quot;}" data-track-label="/topic/environmental-management/environmental-permits" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/environmental-permits">Environmental permits</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="6" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Environmental risk management&quot;}" data-track-label="/topic/environmental-management/environmental-risk-management" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/environmental-risk-management">Environmental risk management</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="7" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Fisheries and rod licensing&quot;}" data-track-label="/topic/environmental-management/fisheries-rod-licensing" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/fisheries-rod-licensing">Fisheries and rod licensing</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="8" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Flooding and coastal change&quot;}" data-track-label="/topic/environmental-management/flooding-coastal-change" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/flooding-coastal-change">Flooding and coastal change</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="9" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Forestry&quot;}" data-track-label="/topic/environmental-management/forestry" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/forestry">Forestry</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="10" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Land management&quot;}" data-track-label="/topic/environmental-management/land-management" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="land-management">Land management</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="11" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Marine&quot;}" data-track-label="/topic/environmental-management/marine" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/marine">Marine</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="12" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Nuclear regulation&quot;}" data-track-label="/topic/environmental-management/nuclear-regulation" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/nuclear-regulation">Nuclear regulation</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="13" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Oil spills&quot;}" data-track-label="/topic/environmental-management/oil-spills" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/oil-spills">Oil spills</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="14" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Oil storage&quot;}" data-track-label="/topic/environmental-management/oil-storage" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/oil-storage">Oil storage</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="15" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Waste&quot;}" data-track-label="/topic/environmental-management/waste" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/waste">Waste</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="16" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Water&quot;}" data-track-label="/topic/environmental-management/water" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/water">Water</a>
+            </li>
+            <li class="app-c-topic-list__item">
+                <a data-track-category="navSubtopicLinkClicked" data-track-action="17" data-track-options="{&quot;dimension28&quot;:&quot;17&quot;,&quot;dimension29&quot;:&quot;Wildlife and habitat conservation&quot;}" data-track-label="/topic/environmental-management/wildlife-habitat-conservation" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/topic/environmental-management/wildlife-habitat-conservation">Wildlife and habitat conservation</a>
+            </li>
+        </ul>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

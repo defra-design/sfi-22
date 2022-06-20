@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
     indexlink: "/index",
-    updated: "17-Jun-22",
+    updated: "20-Jun-22",
     maintitle: "Sustainable Farming Incentive",
     team: [
         {
@@ -64,12 +64,12 @@ module.exports = {
         {
             id: 0,
             url: "/0",
-            status: "building",
-            desc: "Control. Prototype version of the live as-is private beta.",
-            updated: "17-Jun-22",
-            start: "TBC",
-            end: "TBC",
-            participants: "TBC",
+            status: "built",
+            desc: "Prototype version of the live as-is private beta.",
+            updated: "20-Jun-22",
+            start: "22-Jun-22",
+            end: "07-Jul-22",
+            participants: "7 - Mixture of participants who have made an application already, those who have not but are likely to, and those who have not/have no detailed prior knowledge of SFI.  ",
             home: "gov-uk",
             standards: [
                 {
@@ -604,6 +604,96 @@ module.exports = {
                     url: "apply-submit-your-application",
                     pageid: 44,
                     back: "account-business-overview",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Search",
+                    template: "Search",
+                    content: "Search",
+                    url: "search-results",
+                    pageid: 45,
+                    back: "gov-uk",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Make or update a rural payments claim",
+                    template: "Sign in",
+                    content: "Sign in",
+                    url: "claim-rural-payments",
+                    pageid: 46,
+                    back: "gov-uk",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Browse: Business and self-employed",
+                    template: "Navigation",
+                    content: "Navigation",
+                    url: "businss",
+                    pageid: 47,
+                    back: "gov-uk",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Browse: Farming business",
+                    template: "Navigation",
+                    content: "Navigation",
+                    url: "business-farming",
+                    pageid: 48,
+                    back: "gov-uk",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Rural grants and payments: detailed information",
+                    template: "Guidance",
+                    content: "payments",
+                    url: "rural-grants-payments",
+                    pageid: 49,
+                    back: "gov-uk",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Land management: detailed information",
+                    template: "Guidance",
+                    content: "land",
+                    url: "land-management",
+                    pageid: 50,
+                    back: "gov-uk",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Environmental management : detailed information",
+                    template: "Guidance",
+                    content: "land",
+                    url: "environmental-management",
+                    pageid: 51,
+                    back: "gov-uk",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Rural payments and grants",
+                    template: "Guidance",
+                    content: "payments",
+                    url: "rural-payments-and-grants",
+                    pageid: 52,
+                    back: "gov-uk",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "Application summary",
+                    template: "Application",
+                    content: "Application",
+                    url: "application-summary",
+                    pageid: 53,
+                    back: "sfi-applications-agreements",
                     next: "crn-check-email",
                     complete: "no"
                 }

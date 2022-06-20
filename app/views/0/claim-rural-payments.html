@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 46 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="business" class="govuk-breadcrumbs__link">Business and self-employed</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="business-farming" class="govuk-breadcrumbs__link">Farming business</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-2">
+
+
+        {% block h1 %}
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+    </div>
+
+</div>
+{% endblock %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <p>Sign in to make a rural payments claim or update your details. You can register if you don’t already have an account.</p>
+
+        <p>You can use the service to:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>apply for rural grants and payments, including the Basic Payment Scheme (BPS)</li>
+            <li>update your personal and business details</li>
+            <li>check and update digital maps of your registered land</li>
+            <li>give someone permission to act on your behalf</li>
+
+        </ul>
+
+
+
+        <a href="crn-sign-in.html" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">
+            Sign in
+            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+            </svg>
+        </a>
+
+        <h2 class="govuk-heading-m">Before you start</h2>
+
+        <p>There are different schemes in Scotland, Northern Ireland and Wales.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+        <aside class="app-related-items" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li>
+                        <a href="https://www.gov.uk/government/collections/basic-payment-scheme">
+                            Basic Payment Scheme (BPS)
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </aside>
+
+    </div>
+</div>
+{% endblock %}

@@ -3,14 +3,9 @@ const router = express.Router()
 
 
 // test form
-router.post('/0/test-form', function (req, res) {
+router.post('/0/search-from-homepage', function (req, res) {
 
-    let newName = req.session.data.newName
-
-    // overwrite values in the session data
-    req.session.data.team[1].name = newName
-
-    res.redirect('../index')
+    res.redirect('search-results')
 
 })
 
@@ -215,6 +210,10 @@ router.post('/0/apply-payment-standard-form', function (req, res) {
     req.session.data.prototypes[0].application[0].sections[2].subtasks[1].status = levelsstatus
 
     req.session.data.prototypes[0].application[0].sections[3].subtasks[0].status = "Not started yet"
+
+    let totalmoneyinput = req.session.data.totalmoneyinput
+    // overwrite values in the session data
+    req.session.data['totalmoney'] = totalmoneyinput
 
     let completed = req.session.data.completed
     // overwrite values in the session data

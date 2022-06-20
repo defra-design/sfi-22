@@ -28,7 +28,7 @@ Rural Payments
 {% set pid = 0 %}
 {% set ppid = pid + 1 %}
 {% set 0pid = ("0" + (pid + 1)).slice(-2) %}
-{% set pageid = 41 %}
+{% set pageid = 53 %}
 
 {% if data['landparcel1'] == "introductory" %}
 
@@ -131,7 +131,7 @@ Rural Payments
 
 
 {% block content %}
-{% include "0/includes/button-save-return.html" %}
+
 {% block title %}
 <div class="govuk-grid-row">
 
@@ -168,9 +168,7 @@ Rural Payments
                         GU7 2BX
                     </p>
                 </dd>
-                <dd class="govuk-summary-list__actions">
 
-                </dd>
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -179,9 +177,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ data['SBI'] }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
 
-                </dd>
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -190,9 +186,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     £{{ data['totalmoney'] }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
 
-                </dd>
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -201,12 +195,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ data['land-details-update'] | capitalize }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                    <form id="changeapplyyourland" action="apply-your-land" method="POST">
-                        <input type="hidden" name="cya-refer" value="true">
-                        <a href="" onclick="document.getElementById('changeapplyyourland').submit(); return false;">Change</a>
-                    </form>
-                </dd>
+
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -215,12 +204,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ data['management-control'] | capitalize }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                    <form id="changemanagemencontrol" action="apply-management-control" method="POST">
-                        <input type="hidden" name="cya-refer" value="true">
-                        <a href="" onclick="document.getElementById('changemanagemencontrol').submit(); return false;">Change</a>
-                    </form>
-                </dd>
+
             </div>
         </dl>
 
@@ -235,12 +219,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ data['arable-action-1'] | capitalize }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                    <form id="changearablelevels" action="apply-arable-levels" method="POST">
-                        <input type="hidden" name="cya-refer" value="true">
-                        <a href="" onclick="document.getElementById('changearablelevels').submit(); return false;">Change</a>
-                    </form>
-                </dd>
+
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -249,12 +228,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ data['arable-action-2'] | capitalize }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                    <form id="changearablelevels" action="apply-arable-levels" method="POST">
-                        <input type="hidden" name="cya-refer" value="true">
-                        <a href="" onclick="document.getElementById('changearablelevels').submit(); return false;">Change</a>
-                    </form>
-                </dd>
+
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -263,12 +237,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ data['arable-action-3'] | capitalize }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                    <form id="changearablelevels" action="apply-arable-levels" method="POST">
-                        <input type="hidden" name="cya-refer" value="true">
-                        <a href="" onclick="document.getElementById('changearablelevels').submit(); return false;">Change</a>
-                    </form>
-                </dd>
+
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -277,12 +246,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ data['arable-action-4'] | capitalize }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                    <form id="changearablelevels" action="apply-arable-levels" method="POST">
-                        <input type="hidden" name="cya-refer" value="true">
-                        <a href="" onclick="document.getElementById('changearablelevels').submit(); return false;">Change</a>
-                    </form>
-                </dd>
+
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -291,12 +255,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ totalintrocount }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                    <form id="changelandparcels" action="apply-select-land-parcels" method="POST">
-                        <input type="hidden" name="cya-refer" value="true">
-                        <a href="" onclick="document.getElementById('changelandparcels').submit(); return false;">Change</a>
-                    </form>
-                </dd>
+
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -305,9 +264,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ totalintroparcels }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
 
-                </dd>
             </div>
             <br />
             <br />
@@ -324,12 +281,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ data['arable-action-5'] | capitalize }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                    <form id="changearablelevelsintermediate" action="apply-arable-levels-intermediate" method="POST">
-                        <input type="hidden" name="cya-refer" value="true">
-                        <a href="" onclick="document.getElementById('changearablelevelsintermediate').submit(); return false;">Change</a>
-                    </form>
-                </dd>
+
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -338,12 +290,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ totalintercount }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
-                    <form id="changelandparcels" action="apply-select-land-parcels" method="POST">
-                        <input type="hidden" name="cya-refer" value="true">
-                        <a href="" onclick="document.getElementById('changelandparcels').submit(); return false;">Change</a>
-                    </form>
-                </dd>
+
             </div>
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -352,9 +299,7 @@ Rural Payments
                 <dd class="govuk-summary-list__value">
                     {{ totalinterparcels }}
                 </dd>
-                <dd class="govuk-summary-list__actions">
 
-                </dd>
             </div>
 
 
@@ -365,18 +310,7 @@ Rural Payments
 
         <br />
 
-        <form action="/0/apply-check-your-answers-form" method="post" novalidate>
 
-            <input type="hidden" name="answers-checked" value="true">
-
-            <input type="hidden" id="current-status" name="levelsstatus" value="Completed">
-            <input type="hidden" id="next-status" name="nextstatus" value="Not started yet">
-
-            <button class="govuk-button" data-module="govuk-button">
-                Continue
-            </button>
-
-        </form>
 
 
     </div>

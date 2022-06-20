@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 49 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="farming-food-grants-payments" class="govuk-breadcrumbs__link">Farming and food grants and payments</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-padding-top-4">
+
+        <main id="content" role="main" class="content topics-page">
+
+
+
+            <header class="page-header group">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+
+
+                        <div class="gem-c-title govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+                            <span class="govuk-caption-xl gem-c-title__context">
+                                Farming and food grants and payments
+                            </span>
+
+
+                            <h1 class="gem-c-title__text govuk-heading-xl">
+                                {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+                            </h1>
+                        </div>
+
+                        <div class="gem-c-metadata" data-module="gem-toggle metadata" data-gem-toggle-module-started="true">
+                            <dl data-module="gem-track-click" data-gem-track-click-module-started="true">
+                                <dt class="gem-c-metadata__term">
+                                    <p>From:</p>
+                                </dt>
+                                <dd class="gem-c-metadata__definition">
+                                    <a href="/government/organisations/department-for-environment-food-rural-affairs">Department for Environment, Food &amp; Rural Affairs</a>, <a href="/government/organisations/rural-payments-agency">Rural Payments Agency</a>, <a href="/government/organisations/environment-agency">Environment Agency</a>, <a href="/government/organisations/natural-england">Natural England</a>, <a href="/government/organisations/animal-and-plant-health-agency">Animal and Plant Health Agency</a>, <a href="/government/organisations/forestry-commission">Forestry Commission</a>, and <a href="/government/organisations/rural-development-programme-for-england-network">Rural Development Programme for England Network</a>
+
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third add-title-margin govuk-!-margin-bottom-3 ">
+                        <section class="gem-c-subscription-links govuk-!-display-none-print">
+                            <h2 class="gem-c-subscription-links__hidden-header visuallyhidden">Subscriptions</h2>
+                            <ul class="gem-c-subscription-links__list">
+                                <li class="gem-c-subscription-links__list-item">
+                                    <a class="govuk-link govuk-link--no-underline gem-c-subscription-links__item  gem-c-subscription-links__item--link" href="/email-signup?link=/topic/farming-food-grants-payments/rural-grants-payments"> <svg xmlns="http://www.w3.org/2000/svg" width="21" height="15.75" class="gem-c-subscription-links__icon" focusable="false" fill="currentColor" aria-hidden="true">
+                                            <path d="M19.687 0H1.312C.589 0 0 .587 0 1.313v13.124c0 .726.588 1.313 1.313 1.313h18.374c.725 0 1.313-.587 1.313-1.313V1.313C21 .587 20.412 0 19.687 0zm-2.625 2.625L10.5 7.875l-6.563-5.25h13.126zm1.313 10.5H2.625V3.937L10.5 10.5l7.875-6.563v9.188z"></path>
+                                        </svg>Get emails for this topic
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </section>
+
+                        <div class="topics-page__latest">
+                            <a class="govuk-link topics-page__latest-link" href="/topic/farming-food-grants-payments/rural-grants-payments/latest">See latest changes to this content</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="browse-container full-width govuk-!-padding-top-8" data-module="gem-track-click" data-gem-track-click-module-started="true">
+
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Online applications and payments</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.1" data-track-options="{&quot;dimension28&quot;:&quot;1&quot;,&quot;dimension29&quot;:&quot;Make or update a rural payments claim&quot;}" data-track-label="/claim-rural-payments" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="claim-rural-payments">Make or update a rural payments claim</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Basic Payment Scheme (BPS)</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="2.1" data-track-options="{&quot;dimension28&quot;:&quot;1&quot;,&quot;dimension29&quot;:&quot;Basic Payment Scheme (BPS)&quot;}" data-track-label="/government/collections/basic-payment-scheme" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/collections/basic-payment-scheme">Basic Payment Scheme (BPS)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Rural development</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.1" data-track-options="{&quot;dimension28&quot;:&quot;4&quot;,&quot;dimension29&quot;:&quot;Countryside Stewardship: How to apply&quot;}" data-track-label="/government/collections/countryside-stewardship-get-paid-for-environmental-land-management" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/collections/countryside-stewardship-get-paid-for-environmental-land-management">Countryside Stewardship: How to apply</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.2" data-track-options="{&quot;dimension28&quot;:&quot;4&quot;,&quot;dimension29&quot;:&quot;Environmental Stewardship: guidance and forms for agreement holders&quot;}" data-track-label="/government/collections/environmental-stewardship-guidance-and-forms-for-existing-agreement-holders" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/collections/environmental-stewardship-guidance-and-forms-for-existing-agreement-holders">Environmental Stewardship: guidance and forms for agreement holders</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.3" data-track-options="{&quot;dimension28&quot;:&quot;4&quot;,&quot;dimension29&quot;:&quot;Rural Development Programme for England: LEADER funding&quot;}" data-track-label="/guidance/rural-development-programme-for-england-leader-funding" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/rural-development-programme-for-england-leader-funding">Rural Development Programme for England: LEADER funding</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.4" data-track-options="{&quot;dimension28&quot;:&quot;4&quot;,&quot;dimension29&quot;:&quot;Water Environment Grant (WEG) handbooks: guidance and forms&quot;}" data-track-label="/government/publications/water-environment-grant-weg-handbooks-guidance-and-forms" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/publications/water-environment-grant-weg-handbooks-guidance-and-forms">Water Environment Grant (WEG) handbooks: guidance and forms</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Cross compliance</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="4.1" data-track-options="{&quot;dimension28&quot;:&quot;1&quot;,&quot;dimension29&quot;:&quot;Cross compliance&quot;}" data-track-label="/government/collections/cross-compliance" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/collections/cross-compliance">Cross compliance</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Common Agricultural Policy (CAP) reform</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="5.1" data-track-options="{&quot;dimension28&quot;:&quot;1&quot;,&quot;dimension29&quot;:&quot;Common Agricultural Policy (CAP) Reform&quot;}" data-track-label="/government/collections/common-agricultural-policy-reform" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/collections/common-agricultural-policy-reform">Common Agricultural Policy (CAP) Reform</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

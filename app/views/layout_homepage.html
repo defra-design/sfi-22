@@ -40,20 +40,48 @@ GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
-{# Set serviceName in config.js. #}
 {{ govukHeader({
-    homepageUrl: "gov-uk",
-    serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
-  }) }}
+  homepageUrl: "#",
+  serviceName: "",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "account-business-overview",
+      text: "Topics"
+    },
+    {
+      href: "#2",
+      text: "Government activity"
+    }
+  ]
+}) }}
 {% endblock %}
 
-{% block beforeContent %}
-<!-- BACK TO TOP BUTTON -->
-<button onclick="topFunction()" id="myBtn" title="Go to top">Back to top</button>
-{% include "includes/back-to-top.html" %}
+{% block main %}
+<style>
+    .govuk-main-wrapper {
+        padding-top: 0px !important;
+        margin-top: -10px;
+    }
+
+    .govuk-header__container {
+        border-bottom: 10px solid #0b0c0c !important,
+    }
+
+</style>
+<div class="{{ containerClasses }}">
+    {% block beforeContent %}
+    <!-- BACK TO TOP BUTTON -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Back to top</button>
+    {% include "includes/back-to-top.html" %}
+    {% endblock %}
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main" {% if mainLang %} lang="{{ mainLang }}" {% endif %}>
+        {% block content %}{% endblock %}
+    </main>
+</div>
 {% endblock %}
+
+
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 

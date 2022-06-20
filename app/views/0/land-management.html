@@ -1,0 +1,297 @@
+{% extends "layout.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 50 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="environmental-management" class="govuk-breadcrumbs__link">Environmental management</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-padding-top-4">
+
+        <main id="content" role="main" class="content topics-page">
+
+
+
+            <header class="page-header group">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+
+
+                        <div class="gem-c-title govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+                            <span class="govuk-caption-xl gem-c-title__context">
+                                Environmental management
+                            </span>
+
+
+                            <h1 class="gem-c-title__text govuk-heading-xl">
+                                Land management: detailed information
+                            </h1>
+                        </div>
+
+                        <div class="gem-c-metadata" data-module="gem-toggle metadata" data-gem-toggle-module-started="true">
+                            <dl data-module="gem-track-click" data-gem-track-click-module-started="true">
+                                <dt class="gem-c-metadata__term"><p>From:</p></dt>
+                                <dd class="gem-c-metadata__definition">
+                                    <a href="/government/organisations/department-for-environment-food-rural-affairs">Department for Environment, Food &amp; Rural Affairs</a>, <a href="/government/organisations/natural-england">Natural England</a>, <a href="/government/organisations/rural-payments-agency">Rural Payments Agency</a>, <a href="/government/organisations/forestry-commission">Forestry Commission</a>, <a href="/government/organisations/environment-agency">Environment Agency</a>
+                                    <div class="gem-c-metadata__toggle-wrap govuk-!-display-none-print">
+                                        <a href="#" class="gem-c-metadata__definition-link govuk-!-display-none-print" data-controls="toggle-from-92a6403c" data-expanded="false" data-toggled-text="Show fewer" role="button" aria-controls="toggle-from-92a6403c" aria-expanded="false">
+                                            + 20 more
+                                        </a>
+                                    </div>
+                                    <span id="toggle-from-92a6403c" class="gem-c-metadata__toggle-items js-hidden" aria-live="polite" role="region"><a href="/government/organisations/planning-inspectorate">Planning Inspectorate</a>, <a href="/government/organisations/natural-resources-wales">Natural Resources Wales</a>, <a href="/government/organisations/office-of-the-secretary-of-state-for-wales">Office of the Secretary of State for Wales</a>, <a href="/government/organisations/welsh-government">Welsh Government</a>, <a href="/government/organisations/animal-and-plant-health-agency">Animal and Plant Health Agency</a>, <a href="/government/organisations/cabinet-office">Cabinet Office</a>, <a href="/government/organisations/department-of-agriculture-environment-and-rural-affairs-northern-ireland">Department of Agriculture, Environment and Rural Affairs (Northern Ireland)</a>, <a href="/government/organisations/health-and-safety-executive">Health and Safety Executive</a>, <a href="/government/organisations/northern-ireland-statistics-and-research-agency">Northern Ireland Statistics and Research Agency</a>, <a href="/government/organisations/department-for-business-energy-and-industrial-strategy">Department for Business, Energy &amp; Industrial Strategy</a>, <a href="/government/organisations/department-for-levelling-up-housing-and-communities">Department for Levelling Up, Housing and Communities </a>, <a href="/government/organisations/foreign-commonwealth-development-office">Foreign, Commonwealth &amp; Development Office</a>, <a href="/government/organisations/forest-research">Forest Research</a>, <a href="/government/organisations/highways-england">Closed organisation: Highways England</a>, <a href="/government/organisations/innovate-uk">Innovate UK</a>, <a href="/government/organisations/ministry-of-housing-communities-and-local-government">Closed organisation: Ministry of Housing, Communities &amp; Local Government</a>, <a href="/government/organisations/nuclear-decommissioning-authority">Nuclear Decommissioning Authority</a>, <a href="/government/organisations/prime-ministers-office-10-downing-street">Prime Minister's Office, 10 Downing Street</a>, <a href="/government/organisations/public-health-england">Closed organisation: Public Health England</a>, and <a href="/government/organisations/yorkshire-dales-national-park-authority">Yorkshire Dales National Park Authority</a></span>
+
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third add-title-margin govuk-!-margin-bottom-3">
+                        <section class="gem-c-subscription-links govuk-!-display-none-print">
+                            <h2 class="gem-c-subscription-links__hidden-header visuallyhidden">Subscriptions</h2>
+                            <ul class="gem-c-subscription-links__list">
+                                <li class="gem-c-subscription-links__list-item">
+                                    <a class="govuk-link govuk-link--no-underline gem-c-subscription-links__item  gem-c-subscription-links__item--link" href="/email-signup?link=/topic/environmental-management/land-management"> <svg xmlns="http://www.w3.org/2000/svg" width="21" height="15.75" class="gem-c-subscription-links__icon" focusable="false" fill="currentColor" aria-hidden="true">
+                                            <path d="M19.687 0H1.312C.589 0 0 .587 0 1.313v13.124c0 .726.588 1.313 1.313 1.313h18.374c.725 0 1.313-.587 1.313-1.313V1.313C21 .587 20.412 0 19.687 0zm-2.625 2.625L10.5 7.875l-6.563-5.25h13.126zm1.313 10.5H2.625V3.937L10.5 10.5l7.875-6.563v9.188z"></path>
+                                        </svg>Get emails for this topic
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </section>
+
+                        <div class="topics-page__latest">
+                            <a class="govuk-link topics-page__latest-link" href="/topic/environmental-management/land-management/latest">See latest changes to this content</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="browse-container full-width govuk-!-padding-top-8" data-module="gem-track-click" data-gem-track-click-module-started="true">
+
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Commons and greens</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.1" data-track-options="{&quot;dimension28&quot;:&quot;10&quot;,&quot;dimension29&quot;:&quot;2018 Common land notices and decisions&quot;}" data-track-label="/guidance/2018-common-land-notices-and-decisions" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/2018-common-land-notices-and-decisions">2018 Common land notices and decisions</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.2" data-track-options="{&quot;dimension28&quot;:&quot;10&quot;,&quot;dimension29&quot;:&quot;Carrying out works on common land&quot;}" data-track-label="/guidance/carrying-out-works-on-common-land" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/carrying-out-works-on-common-land">Carrying out works on common land</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.3" data-track-options="{&quot;dimension28&quot;:&quot;10&quot;,&quot;dimension29&quot;:&quot;Common land declarations of exempt works&quot;}" data-track-label="/guidance/common-land-declarations-of-exempt-works" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/common-land-declarations-of-exempt-works">Common land declarations of exempt works</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.4" data-track-options="{&quot;dimension28&quot;:&quot;10&quot;,&quot;dimension29&quot;:&quot;Common land: guidance for commons registration authorities and applicants&quot;}" data-track-label="/government/collections/common-land-guidance-for-commons-registration-authorities-and-applicants" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/collections/common-land-guidance-for-commons-registration-authorities-and-applicants">Common land: guidance for commons registration authorities and applicants</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.5" data-track-options="{&quot;dimension28&quot;:&quot;10&quot;,&quot;dimension29&quot;:&quot;Common land and town or village greens: access your property by vehicle&quot;}" data-track-label="/guidance/common-land-and-town-or-village-greens-access-your-property-by-vehicle" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/common-land-and-town-or-village-greens-access-your-property-by-vehicle">Common land and town or village greens: access your property by vehicle</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.6" data-track-options="{&quot;dimension28&quot;:&quot;10&quot;,&quot;dimension29&quot;:&quot;Common land and town or village greens: how a claim of ownership can affect the land&quot;}" data-track-label="/guidance/common-land-and-town-or-village-greens-how-a-claim-of-ownership-can-affect-the-land" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/common-land-and-town-or-village-greens-how-a-claim-of-ownership-can-affect-the-land">Common land and town or village greens: how a claim of ownership can affect the land</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.7" data-track-options="{&quot;dimension28&quot;:&quot;10&quot;,&quot;dimension29&quot;:&quot;Manage your town and village greens&quot;}" data-track-label="/guidance/manage-your-town-and-village-greens" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/manage-your-town-and-village-greens">Manage your town and village greens</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.8" data-track-options="{&quot;dimension28&quot;:&quot;10&quot;,&quot;dimension29&quot;:&quot;Managing common land&quot;}" data-track-label="/guidance/managing-common-land" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/managing-common-land">Managing common land</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.9" data-track-options="{&quot;dimension28&quot;:&quot;10&quot;,&quot;dimension29&quot;:&quot;Set up a commons council&quot;}" data-track-label="/guidance/set-up-a-commons-council" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/set-up-a-commons-council">Set up a commons council</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="1.10" data-track-options="{&quot;dimension28&quot;:&quot;10&quot;,&quot;dimension29&quot;:&quot;Town and village greens: how to register&quot;}" data-track-label="/guidance/town-and-village-greens-how-to-register" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/town-and-village-greens-how-to-register">Town and village greens: how to register</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Contaminated land</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="2.1" data-track-options="{&quot;dimension28&quot;:&quot;6&quot;,&quot;dimension29&quot;:&quot;Contaminated land&quot;}" data-track-label="/contaminated-land" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/contaminated-land">Contaminated land</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="2.2" data-track-options="{&quot;dimension28&quot;:&quot;6&quot;,&quot;dimension29&quot;:&quot;Contaminated land exposure assessment (CLEA) tool&quot;}" data-track-label="/government/publications/contaminated-land-exposure-assessment-clea-tool" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/publications/contaminated-land-exposure-assessment-clea-tool">Contaminated land exposure assessment (CLEA) tool</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="2.3" data-track-options="{&quot;dimension28&quot;:&quot;6&quot;,&quot;dimension29&quot;:&quot;Land and groundwater remediation deployment form&quot;}" data-track-label="/government/publications/deployment-form-for-land-and-groundwater-remediation" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/publications/deployment-form-for-land-and-groundwater-remediation">Land and groundwater remediation deployment form</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="2.4" data-track-options="{&quot;dimension28&quot;:&quot;6&quot;,&quot;dimension29&quot;:&quot;Land contamination: technical guidance&quot;}" data-track-label="/government/collections/land-contamination-technical-guidance" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/collections/land-contamination-technical-guidance">Land contamination: technical guidance</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="2.5" data-track-options="{&quot;dimension28&quot;:&quot;6&quot;,&quot;dimension29&quot;:&quot;Radioactive land contamination: guidance and information&quot;}" data-track-label="/government/collections/radioactive-contaminated-land" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/collections/radioactive-contaminated-land">Radioactive land contamination: guidance and information</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="2.6" data-track-options="{&quot;dimension28&quot;:&quot;6&quot;,&quot;dimension29&quot;:&quot;Radioactively contaminated land exposure assessment (RCLEA) tool&quot;}" data-track-label="/government/publications/rclea-software-application" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/publications/rclea-software-application">Radioactively contaminated land exposure assessment (RCLEA) tool</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Farming</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.1" data-track-options="{&quot;dimension28&quot;:&quot;9&quot;,&quot;dimension29&quot;:&quot;Countryside Stewardship: How to apply&quot;}" data-track-label="/government/collections/countryside-stewardship-get-paid-for-environmental-land-management" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/collections/countryside-stewardship-get-paid-for-environmental-land-management">Countryside Stewardship: How to apply</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.2" data-track-options="{&quot;dimension28&quot;:&quot;9&quot;,&quot;dimension29&quot;:&quot;EIA (Agriculture) regulations: apply to make changes to rural land&quot;}" data-track-label="/guidance/eia-agriculture-regulations-apply-to-make-changes-to-rural-land" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/eia-agriculture-regulations-apply-to-make-changes-to-rural-land">EIA (Agriculture) regulations: apply to make changes to rural land</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.3" data-track-options="{&quot;dimension28&quot;:&quot;9&quot;,&quot;dimension29&quot;:&quot;Environmental Stewardship: guidance and forms for agreement holders&quot;}" data-track-label="/government/collections/environmental-stewardship-guidance-and-forms-for-existing-agreement-holders" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/collections/environmental-stewardship-guidance-and-forms-for-existing-agreement-holders">Environmental Stewardship: guidance and forms for agreement holders</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.4" data-track-options="{&quot;dimension28&quot;:&quot;9&quot;,&quot;dimension29&quot;:&quot;How HS2 affects payments for stewardship scheme agreements&quot;}" data-track-label="/government/publications/high-speed-two-hs2-how-it-affects-agri-environment-scheme-agreements" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/publications/high-speed-two-hs2-how-it-affects-agri-environment-scheme-agreements">How HS2 affects payments for stewardship scheme agreements</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.5" data-track-options="{&quot;dimension28&quot;:&quot;9&quot;,&quot;dimension29&quot;:&quot;Manage waste on land: guidance for land managers&quot;}" data-track-label="/guidance/manage-waste-on-land-guidance-for-land-managers" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/manage-waste-on-land-guidance-for-land-managers">Manage waste on land: guidance for land managers</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.6" data-track-options="{&quot;dimension28&quot;:&quot;9&quot;,&quot;dimension29&quot;:&quot;Manage water on land: guidance for land managers&quot;}" data-track-label="/guidance/manage-water-on-land-guidance-for-land-managers" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/manage-water-on-land-guidance-for-land-managers">Manage water on land: guidance for land managers</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.7" data-track-options="{&quot;dimension28&quot;:&quot;9&quot;,&quot;dimension29&quot;:&quot;Organic farming: how to get certification and apply for funding&quot;}" data-track-label="/guidance/organic-farming-how-to-get-certification-and-apply-for-funding" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/organic-farming-how-to-get-certification-and-apply-for-funding">Organic farming: how to get certification and apply for funding</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.8" data-track-options="{&quot;dimension28&quot;:&quot;9&quot;,&quot;dimension29&quot;:&quot;Results-Based Agri-environment Payment Scheme (RBAPS) pilot study in England&quot;}" data-track-label="/government/publications/results-based-agri-environment-payment-scheme-rbaps-pilot-study-in-england" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/government/publications/results-based-agri-environment-payment-scheme-rbaps-pilot-study-in-england">Results-Based Agri-environment Payment Scheme (RBAPS) pilot study in England</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="3.9" data-track-options="{&quot;dimension28&quot;:&quot;9&quot;,&quot;dimension29&quot;:&quot;White asbestos on farms: how to spot, manage and dispose of it&quot;}" data-track-label="/guidance/white-asbestos-how-farmers-should-handle-and-dispose-of-it" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/white-asbestos-how-farmers-should-handle-and-dispose-of-it">White asbestos on farms: how to spot, manage and dispose of it</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Hedgerows</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="4.1" data-track-options="{&quot;dimension28&quot;:&quot;2&quot;,&quot;dimension29&quot;:&quot;Appeal a hedgerow notice&quot;}" data-track-label="/appeal-hedgerow-notice" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/appeal-hedgerow-notice">Appeal a hedgerow notice</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="4.2" data-track-options="{&quot;dimension28&quot;:&quot;2&quot;,&quot;dimension29&quot;:&quot;Countryside hedgerows: protection and management&quot;}" data-track-label="/guidance/countryside-hedgerows-regulation-and-management" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/countryside-hedgerows-regulation-and-management">Countryside hedgerows: protection and management</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Pollution</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="5.1" data-track-options="{&quot;dimension28&quot;:&quot;4&quot;,&quot;dimension29&quot;:&quot;Catchment Sensitive Farming: advice for farmers and land managers&quot;}" data-track-label="/guidance/catchment-sensitive-farming-reduce-agricultural-water-pollution" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/catchment-sensitive-farming-reduce-agricultural-water-pollution">Catchment Sensitive Farming: advice for farmers and land managers</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="5.2" data-track-options="{&quot;dimension28&quot;:&quot;4&quot;,&quot;dimension29&quot;:&quot;Grassland derogations for livestock manure in nitrate vulnerable zones&quot;}" data-track-label="/guidance/grassland-derogations-for-livestock-manure-in-nitrate-vulnerable-zones" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/grassland-derogations-for-livestock-manure-in-nitrate-vulnerable-zones">Grassland derogations for livestock manure in nitrate vulnerable zones</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="5.3" data-track-options="{&quot;dimension28&quot;:&quot;4&quot;,&quot;dimension29&quot;:&quot;Storing organic manures in nitrate vulnerable zones&quot;}" data-track-label="/guidance/storing-organic-manures-in-nitrate-vulnerable-zones" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/storing-organic-manures-in-nitrate-vulnerable-zones">Storing organic manures in nitrate vulnerable zones</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="5.4" data-track-options="{&quot;dimension28&quot;:&quot;4&quot;,&quot;dimension29&quot;:&quot;Using nitrogen fertilisers in nitrate vulnerable zones&quot;}" data-track-label="/guidance/using-nitrogen-fertilisers-in-nitrate-vulnerable-zones" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/using-nitrogen-fertilisers-in-nitrate-vulnerable-zones">Using nitrogen fertilisers in nitrate vulnerable zones</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Protected sites</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="6.1" data-track-options="{&quot;dimension28&quot;:&quot;2&quot;,&quot;dimension29&quot;:&quot;Sites of special scientific interest: managing your land&quot;}" data-track-label="/guidance/protected-areas-sites-of-special-scientific-interest" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/protected-areas-sites-of-special-scientific-interest">Sites of special scientific interest: managing your land</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="6.2" data-track-options="{&quot;dimension28&quot;:&quot;2&quot;,&quot;dimension29&quot;:&quot;Sites of special scientific interest: public body responsibilities&quot;}" data-track-label="/guidance/sites-of-special-scientific-interest-public-body-responsibilities" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/sites-of-special-scientific-interest-public-body-responsibilities">Sites of special scientific interest: public body responsibilities</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Weeds and invasive, non-native plants</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="7.1" data-track-options="{&quot;dimension28&quot;:&quot;2&quot;,&quot;dimension29&quot;:&quot;How to stop invasive non-native plants from spreading&quot;}" data-track-label="/guidance/prevent-the-spread-of-harmful-invasive-and-non-native-plants" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/prevent-the-spread-of-harmful-invasive-and-non-native-plants">How to stop invasive non-native plants from spreading</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="7.2" data-track-options="{&quot;dimension28&quot;:&quot;2&quot;,&quot;dimension29&quot;:&quot;How to stop Japanese knotweed from spreading&quot;}" data-track-label="/guidance/prevent-japanese-knotweed-from-spreading" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/prevent-japanese-knotweed-from-spreading">How to stop Japanese knotweed from spreading</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-7">
+                    <div class="govuk-grid-column-one-third  govuk-!-margin-bottom-2">
+                        <h2 class="gem-c-heading govuk-heading-m">Other</h2>
+
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <ul class="govuk-list app-c-topic-list" lang="en">
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="8.1" data-track-options="{&quot;dimension28&quot;:&quot;2&quot;,&quot;dimension29&quot;:&quot;Heather and grass burning: rules and applying for a licence&quot;}" data-track-label="/guidance/heather-and-grass-burning-apply-for-a-licence" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/heather-and-grass-burning-apply-for-a-licence">Heather and grass burning: rules and applying for a licence</a>
+                            </li>
+                            <li class="app-c-topic-list__item">
+                                <a data-track-category="navSubtopicContentItemLinkClicked" data-track-action="8.2" data-track-options="{&quot;dimension28&quot;:&quot;2&quot;,&quot;dimension29&quot;:&quot;Local environmental quality&quot;}" data-track-label="/guidance/local-environmental-quality" class="govuk-link govuk-link--no-underline app-c-topic-list__link " href="/guidance/local-environmental-quality">Local environmental quality</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

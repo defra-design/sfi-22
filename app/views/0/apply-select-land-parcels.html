@@ -327,7 +327,7 @@ Rural Payments
                             </td>
                             <td class="govuk-table__cell">
                                 <b>SP41131083</b> <br />
-                                Arable land. <br /> {{ data['parcel1'] }} of SFI available area
+                                Arable land. <br />{{ data['parcel1'] }} (ha) total size.<br /> {{ data['parcel1'] }} (ha) of SFI available area
                             </td>
                         </div>
                     </tr>
@@ -351,7 +351,7 @@ Rural Payments
                             </td>
                             <td class="govuk-table__cell">
                                 <b>SP41131084</b> <br />
-                                Arable land. <br /> {{ data['parcel2'] }} ha of SFI available area
+                                Arable land. <br />{{ data['parcel2'] }} (ha) total size.<br /> {{ data['parcel2'] }} (ha) of SFI available area
                             </td>
                         </div>
                     </tr>
@@ -389,7 +389,7 @@ Rural Payments
                             </td>
                             <td class="govuk-table__cell">
                                 <b>SP41131086</b> <br />
-                                Arable land.<br /> {{ data['parcel3'] }} ha of SFI available area
+                                Arable land.<br />{{ data['parcel3'] }} (ha) total size.<br /> {{ data['parcel3'] }} (ha) of SFI available area
                             </td>
                         </div>
                     </tr>
@@ -408,9 +408,47 @@ Rural Payments
 
     <div class="govuk-grid-column-one-half">
 
-        <img src="../../../public/images/fields.png">
+
+        {% if data['landparcel1'] == "introductory" and data['landparcel2'] == "introductory" and data['landparcel3'] == "intermediate"  %}
+
+        <img src="../../../public/images/fields-all-selected.png" style="width: 100%;">
+
+        {% elif data['landparcel1'] !== "introductory" and data['landparcel2'] !== "introductory" and data['landparcel3'] == "intermediate"  %}
+
+        <img src="../../../public/images/fields-inter-only.png" style="width: 100%;">
+
+        {% elif data['landparcel1'] == "introductory" and data['landparcel2'] == "introductory" and data['landparcel3'] !== "intermediate"  %}
+
+        <img src="../../../public/images/fields-intro-only.png" style="width: 100%;">
+
+        {% else %}
+        <img src="../../../public/images/fields-defaults.png" style="width: 100%;">
+        {% endif %}
+
+
 
         <p>Key:</p>
+
+        <div>
+            <div class="keybox green"></div>
+            <p>Selected for introductory</p>
+        </div>
+        <div>
+            <div class="keybox yellow"></div>
+            <p>Selected for intermediate</p>
+        </div>
+        <div>
+            <div class="keybox purple"></div>
+            <p>Available for standard</p>
+        </div>
+        <div>
+            <div class="keybox red"></div>
+            <p>Available but in another standard</p>
+        </div>
+        <div>
+            <div class="keybox grey"></div>
+            <p>Unavailable for standard</p>
+        </div>
 
     </div>
 

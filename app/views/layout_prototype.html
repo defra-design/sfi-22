@@ -58,7 +58,7 @@
 
         <p>{{ data['prototypes'][pid]['desc'] }}</p>
 
-        <a href="/{{ pid }}/{{ data['prototypes'][pid]['home'] }}" class="govuk-button">Launch prototype v{{ pid }}</a>
+        <br /> <a href="/{{ pid }}/{{ data['prototypes'][pid]['home'] }}" class="govuk-button">Launch prototype v{{ pid }}</a>
 
     </div>
 
@@ -74,7 +74,7 @@
                 <div class="govuk-accordion__section-header">
                     <h2 class="govuk-accordion__section-heading">
                         <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-                            Pages
+                            Summary
                         </span>
                     </h2>
                 </div>
@@ -82,31 +82,7 @@
 
                     {% block acc1 %}
 
-                    {% for template, pages in data['prototypes'][pid]['pages'] | groupby("template") %}
 
-                    <span class="govuk-caption-m govuk-!-padding-bottom-2 govuk-!-padding-top-4">{{ template | capitalize  }}</span>
-
-                    <ul class="govuk-list govuk-list--spaced">
-                        {% for page in pages %}
-                        <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a>{% if page.complete == "yes" %} ✅
-                            {% else %}
-                            {% endif %}</li> {% endfor %}
-
-                    </ul>
-                    {% endfor %}
-
-                    <!--   <ol class="govuk-list govuk-list--spaced govuk-list--number">
-                        {% for page in data['prototypes'][pid]['pages'] | sort(attribute="id") %}
-
-                        <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a>&nbsp;
-                            {% if page.complete == "yes" %} ✅
-                            {% else %}
-                            {% endif %}
-                        </li>
-
-                        {% endfor %}
-
-                    </ol> -->
 
                     {% endblock %}
                 </div>
@@ -143,13 +119,52 @@
                 <div class="govuk-accordion__section-header">
                     <h2 class="govuk-accordion__section-heading">
                         <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
-                            Insights / learnings
+                            Pages
                         </span>
                     </h2>
                 </div>
                 <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+
                     {% block acc4 %}
-                    <p class='govuk-body'>This is the accordion 4 content</p>
+
+                    {% for template, pages in data['prototypes'][pid]['pages'] | groupby("template") %}
+
+                    <span class="govuk-caption-m govuk-!-padding-bottom-2 govuk-!-padding-top-4">{{ template | capitalize  }}</span>
+
+                    <ul class="govuk-list govuk-list--spaced">
+                        {% for page in pages %}
+                        <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a></li> {% endfor %}
+
+                    </ul>
+                    {% endfor %}
+
+                    <!--   <ol class="govuk-list govuk-list--spaced govuk-list--number">
+                        {% for page in data['prototypes'][pid]['pages'] | sort(attribute="id") %}
+
+                        <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a>&nbsp;
+                            {% if page.complete == "yes" %} ✅
+                            {% else %}
+                            {% endif %}
+                        </li>
+
+                        {% endfor %}
+
+                    </ol> -->
+
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-5">
+                            Insights / learnings
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-5" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-5">
+                    {% block acc5 %}
+
                     {% endblock %}
                 </div>
             </div>
@@ -160,9 +175,9 @@
     <div class="govuk-grid-column-one-third">
         {% block right %}
         <p class="govuk-body-s">
-            Updated: <br /> <b>{{ data['prototypes'][pid]['updated'] }}</b> <br /><br />
-            Testing dates: <br /><b>{{ data['prototypes'][pid]['start'] }}</b> - <b>{{ data['prototypes'][pid]['end'] }}</b><br /><br />
-            Participants: <br /><b>{{ data['prototypes'][pid]['participants'] }}</b>
+            <b> Updated:</b> <br /> {{ data['prototypes'][pid]['updated'] }}<br /><br />
+            <b>Testing dates:</b> <br /> {{ data['prototypes'][pid]['start'] }} to {{ data['prototypes'][pid]['end'] }} <br /><br />
+            <b>Participants:</b> <br />{{ data['prototypes'][pid]['participants'] }}
         </p>
         {% endblock %}
     </div>

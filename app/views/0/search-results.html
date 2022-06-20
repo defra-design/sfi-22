@@ -1,0 +1,811 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 45 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+<div class="finder-frontend">
+
+    <form method="get" action="/search/all" class="js-live-search-form">
+        <input type="hidden" name="parent" value="">
+
+        <div class="govuk-width-container">
+
+            <div class="govuk-grid-row govuk-!-padding-bottom-8">
+                <div class="govuk-grid-column-two-thirds">
+                    <h1 class="gem-c-heading govuk-heading-xl govuk-!-margin-bottom-4">Search <span class="govuk-visually-hidden">all content</span>
+                    </h1>
+
+                    <div id="keywords" class="app-patch--search-input-override" role="search" aria-label="Sitewide">
+
+                        <div class="gem-c-search govuk-!-display-none-print  gem-c-search--on-white" data-module="gem-toggle-input-class-on-focus" data-gem-toggle-input-class-on-focus-module-started="true">
+                            <label for="finder-keyword-search" class="gem-c-search__label">Search on GOV.UK</label>
+                            <div class="gem-c-search__item-wrapper">
+                                <input aria-controls="js-search-results-info" enterkeyhint="search" class="gem-c-search__item gem-c-search__input js-class-toggle focus" id="finder-keyword-search" name="keywords" title="Search" type="search" value="{{ data['search'] }}">
+                                <div class="gem-c-search__item gem-c-search__submit-wrapper">
+                                    <button class="gem-c-search__submit" type="submit" data-module="gem-track-click" enterkeyhint="search" data-gem-track-click-module-started="true">
+                                        Search
+
+                                        <svg class="gem-c-search__icon" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                            <circle cx="12.0161" cy="11.0161" r="8.51613" stroke="currentColor" stroke-width="3"></circle>
+                                            <line x1="17.8668" y1="17.3587" x2="26.4475" y2="25.9393" stroke="currentColor" stroke-width="3"></line>
+                                        </svg>
+                                    </button> </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="js-spelling-suggestions" class="spelling-suggestions" data-analytics-ecommerce="" data-ecommerce-start-index="1" data-list-title="Search spelling suggestions" data-search-query="sfi" data-track-click-label="Spelling suggestions">
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+        <div class="govuk-width-container">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <div class="filter-form">
+
+                        <div id="facet-wrapper" data-module="mobile-filters-modal" class="facets" role="search" aria-label="Search filters" data-mobile-filters-modal-module-started="true">
+                            <div class="facets__box">
+                                <div class="facets__header">
+                                    <div>
+                                        <h2 class="gem-c-heading govuk-heading-m govuk-!-margin-bottom-2">Filter</h2>
+
+                                        <h2 class="gem-c-heading govuk-heading-s govuk-!-margin-bottom-0"><span class="js-result-count govuk-!-font-weight-regular">131 results</span></h2>
+
+                                    </div>
+                                    <!--     <button class="app-c-button-as-link facets__return-link js-close-filters" type="button">
+                                        Return to results
+                                    </button> -->
+                                </div>
+                                <!--     <div class="facets__content">
+                                    <div class="app-c-expander" data-module="expander" data-open-on-load="false" data-expander-module-started="true">
+                                        <h2 class="app-c-expander__heading">
+                                            <button class="app-c-expander__button js-button" type="button" aria-expanded="false" aria-controls="expander-content-4f699754">Topic</button>
+                                            <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="app-c-expander__icon app-c-expander__icon--up" aria-hidden="true" focusable="false">
+                                                <path d="m798.16 609.84l-256-256c-16.683-16.683-43.691-16.683-60.331 0l-256 256c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.84-225.84 225.84 225.84c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331z"></path>
+                                            </svg>
+                                            <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="app-c-expander__icon app-c-expander__icon--down" aria-hidden="true" focusable="false">
+                                                <path d="m225.84 414.16l256 256c16.683 16.683 43.691 16.683 60.331 0l256-256c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.84 225.84-225.84-225.84c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z"></path>
+                                            </svg>
+                                        </h2>
+                                        <div class="app-c-expander__content js-content " id="expander-content-4f699754">
+
+                                            <div class="js-taxonomy-select">
+                                                <div class="govuk-form-group gem-c-select">
+                                                    <label class="govuk-label" for="level_one_taxon">Topic</label>
+
+
+
+                                                    <select name="level_one_taxon" id="level_one_taxon" class="govuk-select gem-c-select__select--full-width" data-module="track-select-change" data-track-select-change-module-started="true">
+                                                        <option value="">All topics</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Brexit" value="d6c2de5d-ef90-45d1-82d4-5f2438369eea">Brexit</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Business and industry" value="495afdb6-47be-4df1-8b38-91c8adb1eefc">Business and industry</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Coronavirus (COVID-19)" value="5b7b9532-a775-4bd2-a3aa-6ce380184b6c">Coronavirus (COVID-19)</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Corporate information" value="a544d48b-1e9e-47fb-b427-7a987c658c14">Corporate information</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Crime, justice and law" value="ba951b09-5146-43be-87af-44075eac3ae9">Crime, justice and law</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Defence and armed forces" value="e491505c-77ae-45b2-84be-8c94b94f6a2b">Defence and armed forces</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Education, training and skills" value="c58fdadd-7743-46d6-9629-90bb3ccc4ef0">Education, training and skills</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Entering and staying in the UK" value="ba3a9702-da22-487f-86c1-8334a730e559">Entering and staying in the UK</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Environment" value="3cf97f69-84de-41ae-bc7b-7e2cc238fa58">Environment</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Going and being abroad" value="9597c30a-605a-4e36-8bc1-47e5cdae41b3">Going and being abroad</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Government" value="e48ab80a-de80-4e83-bf59-26316856a5f9">Government</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Health and social care" value="8124ead8-8ebc-4faf-88ad-dd5cbcc92ba8">Health and social care</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Housing, local and community" value="4794066e-e3cc-425e-8cc4-e7ff3edb4c39">Housing, local and community</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="International" value="37d0fa26-abed-4c74-8835-b3b51ae1c8b2">International</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Life circumstances" value="20086ead-41fc-49cf-8a62-d4e1126f41fc">Life circumstances</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Money" value="6acc9db4-780e-4a46-92b4-1812e3c2c48a">Money</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Parenting, childcare and children's services " value="206b7f3a-49b5-476f-af0f-fd27e2a68473">Parenting, childcare and children's services </option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Regional and local government" value="503c5bc7-809a-47b9-83e2-bd0c212dbabb">Regional and local government</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Society and culture" value="e2ca2f1a-0ff3-43ce-b813-16645ff27904">Society and culture</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Transport" value="a4038b29-b332-4f13-98b1-1c9709e216bc">Transport</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Welfare" value="dded88e2-f92e-424f-b73e-6ad24a839c51">Welfare</option>
+                                                        <option data-track-category="filterClicked" data-track-action="level_one_taxon" data-track-label="Work" value="d0f1e5a3-c8f4-4780-8678-994f19104b21">Work</option>
+                                                    </select>
+                                                </div>
+                                                <div class="js-required govuk-form-group gem-c-select" style="display: block;">
+                                                    <div class="govuk-form-group gem-c-select">
+                                                        <label class="govuk-label" for="level_two_taxon">Sub-topic</label>
+
+
+
+                                                        <select name="level_two_taxon" id="level_two_taxon" class="govuk-select gem-c-select__select--full-width" data-module="track-select-change" disabled="true" data-track-select-change-module-started="true">
+                                                            <option value="">All sub-topics</option>
+
+
+
+
+
+
+
+
+
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div id="manual" style="display: none">
+
+
+                                        <input type="text" name="manual" id="manual_0">
+                                    </div>
+
+
+                                    <div class="app-c-option-select js-collapsible js-closed" data-module="option-select" data-closed-on-load="true" data-input-aria-controls="js-search-results-info" data-filter-element="    &amp;lt;label for=&amp;quot;input-ae6517c2&amp;quot; class=&amp;quot;govuk-label govuk-visually-hidden&amp;quot;&amp;gt;
+      Filter Content type
+&amp;lt;/label&amp;gt;
+    &amp;lt;input name=&amp;quot;option-select-filter&amp;quot; id=&amp;quot;input-ae6517c2&amp;quot; class=&amp;quot;app-c-option-select__filter-input govuk-input&amp;quot; type=&amp;quot;text&amp;quot; aria-describedby=&amp;quot;checkboxes-34f97f7b-count&amp;quot; aria-controls=&amp;quot;checkboxes-34f97f7b&amp;quot;&amp;gt;
+" data-option-select-module-started="true">
+                                        <h2 class="app-c-option-select__heading js-container-heading">
+                                            <button class="js-container-button app-c-option-select__title app-c-option-select__button" type="button" aria-expanded="false" id="option-select-title-content-type" aria-controls="content_purpose_supergroup">Content type</button>
+                                            <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="app-c-option-select__icon app-c-option-select__icon--up" aria-hidden="true" focusable="false">
+                                                <path d="m798.16 609.84l-256-256c-16.683-16.683-43.691-16.683-60.331 0l-256 256c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.84-225.84 225.84 225.84c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331z"></path>
+                                            </svg>
+                                            <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="app-c-option-select__icon app-c-option-select__icon--down" aria-hidden="true" focusable="false">
+                                                <path d="m225.84 414.16l256 256c16.683 16.683 43.691 16.683 60.331 0l256-256c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.84 225.84-225.84-225.84c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z"></path>
+                                            </svg>
+                                        </h2>
+                                        <div class="app-c-option-select__filter"> <label for="input-ae6517c2" class="govuk-label govuk-visually-hidden">
+                                                Filter Content type
+                                            </label>
+                                            <input name="option-select-filter" id="input-ae6517c2" class="app-c-option-select__filter-input govuk-input" type="text" aria-describedby="checkboxes-34f97f7b-count" aria-controls="checkboxes-34f97f7b">
+                                        </div>
+                                        <div role="group" aria-labelledby="option-select-title-content-type" class="app-c-option-select__container js-options-container" id="content_purpose_supergroup" tabindex="-1">
+                                            <div class="app-c-option-select__container-inner js-auto-height-inner">
+                                                <span id="checkboxes-34f97f7b-count" class="app-c-option-select__count govuk-visually-hidden" aria-live="polite" data-single="option found" data-multiple="options found" data-selected="selected"></span>
+
+                                                <div id="checkboxes-34f97f7b" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-module="gem-checkboxes" data-gem-checkboxes-module-started="true">
+                                                    <fieldset class="govuk-fieldset">
+                                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m gem-c-checkboxes__legend--hidden">Content type</legend>
+
+
+
+
+                                                        <ul class="govuk-checkboxes gem-c-checkboxes__list">
+                                                            <li class="govuk-checkboxes__item">
+                                                                <input type="checkbox" name="content_purpose_supergroup[]" id="content_purpose_supergroup-services" value="services" class="govuk-checkboxes__input" data-track-category="filterClicked" data-uncheck-track-category="filterRemoved" data-track-action="Content type" data-track-label="Services" data-controls="js-search-results-info" aria-controls="js-search-results-info"><label for="content_purpose_supergroup-services" class="govuk-label govuk-checkboxes__label">Services</label>
+
+
+                                                            </li>
+                                                            <li class="govuk-checkboxes__item">
+                                                                <input type="checkbox" name="content_purpose_supergroup[]" id="content_purpose_supergroup-guidance_and_regulation" value="guidance_and_regulation" class="govuk-checkboxes__input" data-track-category="filterClicked" data-uncheck-track-category="filterRemoved" data-track-action="Content type" data-track-label="Guidance and regulation" data-controls="js-search-results-info" aria-controls="js-search-results-info"><label for="content_purpose_supergroup-guidance_and_regulation" class="govuk-label govuk-checkboxes__label">Guidance and regulation</label>
+
+
+                                                            </li>
+                                                            <li class="govuk-checkboxes__item">
+                                                                <input type="checkbox" name="content_purpose_supergroup[]" id="content_purpose_supergroup-news_and_communications" value="news_and_communications" class="govuk-checkboxes__input" data-track-category="filterClicked" data-uncheck-track-category="filterRemoved" data-track-action="Content type" data-track-label="News and communications" data-controls="js-search-results-info" aria-controls="js-search-results-info"><label for="content_purpose_supergroup-news_and_communications" class="govuk-label govuk-checkboxes__label">News and communications</label>
+
+
+                                                            </li>
+                                                            <li class="govuk-checkboxes__item">
+                                                                <input type="checkbox" name="content_purpose_supergroup[]" id="content_purpose_supergroup-research_and_statistics" value="research_and_statistics" class="govuk-checkboxes__input" data-track-category="filterClicked" data-uncheck-track-category="filterRemoved" data-track-action="Content type" data-track-label="Research and statistics" data-controls="js-search-results-info" aria-controls="js-search-results-info"><label for="content_purpose_supergroup-research_and_statistics" class="govuk-label govuk-checkboxes__label">Research and statistics</label>
+
+
+                                                            </li>
+                                                            <li class="govuk-checkboxes__item">
+                                                                <input type="checkbox" name="content_purpose_supergroup[]" id="content_purpose_supergroup-policy_and_engagement" value="policy_and_engagement" class="govuk-checkboxes__input" data-track-category="filterClicked" data-uncheck-track-category="filterRemoved" data-track-action="Content type" data-track-label="Policy papers and consultations" data-controls="js-search-results-info" aria-controls="js-search-results-info"><label for="content_purpose_supergroup-policy_and_engagement" class="govuk-label govuk-checkboxes__label">Policy papers and consultations</label>
+
+
+                                                            </li>
+                                                            <li class="govuk-checkboxes__item">
+                                                                <input type="checkbox" name="content_purpose_supergroup[]" id="content_purpose_supergroup-transparency" value="transparency" class="govuk-checkboxes__input" data-track-category="filterClicked" data-uncheck-track-category="filterRemoved" data-track-action="Content type" data-track-label="Transparency and freedom of information releases" data-controls="js-search-results-info" aria-controls="js-search-results-info"><label for="content_purpose_supergroup-transparency" class="govuk-label govuk-checkboxes__label">Transparency and freedom of information releases</label>
+
+
+                                                            </li>
+                                                        </ul>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="organisations" style="display: none">
+
+
+                                        <input type="text" name="organisations" id="organisations_0">
+                                    </div>
+                                    <div id="world_locations" style="display: none">
+
+
+                                        <input type="text" name="world_locations" id="world_locations_0">
+                                    </div>
+
+                                    <div class="app-c-expander" data-module="expander" data-open-on-load="false" data-expander-module-started="true">
+                                        <h2 class="app-c-expander__heading">
+                                            <button class="app-c-expander__button js-button" type="button" aria-expanded="false" aria-controls="expander-content-2ac6a48e">Updated</button>
+                                            <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="app-c-expander__icon app-c-expander__icon--up" aria-hidden="true" focusable="false">
+                                                <path d="m798.16 609.84l-256-256c-16.683-16.683-43.691-16.683-60.331 0l-256 256c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.84-225.84 225.84 225.84c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331z"></path>
+                                            </svg>
+                                            <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="app-c-expander__icon app-c-expander__icon--down" aria-hidden="true" focusable="false">
+                                                <path d="m225.84 414.16l256 256c16.683 16.683 43.691 16.683 60.331 0l256-256c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.84 225.84-225.84-225.84c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z"></path>
+                                            </svg>
+                                        </h2>
+                                        <div class="app-c-expander__content js-content " id="expander-content-2ac6a48e">
+
+                                            <div class="app-c-date-filter govuk-!-margin-bottom-0" id="public_timestamp">
+
+                                                <div class="govuk-form-group">
+
+
+                                                    <label for="public_timestamp[from]" class="gem-c-label govuk-label">Updated after</label>
+
+
+
+
+
+                                                    <div id="hint-e981ae40" class="gem-c-hint govuk-hint govuk-!-margin-bottom-3">
+                                                        For example, 2005 or 21/11/2014
+                                                    </div>
+
+
+
+
+                                                    <input aria-describedby="hint-e981ae40" aria-controls="js-search-results-info" class="gem-c-input govuk-input" id="public_timestamp[from]" name="public_timestamp[from]" spellcheck="false" type="text" value="">
+                                                </div>
+
+
+                                                <div class="govuk-form-group">
+
+
+                                                    <label for="public_timestamp[to]" class="gem-c-label govuk-label">Updated before</label>
+
+
+
+
+
+                                                    <div id="hint-ee75f65f" class="gem-c-hint govuk-hint govuk-!-margin-bottom-3">
+                                                        For example, 2005 or 21/11/2014
+                                                    </div>
+
+
+
+
+                                                    <input aria-describedby="hint-ee75f65f" aria-controls="js-search-results-info" class="gem-c-input govuk-input" id="public_timestamp[to]" name="public_timestamp[to]" spellcheck="false" type="text" value="">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div id="topical_events" style="display: none">
+
+
+                                        <input type="text" name="topical_events" id="topical_events_0">
+                                    </div>
+
+                                    <div class="facets__tags-block js-mobile-facet-tag-block" data-module="remove-filter" data-remove-filter-module-started="true">
+                                        <span class="govuk-visually-hidden">
+                                            131 results
+                                            sorted by Relevance
+                                        </span>
+
+                                        <div class="facet-tags" data-module="gem-track-click" data-gem-track-click-module-started="true">
+                                        </div>
+
+                                    </div>
+                                    <button class="app-c-button-as-link facets__clear-link js-clear-selected-filters" type="button">
+                                        Clear all filters
+                                    </button>
+                                </div> -->
+                                <!--          <div class="facets__footer">
+
+                                    <button class="gem-c-button govuk-button js-close-filters js-show-results" type="submit">Show search results</button>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <!--    <div class="js-live-search-fallback button__wrapper">
+
+
+
+                            <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Filter results</button>
+
+
+                        </div> -->
+                    </div>
+
+                </div>
+
+                <div class="govuk-grid-column-two-thirds js-live-search-results-block filtered-results" role="region" aria-label="Search search results" data-analytics-ecommerce="" data-ecommerce-start-index="1" data-list-title="Search" data-search-query="sfi" data-ecommerce-variant="Relevance">
+                    <div id="js-search-results-info" data-module="remove-filter" class="result-info" data-remove-filter-module-started="true">
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-third">
+                                <div class="result-info__header">
+                                    <h2 class="gem-c-heading govuk-heading-s govuk-!-margin-bottom-2" id="js-result-count">131 results</h2>
+
+
+                                    <!--      <button class="app-c-button-as-link app-mobile-filters-link js-show-mobile-filters" data-toggle="mobile-filters-modal" data-target="facet-wrapper" data-module="gem-track-click" data-track-category="filterClicked" data-track-action="mobile-filter-button" data-track-label="" data-gem-track-click-module-started="true">
+                                        Filter <span class="govuk-visually-hidden"> results</span>
+                                        <span class="js-selected-filter-count"></span>
+                                    </button> -->
+
+
+                                    <div data-module="gem-track-click" data-track-category="filterClicked" data-track-action="skip-Link" data-track-label="" data-gem-track-click-module-started="true">
+                                        <a class="gem-c-skip-link govuk-skip-link govuk-!-display-none-print" data-module="govuk-skip-link" href="#js-results" data-govuk-skip-link-module-started="true">Skip to results</a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="govuk-grid-column-two-thirds subscription-links subscription-links--desktop">
+                                <section class="gem-c-subscription-links govuk-!-display-none-print">
+                                    <ul class="gem-c-subscription-links__list gem-c-subscription-links__list--small">
+
+                                        <li class="gem-c-subscription-links__list-item gem-c-subscription-links__list-item--small">
+
+                                            <a class="govuk-link govuk-link--no-underline gem-c-subscription-links__item  gem-c-subscription-links__item--link" href="/search/all.atom?keywords=sfi"> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" class="gem-c-subscription-links__icon" focusable="false" fill="currentColor" aria-hidden="true">
+                                                    <path d="M1.996 11A2 2 0 0 0 0 12.993c0 1.101.895 1.99 1.996 1.99 1.106 0 2-.889 2-1.99a2 2 0 0 0-2-1.993zM.002 5.097V7.97c1.872 0 3.632.733 4.958 2.059A6.984 6.984 0 0 1 7.015 15h2.888c0-5.461-4.443-9.903-9.9-9.903zM.006 0v2.876c6.676 0 12.11 5.44 12.11 12.124H15C15 6.731 8.273 0 .006 0z"></path>
+                                                </svg>Subscribe to feed
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </section>
+                            </div>
+                        </div>
+                        <div id="js-facet-tag-wrapper" class="facet-tags__container" aria-live="assertive">
+                            <span class="govuk-visually-hidden">
+                                131 results
+                                sorted by Relevance
+                            </span>
+
+                            <div class="facet-tags" data-module="gem-track-click" data-gem-track-click-module-started="true">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="govuk-caption-l live-search-loading-message" id="js-loading-message"></div>
+
+                    <div id="js-sort-options">
+                        <div class="govuk-form-group sort-options gem-c-select">
+                            <label for="order" class="sort-options__label govuk-label">Sort by</label>
+                            <select class="js-order-results govuk-select sort-options__select" name="order" id="order" aria-controls="js-search-results-info" data-default-sort-option="relevance" data-relevance-sort-option="relevance" data-module="track-select-change" data-track-select-change-module-started="true">
+                                <option value="most-viewed" disabled="" data-track-category="dropDownClicked" data-track-action="clicked" data-track-label="Most viewed">Most viewed</option>
+                                <option value="relevance" selected="" data-track-category="dropDownClicked" data-track-action="clicked" data-track-label="Relevance">Relevance</option>
+                                <option value="updated-newest" data-track-category="dropDownClicked" data-track-action="clicked" data-track-label="Updated (newest)">Updated (newest)</option>
+                                <option value="updated-oldest" data-track-category="dropDownClicked" data-track-action="clicked" data-track-label="Updated (oldest)">Updated (oldest)</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div id="js-results">
+
+                        <div class="finder-results js-finder-results" data-module="gem-track-click" data-gem-track-click-module-started="true">
+                            <ul class="gem-c-document-list gem-c-document-list--no-underline">
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/government/collections/sustainable-farming-incentive-guidance" data-ecommerce-row="1" data-ecommerce-index="1" data-track-category="navFinderLinkClicked" data-track-action="Search.1" data-track-label="/government/collections/sustainable-farming-incentive-guidance" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Sustainable Farming Incentive guidance&quot;}" class="gem-c-document-list__item-title   govuk-link" href="sustainable-farming-incentive-guidance">Sustainable Farming Incentive guidance</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Guidance on how the Sustainable Farming Incentive (<mark>SFI</mark>) will work for farmers.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/how-the-sfi-standards-work" data-ecommerce-row="1" data-ecommerce-index="2" data-track-category="navFinderLinkClicked" data-track-action="Search.2" data-track-label="/0/how-the-sfi-standards-work" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;How the SFI standards work and future standards&quot;}" class="gem-c-document-list__item-title   govuk-link" href="#">Sustainable Farming Incentive pilot</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">An overview of the Sustainable Farming Incentive pilot scheme, including information on standards, payments, monitoring, inspections and reporting.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">8 Feb 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/how-the-sfi-standards-work" data-ecommerce-row="1" data-ecommerce-index="2" data-track-category="navFinderLinkClicked" data-track-action="Search.2" data-track-label="/0/how-the-sfi-standards-work" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;How the SFI standards work and future standards&quot;}" class="gem-c-document-list__item-title   govuk-link" href="#">Sustainable Farming Incentive pilot guidance</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Guidance for farmers taking part in the pilot version of the Sustainable Farming Incentive (SFI) environmental land management scheme.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">7 Apr 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/how-the-sfi-standards-work" data-ecommerce-row="1" data-ecommerce-index="2" data-track-category="navFinderLinkClicked" data-track-action="Search.2" data-track-label="/0/how-the-sfi-standards-work" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;How the SFI standards work and future standards&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/how-the-sfi-standards-work">How the SFI standards work and future standards</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out how the <mark>SFI</mark> standards in 2022 work and what standards may be available in the future.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/the-sfi-improved-grassland-soils-standard" data-ecommerce-row="1" data-ecommerce-index="3" data-track-category="navFinderLinkClicked" data-track-action="Search.3" data-track-label="/0/the-sfi-improved-grassland-soils-standard" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;The SFI improved grassland soils standard&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/the-sfi-improved-grassland-soils-standard">The SFI improved grassland soils standard</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out about the <mark>SFI</mark> improved grassland soils standard, what land is eligible and what you need to do to get paid.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/countryside-stewardship-capital-grants-manual-from-8-february-2022-sustainable-farming-incentive-pilot-supplement/2-how-cs-capital-grants-sfi-pilot-works" data-ecommerce-row="1" data-ecommerce-index="4" data-track-category="navFinderLinkClicked" data-track-action="Search.4" data-track-label="/0/countryside-stewardship-capital-grants-manual-from-8-february-2022-sustainable-farming-incentive-pilot-supplement/2-how-cs-capital-grants-sfi-pilot-works" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;2 How CS Capital Grants (SFI pilot) works&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/countryside-stewardship-capital-grants-manual-from-8-february-2022-sustainable-farming-incentive-pilot-supplement/2-how-cs-capital-grants-sfi-pilot-works">2 How CS Capital Grants (SFI pilot) works</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">This section provides information about the main elements of CS Capital Grants (<mark>SFI</mark> pilot).</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-03-14">14 March 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/government/publications/consent-for-soil-sampling-on-scheduled-monuments-sustainable-farming-incentive" data-ecommerce-row="1" data-ecommerce-index="5" data-track-category="navFinderLinkClicked" data-track-action="Search.5" data-track-label="/government/publications/consent-for-soil-sampling-on-scheduled-monuments-sustainable-farming-incentive" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Consent for soil sampling on scheduled monuments: Sustainable Farming Incentive&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/government/publications/consent-for-soil-sampling-on-scheduled-monuments-sustainable-farming-incentive">Consent for soil sampling on scheduled monuments: Sustainable Farming Incentive</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Use this form to get permission to take soil samples on a scheduled monument for a Sustainable Farming Incentive (<mark>SFI</mark>) application or agreement.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/a-summary-of-the-sfi-in-2022" data-ecommerce-row="1" data-ecommerce-index="6" data-track-category="navFinderLinkClicked" data-track-action="Search.6" data-track-label="/0/a-summary-of-the-sfi-in-2022" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;A summary of the SFI in 2022&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/a-summary-of-the-sfi-in-2022">A summary of the SFI in 2022</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out what funding is available under the Sustainable Farming Incentive in 2022.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/government/collections/sustainable-farming-incentive-pilot-guidance" data-ecommerce-row="1" data-ecommerce-index="15" data-track-category="navFinderLinkClicked" data-track-action="Search.15" data-track-label="/government/collections/sustainable-farming-incentive-pilot-guidance" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Sustainable Farming Incentive pilot guidance&quot;}" class="gem-c-document-list__item-title   govuk-link" href="#">Sustainable Farming Incentive: expression of interest</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Call for expressions of interest from farmers to take part in the first phase of piloting the new Sustainable Farming Incentive scheme.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-04-07">7 April 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/the-sfi-moorland-standard" data-ecommerce-row="1" data-ecommerce-index="7" data-track-category="navFinderLinkClicked" data-track-action="Search.7" data-track-label="/0/the-sfi-moorland-standard" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;The SFI moorland standard&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/the-sfi-moorland-standard">The SFI moorland standard</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out about the <mark>SFI</mark> moorland standard, what land is eligible and what you need to do to get paid.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/check-you-and-your-land-are-eligible-for-an-sfi-standards-agreement" data-ecommerce-row="1" data-ecommerce-index="8" data-track-category="navFinderLinkClicked" data-track-action="Search.8" data-track-label="/0/check-you-and-your-land-are-eligible-for-an-sfi-standards-agreement" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Check you and your land are eligible for an SFI standards agreement&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/check-you-and-your-land-are-eligible-for-an-sfi-standards-agreement">Check you and your land are eligible for an SFI standards agreement</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out if you and your land are eligible for an <mark>SFI</mark> standards agreement.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/the-sfi-arable-and-horticultural-soils-standard" data-ecommerce-row="1" data-ecommerce-index="9" data-track-category="navFinderLinkClicked" data-track-action="Search.9" data-track-label="/0/the-sfi-arable-and-horticultural-soils-standard" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;The SFI arable and horticultural soils standard&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/the-sfi-arable-and-horticultural-soils-standard">The SFI arable and horticultural soils standard</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out about the <mark>SFI</mark> arable and horticultural soils standard, what land is eligible and what you need to do to get paid.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/getting-paid-for-an-sfi-standards-agreement" data-ecommerce-row="1" data-ecommerce-index="10" data-track-category="navFinderLinkClicked" data-track-action="Search.10" data-track-label="/0/getting-paid-for-an-sfi-standards-agreement" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Getting paid for an SFI standards agreement&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/getting-paid-for-an-sfi-standards-agreement">Getting paid for an SFI standards agreement</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">How you will be paid under your <mark>SFI</mark> standards agreement</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/check-your-land-details-before-you-apply-for-an-sfi-standards-agreement" data-ecommerce-row="1" data-ecommerce-index="11" data-track-category="navFinderLinkClicked" data-track-action="Search.11" data-track-label="/0/check-your-land-details-before-you-apply-for-an-sfi-standards-agreement" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Check your land details before you apply for an SFI standards agreement&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/check-your-land-details-before-you-apply-for-an-sfi-standards-agreement">Check your land details before you apply for an SFI standards agreement</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out how your land details affect your <mark>SFI</mark> application and what to check before you apply.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/eligibility-of-commons-and-shared-grazing-land-for-an-sfi-standards-agreement" data-ecommerce-row="1" data-ecommerce-index="12" data-track-category="navFinderLinkClicked" data-track-action="Search.12" data-track-label="/0/eligibility-of-commons-and-shared-grazing-land-for-an-sfi-standards-agreement" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Eligibility of commons and shared grazing land for an SFI standards agreement&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/eligibility-of-commons-and-shared-grazing-land-for-an-sfi-standards-agreement">Eligibility of commons and shared grazing land for an SFI standards agreement</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out the eligibility requirements for common land or shared grazing for an <mark>SFI</mark> standards agreement.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/check-regulatory-issues-and-consents-that-could-affect-an-sfi-standards-agreement" data-ecommerce-row="1" data-ecommerce-index="13" data-track-category="navFinderLinkClicked" data-track-action="Search.13" data-track-label="/0/check-regulatory-issues-and-consents-that-could-affect-an-sfi-standards-agreement" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Check regulatory issues and consents that could affect an SFI standards agreement&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/check-regulatory-issues-and-consents-that-could-affect-an-sfi-standards-agreement">Check regulatory issues and consents that could affect an SFI standards agreement</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out how regulatory issues and consents could affect your <mark>SFI</mark> standards agreement.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-06-15">15 June 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/contacting-the-rpa-about-sfi" data-ecommerce-row="1" data-ecommerce-index="14" data-track-category="navFinderLinkClicked" data-track-action="Search.14" data-track-label="/0/contacting-the-rpa-about-sfi" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Contacting the RPA about SFI&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/contacting-the-rpa-about-sfi">Contacting the RPA about SFI</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">How to ask questions about <mark>SFI</mark> or make a complaint or appeal.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-06-08">8 June 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/how-an-sfi-standards-agreement-interacts-with-other-funding-schemes" data-ecommerce-row="1" data-ecommerce-index="16" data-track-category="navFinderLinkClicked" data-track-action="Search.16" data-track-label="/0/how-an-sfi-standards-agreement-interacts-with-other-funding-schemes" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;How an SFI standards agreement interacts with other funding schemes&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/how-an-sfi-standards-agreement-interacts-with-other-funding-schemes">How an SFI standards agreement interacts with other funding schemes</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out when land can be included in an <mark>SFI</mark> standards agreement and other agri-environment schemes and funding sources at the same time.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/what-to-do-before-you-apply-for-an-sfi-standards-agreement" data-ecommerce-row="1" data-ecommerce-index="17" data-track-category="navFinderLinkClicked" data-track-action="Search.17" data-track-label="/0/what-to-do-before-you-apply-for-an-sfi-standards-agreement" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;What to do before you apply for an SFI standards agreement&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/what-to-do-before-you-apply-for-an-sfi-standards-agreement">What to do before you apply for an SFI standards agreement</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out about when you will be able to apply for an <mark>SFI</mark> standards agreement and what to do now to get ready.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/checking-progress-of-your-sfi-standards-agreement" data-ecommerce-row="1" data-ecommerce-index="18" data-track-category="navFinderLinkClicked" data-track-action="Search.18" data-track-label="/0/checking-progress-of-your-sfi-standards-agreement" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Checking progress of your SFI standards agreement&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/checking-progress-of-your-sfi-standards-agreement">Checking progress of your SFI standards agreement</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">How we will check progress of your <mark>SFI</mark> standards agreement.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/0/how-a-sfi-standards-agreement-works" data-ecommerce-row="1" data-ecommerce-index="19" data-track-category="navFinderLinkClicked" data-track-action="Search.19" data-track-label="/0/how-a-sfi-standards-agreement-works" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;How an SFI standards agreement works&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/0/how-a-sfi-standards-agreement-works">How an SFI standards agreement works</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">Find out about how a Sustainable Farming Incentive standards agreement works, including when you can make changes to it.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2022-05-26">26 May 2022</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                                <li class="gem-c-document-list__item  ">
+
+                                    <a data-ecommerce-path="/cma-cases/yates-wine-lodges-ltd-sfi-group-ltd" data-ecommerce-row="1" data-ecommerce-index="20" data-track-category="navFinderLinkClicked" data-track-action="Search.20" data-track-label="/cma-cases/yates-wine-lodges-ltd-sfi-group-ltd" data-track-options="{&quot;dimension28&quot;:20,&quot;dimension29&quot;:&quot;Yates Wine Lodges Ltd / SFI Group Ltd&quot;}" class="gem-c-document-list__item-title   govuk-link" href="/cma-cases/yates-wine-lodges-ltd-sfi-group-ltd">Yates Wine Lodges Ltd / SFI Group Ltd</a>
+
+
+                                    <p class="gem-c-document-list__item-description ">OFT closed case: Completed acquisition by Yates Wine Lodges Limited of assets of the <mark>SFI</mark> Group Limited.</p>
+
+                                    <ul class="gem-c-document-list__item-metadata">
+
+                                        <li class="gem-c-document-list__attribute">
+                                            Updated: <time datetime="2005-10-10">10 October 2005</time>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+
+                    <div id="js-pagination">
+                        <nav class="gem-c-pagination" role="navigation" aria-label="Pagination">
+                            <ul class="gem-c-pagination__list" data-module="gem-track-click" data-gem-track-click-module-started="true">
+                                <li class="gem-c-pagination__item gem-c-pagination__item--next">
+                                    <a href="/search/all?keywords=sfi&amp;order=relevance&amp;page=2" class="govuk-link gem-c-pagination__link" rel="next" data-track-category="contentsClicked" data-track-action="next" data-track-label="/search/all?keywords=sfi&amp;order=relevance&amp;page=2" data-track-dimension="next" data-track-dimension-index="29">
+                                        <span class="gem-c-pagination__link-title">
+                                            <svg class="gem-c-pagination__link-icon" xmlns="http://www.w3.org/2000/svg" height="13" width="17" viewBox="0 0 17 13">
+                                                <path d="m10.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                                            </svg>
+                                            <span class="gem-c-pagination__link-text">Next page</span>
+                                        </span>
+                                        <span class="gem-c-pagination__link-divider visually-hidden">:</span>
+                                        <span class="gem-c-pagination__link-label">2 of 7</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+
+                    <div class="subscription-links" id="subscription-links-footer">
+                        <section class="gem-c-subscription-links govuk-!-display-none-print">
+                            <ul class="gem-c-subscription-links__list gem-c-subscription-links__list--small">
+
+                                <li class="gem-c-subscription-links__list-item gem-c-subscription-links__list-item--small">
+
+                                    <a class="govuk-link govuk-link--no-underline gem-c-subscription-links__item  gem-c-subscription-links__item--link" href="/search/all.atom?keywords=sfi"> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" class="gem-c-subscription-links__icon" focusable="false" fill="currentColor" aria-hidden="true">
+                                            <path d="M1.996 11A2 2 0 0 0 0 12.993c0 1.101.895 1.99 1.996 1.99 1.106 0 2-.889 2-1.99a2 2 0 0 0-2-1.993zM.002 5.097V7.97c1.872 0 3.632.733 4.958 2.059A6.984 6.984 0 0 1 7.015 15h2.888c0-5.461-4.443-9.903-9.9-9.903zM.006 0v2.876c6.676 0 12.11 5.44 12.11 12.124H15C15 6.731 8.273 0 .006 0z"></path>
+                                        </svg>Subscribe to feed
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}
