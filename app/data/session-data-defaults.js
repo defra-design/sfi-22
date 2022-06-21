@@ -64,7 +64,7 @@ module.exports = {
         {
             id: 0,
             url: "/0",
-            status: "built",
+            status: "testing",
             desc: "Prototype version of the live as-is private beta.",
             updated: "21-Jun-22",
             start: "22-Jun-22",
