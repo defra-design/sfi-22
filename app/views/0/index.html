@@ -37,14 +37,40 @@
 {% endblock %}
 
 {% block acc3 %}
+
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced ">
+    <li>Users are able to locate the full SFI guidance and will understand that they have to apply via their existing RPA account</li>
+    <li>Users will understand the difference between the two links for SFI in the business overview page and will correctly select the top option as the one they need</li>
+    <li>Users will understand that intermediate action #4 replaces #4 from the introductory level</li>
+    <li>Users will understand the error message they see when indicating they cannot meet the intermediate level action, and will know they can still carry on with introductory levels</li>
+    <li>Users are able to easily select land parcels for introductory and intermediate standard levels using the check box functionality</li>
+    <li>Users are able to easily return to their application once submitted</li>
+
+</ul>
 {% endblock %}
 
 {% block acc4 %}
+<p>
+    <b>Application journey:</b> <br />
+</p>
+
+<ol class="govuk-list govuk-list--number govuk-!-padding-bottom-8">
+    <li><a href="/0/apply-for-sfi.html">Apply for SFI</a> </li>
+    <li><a href="/0/apply-your-land.html">Land details (choose yes)</a> </li>
+    <li><a href="/0/apply-management-control.html">Management control (choose yes)</a> </li>
+    <li><a href="/0/apply-standards.html">Choose standard(s) (choose 'Arable')</a> </li>
+    <li><a href="/0/apply-arable-levels.html">Arable introductory levels (yes to all)</a> </li>
+    <li><a href="/0/apply-arable-levels-intermediate.html">Arable intermediate level (choose yes)</a> </li>
+    <li><a href="/0/apply-select-land-parcels.html">Select land parcels (from top to botton, choose introductory, introductory, intermediate)</a> </li>
+    <li><a href="/0/apply-check-your-answers.html">Check your answers</a> </li>
+    <li><a href="/0/apply-submit-your-application.html">Submit your application</a> </li>
+</ol>
 {{ super() }}
 {% endblock %}
 
 {% block acc5 %}
 {{ super() }}
+<p>To follow after this round of testing...</p>
 {% endblock %}
 
 
@@ -52,4 +78,6 @@
 {% block right %}
 <!-- Prototype details -->
 {{ super() }}
+
+
 {% endblock %}

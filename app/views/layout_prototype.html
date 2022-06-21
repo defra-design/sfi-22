@@ -127,16 +127,28 @@
 
                     {% block acc4 %}
 
-                    {% for template, pages in data['prototypes'][pid]['pages'] | groupby("template") %}
 
-                    <span class="govuk-caption-m govuk-!-padding-bottom-2 govuk-!-padding-top-4">{{ template | capitalize  }}</span>
+                    <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                All pages in this prototype
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            {% for template, pages in data['prototypes'][pid]['pages'] | groupby("template") %}
 
-                    <ul class="govuk-list govuk-list--spaced">
-                        {% for page in pages %}
-                        <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a></li> {% endfor %}
+                            <span class="govuk-caption-m govuk-!-padding-bottom-2 govuk-!-padding-top-4">{{ template | capitalize  }}</span>
 
-                    </ul>
-                    {% endfor %}
+                            <ul class="govuk-list govuk-list--spaced">
+                                {% for page in pages %}
+                                <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a></li> {% endfor %}
+
+                            </ul>
+                            {% endfor %}
+                        </div>
+                    </details>
+
+
 
                     <!--   <ol class="govuk-list govuk-list--spaced govuk-list--number">
                         {% for page in data['prototypes'][pid]['pages'] | sort(attribute="id") %}

@@ -274,7 +274,7 @@ Rural Payments
 
         <br />
 
-        <form id="parcelchoice" action="/0/apply-select-land-parcels" method="POST">
+        <form action="/0/apply-land-parcels-form" method="POST">
             <table class="govuk-table">
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
@@ -311,7 +311,7 @@ Rural Payments
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                             <th scope="row" class="govuk-table__header">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel1" type="checkbox" value="introductory" {{ checked("landparcel1", "introductory") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel1" type="checkbox" value="introductory" {{ checked("landparcel1", "introductory") }}>
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -319,7 +319,7 @@ Rural Payments
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel1" type="checkbox" value="intermediate" {{ checked("landparcel1", "intermediate") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel1" type="checkbox" value="intermediate" {{ checked("landparcel1", "intermediate") }}>
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -335,7 +335,7 @@ Rural Payments
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                             <th scope="row" class="govuk-table__header">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel2" type="checkbox" value="introductory" {{ checked("landparcel2", "introductory") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel2" type="checkbox" value="introductory" {{ checked("landparcel2", "introductory") }}>
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -343,7 +343,7 @@ Rural Payments
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel2" type="checkbox" value="intermediate" {{ checked("landparcel2", "intermediate") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel2" type="checkbox" value="intermediate" {{ checked("landparcel2", "intermediate") }}>
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -373,7 +373,7 @@ Rural Payments
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                             <th scope="row" class="govuk-table__header">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel3" type="checkbox" value="introductory" {{ checked("landparcel3", "introductory") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel3" type="checkbox" value="introductory" {{ checked("landparcel3", "introductory") }}>
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -381,7 +381,7 @@ Rural Payments
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel3" type="checkbox" value="intermediate" {{ checked("landparcel3", "intermediate") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel3" type="checkbox" value="intermediate" {{ checked("landparcel3", "intermediate") }}>
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -396,13 +396,12 @@ Rural Payments
                 </tbody>
             </table>
             <br />
-            <!--  <button class="govuk-button " data-module="govuk-button">
+            <button class="govuk-button " data-module="govuk-button">
                 Update application
-            </button> -->
+            </button>
 
         </form>
 
-        <a href="apply-payment-standard" class="govuk-button "> Update application</a>
 
 
     </div>
@@ -410,21 +409,17 @@ Rural Payments
     <div class="govuk-grid-column-one-half">
 
 
-        {% if data['landparcel1'] == "introductory" and not data['landparcel2'] and not data['landparcel3']  %}
-
-        <img src="../../../public/images/fields-intro-1-only.png" style="width: 100%;">
-
-        {% elif data['landparcel1'] == "introductory" and data['landparcel2'] == "introductory" and not data['landparcel3']  %}
-
-        <img src="../../../public/images/fields-intro-only.png" style="width: 100%;">
-
-        {% elif data['landparcel1'] == "introductory" and data['landparcel2'] == "introductory" and data['landparcel3'] == "intermediate"  %}
+        {% if data['landparcel1'] == "introductory" and data['landparcel2'] == "introductory" and data['landparcel3'] == "intermediate"  %}
 
         <img src="../../../public/images/fields-all-selected.png" style="width: 100%;">
 
-        {% elif data['landparcel3'] == "intermediate" and not data['landparcel1'] and not data['landparcel2']  %}
+        {% elif data['landparcel1'] !== "introductory" and data['landparcel2'] !== "introductory" and data['landparcel3'] == "intermediate"  %}
 
         <img src="../../../public/images/fields-inter-only.png" style="width: 100%;">
+
+        {% elif data['landparcel1'] == "introductory" and data['landparcel2'] == "introductory" and data['landparcel3'] !== "intermediate"  %}
+
+        <img src="../../../public/images/fields-intro-only.png" style="width: 100%;">
 
         {% else %}
         <img src="../../../public/images/fields-defaults.png" style="width: 100%;">
