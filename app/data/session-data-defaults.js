@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
     indexlink: "/index",
-    updated: "21-Jun-22",
+    updated: "22-Jun-22",
     maintitle: "Sustainable Farming Incentive",
     team: [
         {
@@ -66,7 +66,7 @@ module.exports = {
             url: "/0",
             status: "testing",
             desc: "Prototype version of the live as-is private beta.",
-            updated: "21-Jun-22",
+            updated: "22-Jun-22",
             start: "22-Jun-22",
             end: "07-Jul-22",
             participants: "7 - Mixture of participants who have made an application already, those who have not but are likely to, and those who have not/have no detailed prior knowledge of SFI.  ",
@@ -649,7 +649,7 @@ module.exports = {
                 },
                 {
                     title: "Rural grants and payments: detailed information",
-                    template: "Guidance",
+                    template: "guidance",
                     content: "payments",
                     url: "rural-grants-payments",
                     pageid: 49,
@@ -659,7 +659,7 @@ module.exports = {
                 },
                 {
                     title: "Land management: detailed information",
-                    template: "Guidance",
+                    template: "guidance",
                     content: "land",
                     url: "land-management",
                     pageid: 50,
@@ -669,7 +669,7 @@ module.exports = {
                 },
                 {
                     title: "Environmental management : detailed information",
-                    template: "Guidance",
+                    template: "guidance",
                     content: "land",
                     url: "environmental-management",
                     pageid: 51,
@@ -679,7 +679,7 @@ module.exports = {
                 },
                 {
                     title: "Rural payments and grants",
-                    template: "Guidance",
+                    template: "guidance",
                     content: "payments",
                     url: "rural-payments-and-grants",
                     pageid: 52,
