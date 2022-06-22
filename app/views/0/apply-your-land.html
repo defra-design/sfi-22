@@ -82,11 +82,9 @@ Rural Payments
         <p>The land summary below shows what is currently registered against your SBI:</p>
 
         <ul class="govuk-list">
-            <li>94.99 hectares across 26 parcels</li>
-            <li>69 hectares of arable land across 10 parcels</li>
-            <li>25.37 hectares of permanent grassland across 12 parcels</li>
-            <li>0.06 hectares of pond across 1 parcels</li>
-
+            <li>{{ data['totalarea'] }} hectares across {{ data['totalparcels'] }} parcels</li>
+            <li>{{ data['landsfitotalavailable'] }} hectares of arable land across {{ data['totalsfiavailableparcels'] }} parcels</li>
+            <li>10 hectares of permanent grassland across 1 parcel</li>
         </ul>
 
         <h2 class="govuk-heading-l">Check your land details before selecting your standard(s)</h2>

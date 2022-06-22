@@ -108,6 +108,8 @@ Rural Payments
 {% set totalinterparcels = parcel1interamount + parcel2interamount + parcel3interamount %}
 {% set totalintercount = parcel1intercount + parcel2intercount + parcel3intercount %}
 
+
+
 <!-- Before content area -->
 {% block beforeContent %}
 {{ super() }}
@@ -311,7 +313,7 @@ Rural Payments
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                             <th scope="row" class="govuk-table__header">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel1" type="checkbox" value="introductory" {{ checked("landparcel1", "introductory") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input parcel1tog" id="waste" name="landparcel1" type="checkbox" value="introductory" {{ checked("landparcel1", "introductory") }} onchange="document.getElementById('parcelchoice').submit()">
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -319,7 +321,7 @@ Rural Payments
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel1" type="checkbox" value="intermediate" {{ checked("landparcel1", "intermediate") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input parcel1tog" id="waste" name="landparcel1" type="checkbox" value="intermediate" {{ checked("landparcel1", "intermediate") }} onchange="document.getElementById('parcelchoice').submit()">
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -335,7 +337,7 @@ Rural Payments
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                             <th scope="row" class="govuk-table__header">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel2" type="checkbox" value="introductory" {{ checked("landparcel2", "introductory") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input parcel2tog" id="waste" name="landparcel2" type="checkbox" value="introductory" {{ checked("landparcel2", "introductory") }} onchange="document.getElementById('parcelchoice').submit()">
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -343,7 +345,7 @@ Rural Payments
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel2" type="checkbox" value="intermediate" {{ checked("landparcel2", "intermediate") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input parcel2tog" id="waste" name="landparcel2" type="checkbox" value="intermediate" {{ checked("landparcel2", "intermediate") }} onchange="document.getElementById('parcelchoice').submit()">
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -373,7 +375,7 @@ Rural Payments
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                             <th scope="row" class="govuk-table__header">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel3" type="checkbox" value="introductory" {{ checked("landparcel3", "introductory") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input parcel3tog" id="waste" name="landparcel3" type="checkbox" value="introductory" {{ checked("landparcel3", "introductory") }} onchange="document.getElementById('parcelchoice').submit()">
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
@@ -381,7 +383,7 @@ Rural Payments
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric">
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel3" type="checkbox" value="intermediate" {{ checked("landparcel3", "intermediate") }} onchange="document.getElementById('parcelchoice').submit()">
+                                    <input class="govuk-checkboxes__input parcel3tog" id="waste" name="landparcel3" type="checkbox" value="intermediate" {{ checked("landparcel3", "intermediate") }} onchange="document.getElementById('parcelchoice').submit()">
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         &nbsp;
                                     </label>
