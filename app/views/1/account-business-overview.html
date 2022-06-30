@@ -1,0 +1,276 @@
+{% extends "layout_business.html" %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 1 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 26 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Left content area -->
+{% block left %}
+{{ super() }}
+
+<span class="govuk-caption-m">Manage different areas of your business here.</span>
+
+<p class="govuk-!-padding-top-4">Contents</p>
+
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+    <li><a href="#permissions">Give people permission to act for this business</a> </li>
+    <li><a href="#summary">Business summary</a> </li>
+    <li><a href="#land">Land</a> </li>
+    <li><a href="#payments">Payments</a> </li>
+    <li><a href="#commons">Commons</a> </li>
+    <li><a href="#sfi">{{ data['maintitle'] }}</a> </li>
+    <li><a href="#bps">Basic Payment Scheme</a> </li>
+    <li><a href="#cs">Countryside Stewardship</a> </li>
+</ul>
+
+{% endblock %}
+
+<!-- Right content area -->
+{% block right %}
+{{ super() }}
+
+<h3 class="govuk-heading-m">Business details</h3>
+
+<p>{{ data['businessname'] }}<br />
+    Waterloo Farm <br />
+    1 Godminster Lane <br />
+    Drayton <br />
+    Bideford <br />
+    GU7 2BX
+</p>
+
+
+<p>
+    Email: {{ data['email'] }} <br />
+    Landline: {{ data['landline'] }} <br />
+    Mobile: {{ data['mobile'] }}
+</p>
+
+<p><a href="#">View and amend your business details</a> </p>
+
+{% endblock %}
+
+<!-- Right content area -->
+{% block bottom %}
+
+<div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-4">
+
+    <div class="govuk-grid-column-one-quarter">
+
+        <p id="permissions"><b>Give people permission to act for this business</b></p>
+
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+
+        <p>This permission allows somoeome (including agents) to act for this business in the Rural Payments service. Choose a name from this list below to see their permission levels.</p>
+
+        <br />
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Full name</th>
+                    <th scope="col" class="govuk-table__header">Relationship</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href=""> {{ data['fullname'] }}</a></th>
+                    <td class="govuk-table__cell">Owner</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="">Bob Agent</a></th>
+                    <td class="govuk-table__cell">Agent</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <br />
+
+        <ul class="govuk-list govuk-list--spaced">
+            <li><a href="">Add people</a> </li>
+            <li><a href="">Add people from a firm of agents</a> </li>
+            <li><a href="">Remove people</a> </li>
+
+        </ul>
+
+    </div>
+</div>
+
+<hr>
+
+<div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-4">
+
+    <div class="govuk-grid-column-one-quarter">
+
+        <p id="summary"><b>Business summary</b></p>
+
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+
+        <p>Check and print the details we have for your business. These include business details, entitlements, land and land use details, and any common land rights you have.</p>
+
+        <br />
+
+        <ul class="govuk-list govuk-list--spaced">
+            <li><a href="">Business summary</a> </li>
+        </ul>
+
+    </div>
+</div>
+<hr>
+
+<div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-4">
+
+    <div class="govuk-grid-column-one-quarter">
+
+        <p id="land"><b>Land</b></p>
+
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+
+        <p>View maps of your land, or transfer your land to another business.</p>
+
+        <br />
+
+        <ul class="govuk-list govuk-list--spaced">
+            <li><a href="">View land</a> </li>
+            <li><a href="">Transfer land</a> </li>
+        </ul>
+
+    </div>
+</div>
+
+<hr>
+
+<div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-4">
+
+    <div class="govuk-grid-column-one-quarter">
+
+        <p id="payments"><b>Payments</b></p>
+
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+
+        <p>View details of scheduled and previous payments made to your business.</p>
+
+        <br />
+
+        <ul class="govuk-list govuk-list--spaced">
+            <li><a href="payments.html">View payments</a> </li>
+        </ul>
+
+        <!--  <div class="govuk-inset-text">
+            Your next payment is due to be made in the week commencing <b>05-Jul-2023</b> for {{ data['maintitle'] }}. You will be notified when that payment amount has been calculated.
+        </div> -->
+
+    </div>
+</div>
+
+<hr>
+
+
+<div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-4">
+
+    <div class="govuk-grid-column-one-quarter">
+
+        <p id="commons"><b>Commons</b></p>
+
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+
+        <p>Check and update any grazing rights you hold for common land.</p>
+
+        <br />
+
+        <ul class="govuk-list govuk-list--spaced">
+            <li><a href="">Update commons</a> </li>
+        </ul>
+
+    </div>
+</div>
+
+
+<hr>
+
+<div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-4">
+
+    <div class="govuk-grid-column-one-quarter">
+
+        <p id="sfi"><b>{{ data['maintitle'] }}</b></p>
+
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+
+        <ul class="govuk-list govuk-list--spaced">
+            <li><a href="sfi-applications-agreements.html">{{ data['maintitle'] }} standards</a> </li>
+            <li><a href="#">Pilot {{ data['maintitle'] }}</a> </li>
+
+        </ul>
+
+    </div>
+</div>
+
+<hr>
+
+<div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-4">
+
+    <div class="govuk-grid-column-one-quarter">
+
+        <p id="bps"><b>Basic Payment Scheme</b></p>
+
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+
+        <p>Check what entitlements you have for the Basic Payment Scheme and transfer any that you sold, gifted or leased. Apply for BPS, check the status of your application, update your application of your past applications.</p>
+
+        <br />
+
+        <ul class="govuk-list govuk-list--spaced">
+            <li><a href="">View entitlements</a> </li>
+            <li><a href="">Transfer entitlements</a> </li>
+            <li><a href="">Apply for BPS of view status of your application</a> </li>
+            <li><a href="">View a previous BPS application</a> </li>
+        </ul>
+
+    </div>
+</div>
+
+<hr>
+
+<div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-4">
+
+    <div class="govuk-grid-column-one-quarter">
+
+        <p id="cs"><b>Countryside Stewardship</b></p>
+
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+
+        <p>Find out which countryside stewardship options best suit your farm, apply to join the scheme and submit your claims.</p>
+
+        <br />
+
+        <ul class="govuk-list govuk-list--spaced">
+            <li><a href="">Countryside stewardship options finder tool</a> </li>
+            <li><a href="">Countryside stewardship applications</a> </li>
+            <li><a href="">Countryside stewardship claims</a> </li>
+
+        </ul>
+
+    </div>
+</div>
+
+{% endblock %}

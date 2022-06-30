@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 1 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 55 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to business overview</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">
+            Payments
+        </h1>
+    </div>
+
+</div>
+{% endblock %}
+
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-full">
+
+        <div class="govuk-inset-text">
+            Your next payment is due to be made in the week commencing <b>05-Jul-2023</b> for {{ data['maintitle'] }}. You will be notified when that payment amount has been calculated.
+        </div>
+
+        <br />
+
+        <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Calculation reference</th>
+                    <th scope="col" class="govuk-table__header">Payment date</th>
+                    <th scope="col" class="govuk-table__header">Scheme</th>
+                    <th scope="col" class="govuk-table__header">Amount</th>
+
+                    <th scope="col" class="govuk-table__header">Details</th>
+                    <th scope="col" class="govuk-table__header">Status</th>
+
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">31773</td>
+                    <td class="govuk-table__cell">07-Apr-2023</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }} 2023 - 1 of 4</td>
+                    <td class="govuk-table__cell">£375.80 <br />
+
+
+                    </td>
+
+                    <td class="govuk-table__cell">
+                        <a href="payment-statement-31773.html">View payment breakdown</a>
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+                            Payment made
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">-</td>
+                    <td class="govuk-table__cell">w/c 05-Jul-2023</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }} 2023 - 2 of 4</td>
+                    <td class="govuk-table__cell">-
+                    </td>
+                    <td class="govuk-table__cell">
+                        Calculation expected w/c 20-May-2023
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+                            Scheduled
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">-</td>
+                    <td class="govuk-table__cell">w/c 08-Oct-2023</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }} 2023 - 3 of 4</td>
+                    <td class="govuk-table__cell">- </td>
+                    <td class="govuk-table__cell">- </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+                            Scheduled
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">-</td>
+                    <td class="govuk-table__cell">w/c 04-Jan-2024</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }} 2023 - 4 of 4</td>
+                    <td class="govuk-table__cell">- </td>
+                    <td class="govuk-table__cell">- </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+                            Scheduled
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <p class="govuk-body-s govuk-!-padding-top-6">
+            Potentially a sentence here explaining that the table is only showing schedules payments for the next 12 months. </p>
+        <p class="govuk-body-s">
+            Also clarifying that agreements may well exceed that timeframe?
+        </p>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

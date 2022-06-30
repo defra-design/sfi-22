@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = 0 + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 27 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to business overview</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">
+            Payments
+        </h1>
+    </div>
+
+</div>
+{% endblock %}
+
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-full">
+
+        <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">ID</th>
+                    <th scope="col" class="govuk-table__header">Payment date</th>
+                    <th scope="col" class="govuk-table__header">Scheme</th>
+                    <th scope="col" class="govuk-table__header">Amount</th>
+
+                    <th scope="col" class="govuk-table__header">Details</th>
+                    <th scope="col" class="govuk-table__header">Status</th>
+
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">31773</td>
+                    <td class="govuk-table__cell">07-Apr-2023</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }}</td>
+                    <td class="govuk-table__cell">£375.80 <br />
+
+
+                    </td>
+
+                    <td class="govuk-table__cell">
+                        <a href="#">View payment breakdown</a>
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+                            Payment made
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Not available yet</td>
+                    <td class="govuk-table__cell">w/c 05-Aug-2023</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }}</td>
+                    <td class="govuk-table__cell">Not available yet
+
+
+                    </td>
+
+                    <td class="govuk-table__cell">
+
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+                            Pending
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}

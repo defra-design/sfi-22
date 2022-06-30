@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = 0 + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 24 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+<div class="govuk-!-padding-bottom-4">
+
+    <p>Please check the email address we hold for you.</p>
+    <p>If the email address is correct, click 'confirm'.</p>
+    <p>If the email address is not correct, enter the correct address into the email field and click 'confirm'.</p>
+</div>
+
+<form action="{{ data['prototypes'][pid]['pages'][pageid]['next'] }}" method="POST">
+
+    <div class="govuk-form-group">
+        <label class="govuk-label" for="email">
+            Email address
+        </label>
+        <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{ data['email'] }}">
+    </div>
+
+    <button class="govuk-button" data-module="govuk-button">Confirm</button>&nbsp;&nbsp; <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Sign out
+    </button>
+
+</form>
+
+<p>If you need assistance, call us on 03000 200 301.</p>
+
+
+
+{% endblock %}

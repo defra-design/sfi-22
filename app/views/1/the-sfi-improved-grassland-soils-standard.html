@@ -1,0 +1,41 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 14 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Find out about the SFI improved grassland soils standard, what land is eligible and what you need to do to get paid.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#how-the-improved-grassland-soils-standard-will-improve-the-environment">How the improved grassland soils standard will improve the environment</a></li>
+    <li><a href="#eligible-land-for-the-improved-grassland-soils-standard">Eligible land for the improved grassland soils standard</a></li>
+    <li><a href="#other-land-eligibility-issues-to-consider">Other land eligibility issues to consider</a></li>
+    <li><a href="#how-the-improved-grassland-soils-standard-works">How the improved grassland soils standard works</a></li>
+    <li><a href="#summary-of-the-actions">Summary of the actions</a></li>
+    <li><a href="#action-1-complete-a-soil-assessment-and-produce-a-soil-management-plan">Action 1: Complete a soil assessment and produce a soil management plan</a></li>
+    <li><a href="#action-2-test-soil-organic-matter">Action 2: Test soil organic matter</a></li>
+    <li><a href="#action-3-minimise-bare-ground-over-winter">Action 3: Minimise bare ground over winter</a></li>
+    <li><a href="#action-4-establish-or-maintain-herbal-leys">Action 4: Establish or maintain herbal leys</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

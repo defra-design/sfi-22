@@ -1,0 +1,319 @@
+{% extends "layout.html" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Rural Payments",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "account-business-overview",
+      text: "Your businesses"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 53 %}
+
+{% if data['landparcel1'] == "introductory" %}
+
+{% set parcel1introamount = 5 %}
+{% set parcel1introcount = 1 %}
+
+{% else %}
+
+{% set parcel1introamount = 0 %}
+{% set parcel1introcount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel2'] == "introductory" %}
+
+{% set parcel2introamount = 15 %}
+{% set parcel2introcount = 1 %}
+
+{% else %}
+
+{% set parcel2introamount = 0 %}
+{% set parcel2introcount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel3'] == "introductory" %}
+
+{% set parcel3introamount = 10 %}
+{% set parcel3introcount = 1 %}
+
+{% else %}
+
+{% set parcel3introamount = 0 %}
+{% set parcel3introcount = 0 %}
+
+{% endif %}
+
+{% set totalintroparcels = parcel1introamount + parcel2introamount + parcel3introamount %}
+{% set totalintrocount = parcel1introcount + parcel2introcount + parcel3introcount %}
+
+{% if data['landparcel1'] == "intermediate" %}
+
+{% set parcel1interamount = 5 %}
+{% set parcel1intercount = 1 %}
+
+{% else %}
+
+{% set parcel1interamount = 0 %}
+{% set parcel1intercount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel2'] == "intermediate" %}
+
+{% set parcel2interamount = 15 %}
+{% set parcel2intercount = 1 %}
+
+{% else %}
+
+{% set parcel2interamount = 0 %}
+{% set parcel2intercount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel3'] == "intermediate" %}
+
+{% set parcel3interamount = 10 %}
+{% set parcel3intercount = 1 %}
+
+{% else %}
+
+{% set parcel3interamount = 0 %}
+{% set parcel3intercount = 0 %}
+
+{% endif %}
+
+{% set totalinterparcels = parcel1interamount + parcel2interamount + parcel3interamount %}
+{% set totalintercount = parcel1intercount + parcel2intercount + parcel3intercount %}
+
+{% set intromoney = 22 * totalintroparcels %}
+{% set intermoney = 40 * totalinterparcels %}
+{% set totalmoney = intromoney + intermoney %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        {% block h1 %}
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-l">Details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Business
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p>{{ data['businessname'] }}<br />
+                        Waterloo Farm <br />
+                        1 Godminster Lane <br />
+                        Drayton <br />
+                        Bideford <br />
+                        GU7 2BX
+                    </p>
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    SBI number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['SBI'] }}
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Indicative Application value
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    £{{ data['totalmoney'] }}
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Are your land details up to date?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['land-details-update'] | capitalize }}
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Land management control
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['management-control'] | capitalize }}
+                </dd>
+
+            </div>
+        </dl>
+
+        <h2 class="govuk-heading-l">Arable and horticultural soils</h2>
+        <h3 class="govuk-heading-m">Introductory level</h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action1'] }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['arable-action-1'] | capitalize }}
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action2'] }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['arable-action-2'] | capitalize }}
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action3'] }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['arable-action-3'] | capitalize }}
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action4'] }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['arable-action-4'] | capitalize }}
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Number of selected land parcels
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ totalintrocount }}
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Selected area
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ totalintroparcels }}
+                </dd>
+
+            </div>
+            <br />
+            <br />
+
+            <!-- Show intermediate level if eligible -->
+            {% if data['arableintermediatelevel'] == "yes" %}
+
+            <h3 class="govuk-heading-m">Intermediate level</h3>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {{ data['prototypes'][pid]['application'][0]['sections'][2]['subtasks'][1]['action5'] }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['arable-action-5'] | capitalize }}
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Number of selected land parcels
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ totalintercount }}
+                </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Selected area
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ totalinterparcels }}
+                </dd>
+
+            </div>
+
+
+            {% else %}
+            {% endif %}
+
+        </dl>
+
+        <br />
+
+
+
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 16 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Farmers who keep cattle, sheep and pigs can get funding to pay for a vet or vet-led team to visit their farm and carry out an annual health and welfare review.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#your-eligibilityto-apply-for-this-funding">Your eligibility to apply for this funding</a></li>
+    <li><a href="#how-much-funding-you-can-apply-for">How much funding you can apply for</a></li>
+    <li><a href="#what-the-review-will-include">What the review will include</a></li>
+    <li><a href="#how-the-review-will-be-completed-by-the-vet">How the review will be completed by the vet</a></li>
+    <li><a href="#what-happens-after-the-review">What happens after the review</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

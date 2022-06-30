@@ -1,0 +1,39 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 15 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Find out about the SFI moorland standard, what land is eligible and what you need to do to get paid.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#how-the-moorland-standard-will-improve-the-environment">How the moorland standard will improve the environment</a></li>
+    <li><a href="#eligible-land-for-the-moorland-standard">Eligible land for the moorland standard</a></li>
+    <li><a href="#how-the-moorland-standard-works">How the moorland standard works</a></li>
+    <li><a href="#summary-of-the-actions">Summary of the actions</a></li>
+    <li><a href="#action-1-survey-the-soil-vegetation-historic-and-archaeological-features">Action 1: Survey the soil, vegetation, historic and archaeological features</a></li>
+    <li><a href="#action-2-identify-public-goods-the-moorland-provides">Action 2: Identify public goods the moorland provides</a></li>
+    <li><a href="#action-3-identify-opportunities-to-maintain-or-enhance-the-public-goods-your-moorland-provides">Action 3: Identify opportunities to maintain or enhance the public goods your moorland provides</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

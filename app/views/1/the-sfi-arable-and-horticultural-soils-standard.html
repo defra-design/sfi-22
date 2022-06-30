@@ -1,0 +1,36 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 13 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Find out about when you will be able to apply for an SFI standards agreement and what to do now to get ready.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#when-you-will-be-able-to-apply-for-an-agreement">When you will be able to apply for an agreement</a></li>
+    <li><a href="#how-to-apply-for-an-agreement">How to apply for an agreement</a></li>
+    <li><a href="#what-you-can-do-now-to-get-ready-to-apply">What you can do now to get ready to apply</a></li>
+    <li><a href="#check-your-land-details-2">Check your land details</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

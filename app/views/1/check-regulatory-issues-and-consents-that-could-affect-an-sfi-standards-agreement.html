@@ -1,0 +1,37 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 8 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Find out about how regulatory issues and consents could affect your SFI standards agreement.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#scheduled-monuments-historic-and-archaeological-features">Scheduled monuments, historic and archaeological features</a></li>
+    <li><a href="#sites-of-special-scientific-interest-sssis">Sites of special scientific interest (SSSIs)</a></li>
+    <li><a href="#cross-compliance">Cross compliance</a></li>
+    <li><a href="#protected-species">Protected species</a></li>
+    <li><a href="#work-affecting-water">Work affecting water</a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

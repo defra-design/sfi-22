@@ -1,0 +1,37 @@
+{% extends "layout_guidance.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+
+<!-- Update pageid   -->
+{% set pageid = 4 %}
+
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Subheader - beneath h1 -->
+{% block subheader %}
+Find out how your land details affect your SFI application and what to check before you apply.
+{% endblock %}
+
+<!-- Contents nav -->
+{% block contents %}
+<ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-8">
+    <li><a href="#what-land-details-are-shown-on-your-sfi-application">What land details are shown on your SFI application</a></li>
+    <li><a href="#check-your-digital-maps-before-you-apply-for-sfi">Check your digital maps before you apply for SFI</a></li>
+    <li><a href="#what-land-is-eligible-for-an-agreement">What land is eligible for an agreement</a></li>
+    <li><a href="#eligible-land-covers-and-land-types-for-the-sfi-standards">Eligible land covers and land types for the SFI standards</a></li>
+    <li><a href="#how-to-update-your-land-details">How to update your land details </a></li>
+</ul>
+{% endblock %}
+
+<!-- Main content area -->
+{% block left %}
+{{ super() }}
+
+{% endblock %}

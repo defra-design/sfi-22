@@ -1,0 +1,291 @@
+{% extends "layout.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 1 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 54 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to payments overview</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+        <h2 class="govuk-heading-l">
+            {{ data['maintitle'] }} 2023 - 1 of 4
+        </h2>
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+        <ol class="govuk-list govuk-list--number govuk-list--spaced">
+            <li><a href="#details">Details</a> </li>
+            <li><a href="#summary">Payment summary</a> </li>
+            <li><a href="#calculations">Calculations</a> </li>
+            <li><a href="#land">Land details</a> </li>
+        </ol>
+
+    </div>
+    <div class="govuk-grid-column-full">
+        <br /> <br />
+        <hr>
+
+    </div>
+</div>
+{% endblock %}
+
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h2 id="details" class="govuk-heading-m">
+            1: Details
+        </h2>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <table class="govuk-table">
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header">Business name:</td>
+                    <td class="govuk-table__cell">{{ data['businessname'] }}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header">Single Business Identifier (SBI):</td>
+                    <td class="govuk-table__cell">{{ data['SBI'] }}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header">Calculation reference:</td>
+                    <td class="govuk-table__cell">31773</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header">Date of calculation:</td>
+                    <td class="govuk-table__cell">31-Mar-2023</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header">Date of payment:</td>
+                    <td class="govuk-table__cell">07-Apr-2023</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+    </div>
+
+</div>
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h2 id="summary" class="govuk-heading-m">
+            2: Payment summary
+        </h2>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header app-custom-class"></th>
+                    <th scope="col" class="govuk-table__header app-custom-class"></th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Reductions</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Total</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">SFI arable standard</td>
+                    <td class="govuk-table__cell">£XXX</td>
+                    <td class="govuk-table__cell">£X</td>
+                    <td class="govuk-table__cell">£XX</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">SFI grasslands standard</td>
+                    <td class="govuk-table__cell">£XXX</td>
+                    <td class="govuk-table__cell">£X</td>
+                    <td class="govuk-table__cell">£XX</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><b>Total SFI payment</b></td>
+                    <td class="govuk-table__cell"><b>£XXX</b></td>
+                    <td class="govuk-table__cell"><b>£X</b>
+                    </td>
+                    <td class="govuk-table__cell"><b>£XX</b></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>If there are any cross compliance reductions they will be shown in the summary above. All other payment calculations and reductions are shown in Part 3.</p>
+
+    </div>
+
+
+
+</div>
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h2 id="calculations" class="govuk-heading-m">
+            3: Calculations
+        </h2>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+        <p>We calculated the total BPS claim value by adding together:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>the main BPS claim value (excluding greening and the young farmer parts of your claim)</li>
+            <li>the greening payment</li>
+            <li>the young farmer payment (if one is due)</li>
+        </ul>
+
+        <p>The value of each part of your claim depends on how many entitlements were used correctly on the
+            application and whether we have had to apply any reductions or penalties. You'll find more information about
+            how we calculated each part of your claim in the tables below.</p>
+
+        <br />
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    The exchange rate
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                All calculations in this statement are shown in Euros and then converted into Sterling at the final stage of the
+                claim calculation. All BPS 2019 payments will be paid in Sterling (£). The exchange rate from Euro (€) to
+                Sterling for BPS 2019 is €1 = £0.890920.
+            </div>
+        </details>
+
+        <br />
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    Financial Discipline Mechanism (FDM)
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                <p>Page 97 of the BPS 2019 scheme rules explains about the ‘Financial Discipline Mechanism’ and how it will
+                    reduce a BPS 2019 claim, including the greening and young farmer parts of your payment. Financial discipline
+                    (FDM) does not apply to the first €2,000 of a claim. If a claim is €2,000 or less, it will not be reduced for FDM.
+                    The rate of financial discipline for BPS 2019 is 1.432635%.</p>
+                <p>You may get a refund during 2020 of some or all of the money deducted for FDM from your BPS 2018
+                    payment, if it is not required. The FDM reimbursement payment will be paid even if you did not claim in 2018
+                    or previous years. Reimbursements have not been included on the claim statement or with your BPS payment.
+                    We will tell you about any reimbursement separately.</p>
+                <p>For more information about calculating your payment, penalties and reductions, read the revised ‘Payments,
+                    reduction and penalties’ section of the BPS 2019 scheme rules, which you can find at
+                    www.gov.uk/rpa/bps2019</p>
+            </div>
+        </details>
+
+    </div>
+
+
+
+</div>
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h2 id="land" class="govuk-heading-m">
+            4: Land and entitlements details
+        </h2>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+        <p>The table below shows you the amount (in hectares) of land in each payment region you claimed, the eligible
+            area recorded by RPA and the number of entitlements held for the scheme year. Your claim value for each
+            payment region will be calculated on the lowest number within the three columns.</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li><b>Area claimed for payment on application</b> – this is the total area claimed for payment in column C8 of
+                the BPS 2019 application.</li>
+            <li><b>Eligible area found by RPA</b> – this is the total eligible area recorded by RPA. It is the maximum area
+                available to you for BPS 2019 and may have changed as a result of any inspections or mapping changes.</li>
+            <li><b>Number of entitlements available for payment</b> – this figure includes entitlements held on 15 May
+                2019, plus any that have been awarded to new or young farmers who applied for them in 2019.</li>
+        </ul>
+
+
+    </div>
+
+
+
+</div>
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h2 id="land" class="govuk-heading-m">
+            More information
+        </h2>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+        <p>For more information about calculating your payment, penalties and reductions, read the ‘Payments, reduction
+            and penalties’ section of the BPS 2019 Scheme rules which you can find at www.gov.uk/rpa/bps2019.</p>
+        <p>
+            If you have any queries about values in this Claim Statement, you should first check your land parcel
+            information in the Rural Payments service, and the above section of the BPS 2019 scheme rules.</p>
+        <p>
+            If you still do not agree with the amount you have been paid, fill in a payment query form at
+            www.gov.uk/rpa/bps2019. You can return the form to us by email or post.</p>
+
+    </div>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,456 @@
+{% extends "layout.html" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Rural Payments",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "account-business-overview",
+      text: "Your businesses"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 39 %}
+
+{% if data['landparcel1'] == "introductory" %}
+
+{% set parcel1introamount = 5 %}
+{% set parcel1introcount = 1 %}
+
+{% else %}
+
+{% set parcel1introamount = 0 %}
+{% set parcel1introcount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel2'] == "introductory" %}
+
+{% set parcel2introamount = 15 %}
+{% set parcel2introcount = 1 %}
+
+{% else %}
+
+{% set parcel2introamount = 0 %}
+{% set parcel2introcount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel3'] == "introductory" %}
+
+{% set parcel3introamount = 10 %}
+{% set parcel3introcount = 1 %}
+
+{% else %}
+
+{% set parcel3introamount = 0 %}
+{% set parcel3introcount = 0 %}
+
+{% endif %}
+
+{% set totalintroparcels = parcel1introamount + parcel2introamount + parcel3introamount %}
+{% set totalintrocount = parcel1introcount + parcel2introcount + parcel3introcount %}
+
+{% if data['landparcel1'] == "intermediate" %}
+
+{% set parcel1interamount = 5 %}
+{% set parcel1intercount = 1 %}
+
+{% else %}
+
+{% set parcel1interamount = 0 %}
+{% set parcel1intercount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel2'] == "intermediate" %}
+
+{% set parcel2interamount = 15 %}
+{% set parcel2intercount = 1 %}
+
+{% else %}
+
+{% set parcel2interamount = 0 %}
+{% set parcel2intercount = 0 %}
+
+{% endif %}
+
+{% if data['landparcel3'] == "intermediate" %}
+
+{% set parcel3interamount = 10 %}
+{% set parcel3intercount = 1 %}
+
+{% else %}
+
+{% set parcel3interamount = 0 %}
+{% set parcel3intercount = 0 %}
+
+{% endif %}
+
+{% set totalinterparcels = parcel1interamount + parcel2interamount + parcel3interamount %}
+{% set totalintercount = parcel1intercount + parcel2intercount + parcel3intercount %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+{% include "0/includes/button-save-return.html" %}
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        {% block h1 %}
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+
+        <h2 class="govuk-heading-l">{{ data['prototypes'][pid]['standards'][0]['name'] }}</h2>
+
+        <p>How to select a land parcel for the level(s) shown: Take the relevant box in the list below or select the long parcel in the map by:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>Clicking once for the introductory level</li>
+            <li>Clicking again for the intermediate level (if shown)</li>
+            <li>Clicking again to deselect it</li>
+        </ul>
+
+        <p>To select all the available land parcels tick 'select all' for the relevant level</p>
+
+        <p>Check the 'available area' is an eligible land type: A land parcel's 'available area' (which is based on the eligible land covers for this standard) was also been eligible and type. Read the <a href="eligibility-of-commons-and-shared-grazing-land-for-an-sfi-standards-agreement" target="_blank">Eligible land for the Arable and Horticultural soils standard</a> on GOV.UK for more information.</p>
+
+        <br />
+
+        <p class="govuk-body-l">Total SFI available area (ha): {{ data['landsfitotalavailable'] }}</p>
+
+        <p class="govuk-body-l">Total SFI available area (ha) selected for Inductory level:
+
+            {% if totalintroparcels > 0 %}
+
+            {{ totalintroparcels }}
+
+            {% else %}
+
+            0.00
+
+            {% endif %}
+
+        </p>
+
+        <!-- <p>Total used: {{ data['landarableintroselected'] + data['landarableinterselected'] | round(2) }}</p> -->
+
+        {% if data['arableintermediatelevel'] == "yes" %}
+        <p class="govuk-body-l">Total SFI available area (ha) selected for Intermediate level:
+
+            {% if totalinterparcels > 0 %}
+
+            {{ totalinterparcels }}
+
+            {% else %}
+
+            0.00
+
+            {% endif %}
+
+        </p>
+        {% else %}
+        {% endif %}
+
+        <hr>
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--s">OS Map Sheet Reference SP4</caption>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Number of available land parcels</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">{{ data['totalsfiavailableparcels'] - totalintrocount - totalintercount }}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Total area (ha)</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">{{ data['totalarea'] }}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">SFI available area (ha)</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">{{ data['landsfitotalavailable'] - totalintroparcels - totalinterparcels }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br />
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--s">Introductory level</caption>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Number of selected land parcels</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                        {{ totalintrocount }}
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Selected area (ha)</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"> {% if totalintroparcels > 0 %}
+
+                        {{ totalintroparcels }}
+
+                        {% else %}
+
+                        -
+
+                        {% endif %}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br />
+
+
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--s">Intermediate level</caption>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Number of selected land parcels</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"> {{ totalintercount }}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Selected area (ha)</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"> {% if totalinterparcels > 0 %}
+
+                        {{ totalinterparcels }}
+
+                        {% else %}
+
+                        -
+
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br />
+
+        <form action="/0/apply-land-parcels-form" method="POST">
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Introductory</th>
+                        <th scope="col" class="govuk-table__header">Intermediate</th>
+                        <th scope="col" class="govuk-table__header">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                            <th scope="row" class="govuk-table__header">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcelall" type="checkbox" value="introductory" {{ checked("landparcelall", "introductory") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        &nbsp;
+                                    </label>
+                                </div>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcelall" type="checkbox" value="intermediate" {{ checked("landparcelall", "intermediate") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        &nbsp;
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="govuk-table__cell">
+                                <b>Select all</b>
+                            </td>
+                        </div>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                            <th scope="row" class="govuk-table__header">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel1" type="checkbox" value="introductory" {{ checked("landparcel1", "introductory") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        &nbsp;
+                                    </label>
+                                </div>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel1" type="checkbox" value="intermediate" {{ checked("landparcel1", "intermediate") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        &nbsp;
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="govuk-table__cell">
+                                <b>SP41131083</b> <br />
+                                Arable land. <br />{{ data['parcel1'] }} (ha) total size.<br /> {{ data['parcel1'] }} (ha) of SFI available area
+                            </td>
+                        </div>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                            <th scope="row" class="govuk-table__header">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel2" type="checkbox" value="introductory" {{ checked("landparcel2", "introductory") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        &nbsp;
+                                    </label>
+                                </div>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel2" type="checkbox" value="intermediate" {{ checked("landparcel2", "intermediate") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        &nbsp;
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="govuk-table__cell">
+                                <b>SP41131084</b> <br />
+                                Arable land. <br />{{ data['parcel2'] }} (ha) total size.<br /> {{ data['parcel2'] }} (ha) of SFI available area
+                            </td>
+                        </div>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                            <th scope="row" class="govuk-table__header">
+
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+
+                            </td>
+                            <td class="govuk-table__cell">
+                                <b>SP41131085</b> <br />
+                                10.00 (ha) total size.<br /> 0.00 ha of SFI available area
+                            </td>
+                        </div>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                            <th scope="row" class="govuk-table__header">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel3" type="checkbox" value="introductory" {{ checked("landparcel3", "introductory") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        &nbsp;
+                                    </label>
+                                </div>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="landparcel3" type="checkbox" value="intermediate" {{ checked("landparcel3", "intermediate") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        &nbsp;
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="govuk-table__cell">
+                                <b>SP41131086</b> <br />
+                                Arable land.<br />{{ data['parcel3'] }} (ha) total size.<br /> {{ data['parcel3'] }} (ha) of SFI available area
+                            </td>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <button class="govuk-button " data-module="govuk-button">
+                Update application
+            </button>
+
+        </form>
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+
+
+        {% if data['landparcel1'] == "introductory" and data['landparcel2'] == "introductory" and data['landparcel3'] == "intermediate"  %}
+
+        <img src="../../../public/images/fields-all-selected.png" style="width: 100%;">
+
+        {% elif data['landparcel1'] !== "introductory" and data['landparcel2'] !== "introductory" and data['landparcel3'] == "intermediate"  %}
+
+        <img src="../../../public/images/fields-inter-only.png" style="width: 100%;">
+
+        {% elif data['landparcel1'] == "introductory" and data['landparcel2'] == "introductory" and data['landparcel3'] !== "intermediate"  %}
+
+        <img src="../../../public/images/fields-intro-only.png" style="width: 100%;">
+
+        {% else %}
+        <img src="../../../public/images/fields-defaults.png" style="width: 100%;">
+        {% endif %}
+
+
+
+        <p>Key:</p>
+
+        <div>
+            <div class="keybox green"></div>
+            <p>Selected for introductory</p>
+        </div>
+        <div>
+            <div class="keybox yellow"></div>
+            <p>Selected for intermediate</p>
+        </div>
+        <div>
+            <div class="keybox purple"></div>
+            <p>Available for standard</p>
+        </div>
+        <div>
+            <div class="keybox red"></div>
+            <p>Available but in another standard</p>
+        </div>
+        <div>
+            <div class="keybox grey"></div>
+            <p>Unavailable for standard</p>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

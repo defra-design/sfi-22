@@ -1,0 +1,21 @@
+{% for template, templates in data['prototypes'][pid]['pages'] | groupby("template") %}
+
+{% if template == "guidance" %}
+
+{% for content, types in templates | groupby("content") %}
+
+<h3 class="govuk-heading-m">{{ content | capitalize  }}</h3>
+
+<ul class="govuk-list govuk-list--spaced govuk-!-padding-bottom-4">
+    {% for page in types %}
+    <li><a href="{{ data['prototypes'][ pid ]['url'] }}/{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+
+</ul>
+
+{% endfor %}
+<br /><br />
+
+{% else %}
+{% endif %}
+{% endfor %}

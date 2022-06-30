@@ -1,0 +1,96 @@
+{% extends "layout_account.html" %}
+
+{% set serviceName %}
+Rural Payments
+{% endset%}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set ppid = 0 + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 25 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+<!-- Beneath H1 -->
+{% block beneathtitle %}
+<div class="govuk-grid-column-full">
+
+    <p>IMPORTANT:</p>
+
+    <p>Check and update or confirm your email address under 'Contact details' in the personal details screen.</p>
+
+    <p>Click this <a href="#">Amend personal details link</a>, to go direct to that screen.</p>
+
+</div>
+{% endblock %}
+
+<!-- Left content area -->
+{% block left %}
+{{ super() }}
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">
+        Contents
+    </h2>
+    <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="#overview">
+                Overview
+            </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#messages">
+                All messages
+            </a>
+        </li>
+
+    </ul>
+    <div class="govuk-tabs__panel" id="overview">
+
+        <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header app-custom-class">Business</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">View or check</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Messages</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">{{ data['businessname'] }} <br /><span class="govuk-caption-m">SBI: {{ data['SBI'] }}</span></th>
+                    <td class="govuk-table__cell"><a href="account-business-overview.html">View business</a> </td>
+                    <td class="govuk-table__cell"><a href="#">View messages</a> </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+                            1 new
+                        </strong></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="messages">
+        <p class="orange">Will we add messages here to mirror the notifications etc?</p>
+    </div>
+
+</div>
+
+<p class="right"><b>Page 1 of 1</b></p>
+{% endblock %}
+
+<!-- Right content area -->
+{% block right %}
+{{ super() }}
+<ul class="govuk-list govuk-list--spaced">
+    <li><a href="">View and amend personal details</a></li>
+    <li><a href="">Register a business</a></li>
+    <li>&nbsp;</li>
+    <li><a href="">Create or view a query</a></li>
+</ul>
+{% endblock %}
