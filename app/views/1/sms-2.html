@@ -66,7 +66,7 @@
         <br />
         {% if data['sms2a'] == "show" %}
 
-        <img src="../../../public/images/sms-2.png" class="shadow">
+        <img src="../../../public/images/sms-2.png" class="shadow" style="max-width: 90%;">
 
         {% else %}
         {% endif %}
@@ -88,7 +88,7 @@
         <br />
         {% if data['sms2b'] == "show" %}
 
-        <img src="../../../public/images/sms-2.png" class="shadow">
+        <img src="../../../public/images/sms-2.png" class="shadow" style="max-width: 90%;">
 
         {% else %}
         {% endif %}
@@ -100,19 +100,23 @@
 
 <div class="govuk-grid-row govuk-!-padding-bottom-8 image">
 
-    <p><i>Placeholder: awaiting wording from @nick</i></p>
+    <div class="govuk-grid-column-full">
 
-    <p><i>We can put versions side by side (one with payment amounts for example)</i></p>
+        <p><i>Placeholder: awaiting wording from @nick</i></p>
 
-    <form action="/1/account-business-overview" method="POST">
+        <p><i>We can put versions side by side (one with payment amounts for example)</i></p>
 
-        <input type="hidden" id="phase" name="phase" value="2">
+        <form action="/1/account-business-overview" method="POST">
 
-        <button class="govuk-button " data-module="govuk-button">
-            Sign in to RPA
-        </button>
+            <input type="hidden" id="phase" name="phase" value="2">
 
-    </form>
+            <button class="govuk-button " data-module="govuk-button">
+                Sign in to RPA
+            </button>
+
+        </form>
+
+    </div>
 
 </div>
 
