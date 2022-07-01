@@ -164,18 +164,31 @@ Rural Payments
     </div>
     <div class="govuk-grid-column-three-quarters">
 
-        <p>View details of scheduled and previous payments made to your business.</p>
+        <!--     <div class="govuk-inset-text">
+            <h3 class="govuk-heading-m">Next payment:</h3>
+            <p>Your quarterly SFI payment for April to June 2022 is <b>£289.65</b></p>
 
-        <br />
-
-        <ul class="govuk-list govuk-list--spaced">
-            <li><a href="payments.html">View payments</a> </li>
-        </ul>
-
-        <!--  <div class="govuk-inset-text">
-            Your next payment is due to be made in the week commencing <b>05-Jul-2023</b> for {{ data['maintitle'] }}. You will be notified when that payment amount has been calculated.
+            <p>We will pay this into your account on <b>10 July 2022</b>.</p>
         </div> -->
 
+        <p>View details of scheduled and previous payments made to your business.</p>
+
+
+        <form id="paymentlink" action="payments" method="POST">
+
+            <div class="govuk-form-group">
+
+                <input type="hidden" id="land-status" name="paid" value="show">
+                <input type="hidden" id="completed" name="pending" value="show">
+                <input type="hidden" id="completed" name="scheduled" value="show">
+
+            </div>
+
+
+            <a style="font-size: 1.1875rem;" class="govuk-link" href="" onclick="document.getElementById('paymentlink').submit(); return false;">View payments</a>
+        </form>
+
+        <br />
     </div>
 </div>
 

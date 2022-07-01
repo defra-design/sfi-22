@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_unbranded.html" %}
 
 <!-- Update prototype id -->
 {% set pid = 1 %}
@@ -9,18 +9,31 @@
 <!-- Before content area -->
 {% block beforeContent %}
 {{ super() }}
-<!-- BREADCRUMBS -->
+<!-- BREADCRUMBS 
 <div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
     <ol class="govuk-breadcrumbs__list">
         <!-- <li class="govuk-breadcrumbs__list-item">
             <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
         </li> -->
-        <li class="govuk-breadcrumbs__list-item">
-            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to payments overview</a>
-        </li>
+<!--  <li class="govuk-breadcrumbs__list-item">
+    <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to payments overview</a>
+</li>
 
-    </ol>
-</div>
+</ol>
+</div> -->
+
+<style>
+    .noborder {
+        border-bottom: 0px #fff solid !important;
+    }
+
+    .grey {
+        grey-color: grey;
+        background-color: lightgray;
+        padding: 20px 20px 0px 20px;
+    }
+
+</style>
 {% endblock %}
 
 
@@ -33,18 +46,14 @@
     <div class="govuk-grid-column-full">
 
         <h1 class="govuk-heading-xl">
-            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+            {{ data['maintitle'] }} 2023
         </h1>
+        <span class="govuk-caption-xl">
+            Claim statement
+        </span>
     </div>
 
-    <div class="govuk-grid-column-full">
-
-        <h2 class="govuk-heading-l">
-            {{ data['maintitle'] }} 2023 - 1 of 4
-        </h2>
-    </div>
-
-    <div class="govuk-grid-column-full">
+    <!-- <div class="govuk-grid-column-full">
 
         <ol class="govuk-list govuk-list--number govuk-list--spaced">
             <li><a href="#details">Details</a> </li>
@@ -58,44 +67,32 @@
         <br /> <br />
         <hr>
 
-    </div>
+    </div> -->
 </div>
 {% endblock %}
 
 
-<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+<div class="govuk-grid-row govuk-!-padding-bottom-8 ">
 
-    <div class="govuk-grid-column-full">
+    <!--  <div class="govuk-grid-column-full">
 
         <h2 id="details" class="govuk-heading-m">
             1: Details
         </h2>
 
-    </div>
+    </div> -->
 
     <div class="govuk-grid-column-two-thirds">
 
         <table class="govuk-table">
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__header">Business name:</td>
-                    <td class="govuk-table__cell">{{ data['businessname'] }}</td>
+                    <td class="govuk-table__header noborder">Business name:</td>
+                    <td class="govuk-table__cell noborder">{{ data['businessname'] }}</td>
                 </tr>
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__header">Single Business Identifier (SBI):</td>
-                    <td class="govuk-table__cell">{{ data['SBI'] }}</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__header">Calculation reference:</td>
-                    <td class="govuk-table__cell">31773</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__header">Date of calculation:</td>
-                    <td class="govuk-table__cell">31-Mar-2023</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__header">Date of payment:</td>
-                    <td class="govuk-table__cell">07-Apr-2023</td>
+                    <td class="govuk-table__header noborder">Single Business Identifier (SBI):</td>
+                    <td class="govuk-table__cell noborder">{{ data['SBI'] }}</td>
                 </tr>
             </tbody>
         </table>
@@ -103,9 +100,96 @@
 
     </div>
 
-    <div class="govuk-grid-column-one-third">
+    <div class="govuk-grid-column-full govuk-!-padding-top-8">
+
+        <p>This statement explains your payments for the Sustainable Farming Incentive (SFI). It is made up of 3 parts.</p>
+
+        <p>Part 1 provides a summary of the most recent payment.<br />
+            Part 2 explains how we calculated the payment.
+            <br />
+            Part 3 highlights where to go for more support.
+        </p>
 
     </div>
+
+</div>
+
+<hr>
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h2 id="summary" class="govuk-heading-l">
+            Part 1: Payment summary
+        </h2>
+
+    </div>
+
+    <div class="govuk-grid-column-full grey">
+
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full">
+
+                <p><b>Your quarterly SFI payment for April to June 2022 is £289.65</b></p>
+
+                <p>We will pay this into your account on 10 July 2022.</p>
+
+            </div>
+
+            <div class="govuk-grid-column-two-thirds">
+
+                <table class="govuk-table">
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell noborder">Calculation date:</td>
+                            <td class="govuk-table__cell noborder">30 June 2022</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell noborder">Payment reference number:</td>
+                            <td class="govuk-table__cell noborder">31773</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--  <table class="govuk-table">
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header app-custom-class"></th>
+                <th scope="col" class="govuk-table__header app-custom-class"></th>
+                <th scope="col" class="govuk-table__header app-custom-class">Reductions</th>
+                <th scope="col" class="govuk-table__header app-custom-class">Total</th>
+            </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">SFI arable standard</td>
+                <td class="govuk-table__cell">£XXX</td>
+                <td class="govuk-table__cell">£X</td>
+                <td class="govuk-table__cell">£XX</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">SFI grasslands standard</td>
+                <td class="govuk-table__cell">£XXX</td>
+                <td class="govuk-table__cell">£X</td>
+                <td class="govuk-table__cell">£XX</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><b>Total SFI payment</b></td>
+                <td class="govuk-table__cell"><b>£XXX</b></td>
+                <td class="govuk-table__cell"><b>£X</b>
+                </td>
+                <td class="govuk-table__cell"><b>£XX</b></td>
+            </tr>
+        </tbody>
+    </table> -->
 
 </div>
 
@@ -113,115 +197,106 @@
 
     <div class="govuk-grid-column-full">
 
-        <h2 id="summary" class="govuk-heading-m">
-            2: Payment summary
+        <h2 id="calculations" class="govuk-heading-l">
+            Part 2: Calculation
         </h2>
 
     </div>
 
     <div class="govuk-grid-column-full">
+
+        <p>We calculated the total SFI payment amount by adding together payments for all the standards which are part of your agreement.
+        </p>
+
+        <h3 class="govuk-heading-m">Arable and horticultural soil standard</h3>
+
+        <p>You have:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>5 hectares of land in this standard at the introductory level</li>
+            <li>10 hectares of land in this standard at the intermediate level</li>
+        </ul>
+
+        <p>You have no reductions, giving you an annual payment of £510.00 and a quarterly payment of £127.50.</p>
+
+        <h3 class="govuk-heading-m govuk-!-padding-top-4">Improved grasslands soil standard</h3>
+
+        <p>You have 15 hectares of land in this standard at the introductory level. You have a £50.00 reduction, giving you an annual payment of £370.00 and a quarterly payment of £92.50.</p>
+
+        <h3 class="govuk-heading-m govuk-!-padding-top-4">Moorland standard</h3>
+
+        <p>You have 12 hectares of land in this standard at the introductory level. You have no reductions, giving you an annual payment of £388.60 and a quarterly payment of £97.15.</p>
+
+        <h3 class="govuk-heading-m govuk-!-padding-top-4">Summary</h3>
 
         <table class="govuk-table">
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header app-custom-class"></th>
-                    <th scope="col" class="govuk-table__header app-custom-class"></th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Standard</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Level</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Land area (ha)</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Value</th>
                     <th scope="col" class="govuk-table__header app-custom-class">Reductions</th>
-                    <th scope="col" class="govuk-table__header app-custom-class">Total</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Annual total</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Quarterly total</th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">SFI arable standard</td>
-                    <td class="govuk-table__cell">£XXX</td>
-                    <td class="govuk-table__cell">£X</td>
-                    <td class="govuk-table__cell">£XX</td>
+                    <td class="govuk-table__cell">Arable and horticultural soil standard</td>
+                    <td class="govuk-table__cell">Introductory</td>
+                    <td class="govuk-table__cell">5.00</td>
+                    <td class="govuk-table__cell">£110.00</td>
+                    <td class="govuk-table__cell">£0.00</td>
+                    <td class="govuk-table__cell">£110.00</td>
+                    <td class="govuk-table__cell">£27.50</td>
                 </tr>
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">SFI grasslands standard</td>
-                    <td class="govuk-table__cell">£XXX</td>
-                    <td class="govuk-table__cell">£X</td>
-                    <td class="govuk-table__cell">£XX</td>
+                    <td class="govuk-table__cell">Arable and horticultural soil standard</td>
+                    <td class="govuk-table__cell">Intermediate</td>
+                    <td class="govuk-table__cell">10.00</td>
+                    <td class="govuk-table__cell">£400.00</td>
+                    <td class="govuk-table__cell">£0.00</td>
+                    <td class="govuk-table__cell">£400.00</td>
+                    <td class="govuk-table__cell">£100.00</td>
                 </tr>
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell"><b>Total SFI payment</b></td>
-                    <td class="govuk-table__cell"><b>£XXX</b></td>
-                    <td class="govuk-table__cell"><b>£X</b>
-                    </td>
-                    <td class="govuk-table__cell"><b>£XX</b></td>
+                    <td class="govuk-table__cell">Improved grasslands soil standard</td>
+                    <td class="govuk-table__cell">Introductory</td>
+                    <td class="govuk-table__cell">15.00</td>
+                    <td class="govuk-table__cell">£420.00</td>
+                    <td class="govuk-table__cell">£50.00</td>
+                    <td class="govuk-table__cell">£370.00</td>
+                    <td class="govuk-table__cell">£92.50</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Moorland standard</td>
+                    <td class="govuk-table__cell">Introductory</td>
+                    <td class="govuk-table__cell">12.00</td>
+                    <td class="govuk-table__cell">£388.60</td>
+                    <td class="govuk-table__cell">£0.00</td>
+                    <td class="govuk-table__cell">£388.60</td>
+                    <td class="govuk-table__cell">£97.15</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header">Total</td>
+                    <td class="govuk-table__header"></td>
+                    <td class="govuk-table__header">37.00</td>
+                    <td class="govuk-table__header">£1208.60</td>
+                    <td class="govuk-table__header">£50.00</td>
+                    <td class="govuk-table__header">£1158.60</td>
+                    <td class="govuk-table__header">£289.65</td>
                 </tr>
             </tbody>
         </table>
 
-        <p>If there are any cross compliance reductions they will be shown in the summary above. All other payment calculations and reductions are shown in Part 3.</p>
-
-    </div>
-
-
-
-</div>
-
-<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
-
-    <div class="govuk-grid-column-full">
-
-        <h2 id="calculations" class="govuk-heading-m">
-            3: Calculations
-        </h2>
-
-    </div>
-
-    <div class="govuk-grid-column-full">
-
-        <p>We calculated the total BPS claim value by adding together:</p>
+        <p>Reductions can be made for:</p>
 
         <ul class="govuk-list govuk-list--bullet">
-            <li>the main BPS claim value (excluding greening and the young farmer parts of your claim)</li>
-            <li>the greening payment</li>
-            <li>the young farmer payment (if one is due)</li>
+            <li>reason 1</li>
+            <li>reason 2</li>
+            <li>reason 3</li>
         </ul>
-
-        <p>The value of each part of your claim depends on how many entitlements were used correctly on the
-            application and whether we have had to apply any reductions or penalties. You'll find more information about
-            how we calculated each part of your claim in the tables below.</p>
-
-        <br />
-
-        <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                    The exchange rate
-                </span>
-            </summary>
-            <div class="govuk-details__text">
-                All calculations in this statement are shown in Euros and then converted into Sterling at the final stage of the
-                claim calculation. All BPS 2019 payments will be paid in Sterling (£). The exchange rate from Euro (€) to
-                Sterling for BPS 2019 is €1 = £0.890920.
-            </div>
-        </details>
-
-        <br />
-
-        <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                    Financial Discipline Mechanism (FDM)
-                </span>
-            </summary>
-            <div class="govuk-details__text">
-                <p>Page 97 of the BPS 2019 scheme rules explains about the ‘Financial Discipline Mechanism’ and how it will
-                    reduce a BPS 2019 claim, including the greening and young farmer parts of your payment. Financial discipline
-                    (FDM) does not apply to the first €2,000 of a claim. If a claim is €2,000 or less, it will not be reduced for FDM.
-                    The rate of financial discipline for BPS 2019 is 1.432635%.</p>
-                <p>You may get a refund during 2020 of some or all of the money deducted for FDM from your BPS 2018
-                    payment, if it is not required. The FDM reimbursement payment will be paid even if you did not claim in 2018
-                    or previous years. Reimbursements have not been included on the claim statement or with your BPS payment.
-                    We will tell you about any reimbursement separately.</p>
-                <p>For more information about calculating your payment, penalties and reductions, read the revised ‘Payments,
-                    reduction and penalties’ section of the BPS 2019 scheme rules, which you can find at
-                    www.gov.uk/rpa/bps2019</p>
-            </div>
-        </details>
 
     </div>
 
@@ -233,54 +308,24 @@
 
     <div class="govuk-grid-column-full">
 
-        <h2 id="land" class="govuk-heading-m">
-            4: Land and entitlements details
+        <h2 id="land" class="govuk-heading-l">
+            Part 3: More support
         </h2>
 
     </div>
 
     <div class="govuk-grid-column-full">
 
-        <p>The table below shows you the amount (in hectares) of land in each payment region you claimed, the eligible
-            area recorded by RPA and the number of entitlements held for the scheme year. Your claim value for each
-            payment region will be calculated on the lowest number within the three columns.</p>
-
+        <p>If you think your payment is wrong, you should:</p>
         <ul class="govuk-list govuk-list--bullet">
-            <li><b>Area claimed for payment on application</b> – this is the total area claimed for payment in column C8 of
-                the BPS 2019 application.</li>
-            <li><b>Eligible area found by RPA</b> – this is the total eligible area recorded by RPA. It is the maximum area
-                available to you for BPS 2019 and may have changed as a result of any inspections or mapping changes.</li>
-            <li><b>Number of entitlements available for payment</b> – this figure includes entitlements held on 15 May
-                2019, plus any that have been awarded to new or young farmers who applied for them in 2019.</li>
+            <li>check your land parcel information in the Rural Payments service at <a href="#" class="govuk-link">www.gov.uk/claim-rural-payments</a> </li>
+            <li>review the SFI scheme information at <a href="#" class="govuk-link">www.gov.uk/sfi</a> </li>
         </ul>
 
+        <p>If you still do not agree with the amount you have been paid, contact us within 3 months of the payment date at ruralpayments@defra.gov.uk.</p>
+        <p>Find other ways to get in touch at <a href="#" class="govuk-link">www.gov.uk/guidance/contacting-the-rpa-about-sfi</a> </p>
 
-    </div>
-
-
-
-</div>
-
-<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
-
-    <div class="govuk-grid-column-full">
-
-        <h2 id="land" class="govuk-heading-m">
-            More information
-        </h2>
-
-    </div>
-
-    <div class="govuk-grid-column-full">
-
-        <p>For more information about calculating your payment, penalties and reductions, read the ‘Payments, reduction
-            and penalties’ section of the BPS 2019 Scheme rules which you can find at www.gov.uk/rpa/bps2019.</p>
-        <p>
-            If you have any queries about values in this Claim Statement, you should first check your land parcel
-            information in the Rural Payments service, and the above section of the BPS 2019 scheme rules.</p>
-        <p>
-            If you still do not agree with the amount you have been paid, fill in a payment query form at
-            www.gov.uk/rpa/bps2019. You can return the form to us by email or post.</p>
+        <h2 class="govuk-heading-l govuk-!-padding-top-8">To receive this statement in large print or an alternative format, <a href="#" class="govuk-link">contact the Rural Payments Agency</a>.</h2>
 
     </div>
 

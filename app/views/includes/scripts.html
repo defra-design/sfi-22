@@ -31,6 +31,18 @@
 
 </script>
 
+<script>
+    function paidTog() {
+        let toggleButton = document.getElementById("paid-tog");
+        if (toggleButton.checked == true) {
+            toggleButton.checked = false;
+        } else {
+            toggleButton.checked = true;
+        }
+    }
+
+</script>
+
 {% for scriptUrl in extensionConfig.scripts %}
 <script src="{{scriptUrl}}"></script>
 {% endfor %}

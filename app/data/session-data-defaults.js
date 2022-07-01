@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
     indexlink: "/index",
-    updated: "29-Jun-22",
+    updated: "01-Jul-22",
     maintitle: "Sustainable Farming Incentive",
     team: [
         {
@@ -704,12 +704,12 @@ module.exports = {
             id: 1,
             url: "/1",
             status: "building",
-            desc: "Prototype to test payment statement concepts",
-            updated: "29-Jun-22",
-            start: "TBC",
-            end: "TBC",
-            participants: "TBC ",
-            home: "account-business-overview",
+            desc: "Prototype to test payment concepts.",
+            updated: "01-Jul-22",
+            start: "04-Jul-22",
+            end: "06-Jul-22",
+            participants: "TBC",
+            home: "sms-1",
             standards: [
                 {
                     name: "Arable and Horticultural soils"
@@ -1340,7 +1340,7 @@ module.exports = {
                     title: "Payment statement",
                     template: "Application",
                     content: "payments",
-                    url: "application-summary",
+                    url: "payment-statement-31773",
                     pageid: 54,
                     back: "payments",
                     next: "crn-check-email",
@@ -1352,6 +1352,26 @@ module.exports = {
                     content: "payments",
                     url: "payments",
                     pageid: 55,
+                    back: "account-business-overview",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "SMS 1",
+                    template: "SMS",
+                    content: "SMS",
+                    url: "sms-1",
+                    pageid: 56,
+                    back: "account-business-overview",
+                    next: "crn-check-email",
+                    complete: "no"
+                },
+                {
+                    title: "SMS 2",
+                    template: "SMS",
+                    content: "SMS",
+                    url: "sms-2",
+                    pageid: 57,
                     back: "account-business-overview",
                     next: "crn-check-email",
                     complete: "no"

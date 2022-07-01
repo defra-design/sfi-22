@@ -85,9 +85,13 @@
     background-color: indianred;
 }
 
-.green {
+.grey {
     grey-color: grey;
     background-color: lightgray;
+}
+
+.noborder {
+    border-bottom: 0px #fff solid !important;
 }
 
 #myBtn {

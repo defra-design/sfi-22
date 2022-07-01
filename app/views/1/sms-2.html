@@ -1,0 +1,119 @@
+{% extends "layout_unbranded.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 1 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 54 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS 
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+<!--  <li class="govuk-breadcrumbs__list-item">
+    <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to payments overview</a>
+</li>
+
+</ol>
+</div> -->
+
+<style>
+    .noborder {
+        border-bottom: 0px #fff solid !important;
+    }
+
+    .grey {
+        grey-color: grey;
+        background-color: lightgray;
+        padding: 20px 20px 0px 20px;
+    }
+
+    .image {
+        text-align: center;
+    }
+
+    .shadow {
+        -webkit-box-shadow: 5px 5px 15px 5px #a0a0a0;
+        box-shadow: 5px 5px 15px 5px #a0a0a0;
+    }
+
+</style>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 image">
+
+    <div class="govuk-grid-column-one-half">
+
+        <form action="/1/sms-1" method="POST">
+
+            <input type="hidden" id="sms2a" name="sms2a" value="show">
+
+            <button class="govuk-button " data-module="govuk-button">
+                Show version A
+            </button>
+
+        </form>
+
+        <br />
+        {% if data['sms2a'] == "show" %}
+
+        <img src="../../../public/images/sms-2.png" class="shadow">
+
+        {% else %}
+        {% endif %}
+
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+
+        <form action="/1/sms-2" method="POST">
+
+            <input type="hidden" id="sms2b" name="sms2b" value="show">
+
+            <button class="govuk-button " data-module="govuk-button">
+                Show version B
+            </button>
+
+        </form>
+
+        <br />
+        {% if data['sms2b'] == "show" %}
+
+        <img src="../../../public/images/sms-2.png" class="shadow">
+
+        {% else %}
+        {% endif %}
+
+    </div>
+
+</div>
+
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 image">
+
+    <p><i>Placeholder: awaiting wording from @nick</i></p>
+
+    <p><i>We can put versions side by side (one with payment amounts for example)</i></p>
+
+    <form action="/1/account-business-overview" method="POST">
+
+        <input type="hidden" id="phase" name="phase" value="2">
+
+        <button class="govuk-button " data-module="govuk-button">
+            Sign in to RPA
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

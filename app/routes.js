@@ -361,4 +361,11 @@ router.post('/0/arable-levels-intermediate-form-cya', function (req, res) {
 
 })
 
+// pid0 - select land parcels
+router.post('/1/payments-toggle-form', function (req, res) {
+
+    res.redirect('payments')
+
+})
+
 module.exports = router

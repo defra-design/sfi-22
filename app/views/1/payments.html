@@ -1,5 +1,23 @@
 {% extends "layout.html" %}
 
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Rural Payments",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "account-business-overview",
+      text: "Your businesses"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
 <!-- Update prototype id -->
 {% set pid = 1 %}
 {% set ppid = pid + 1 %}
@@ -21,6 +39,19 @@
 
     </ol>
 </div>
+
+<style>
+    .noborder {
+        border-bottom: 0px #fff solid !important;
+    }
+
+    .grey {
+        grey-color: grey;
+        background-color: lightgray;
+        padding: 20px 20px 0px 20px;
+    }
+
+</style>
 {% endblock %}
 
 
@@ -44,18 +75,199 @@
 <div class="govuk-grid-row govuk-!-padding-bottom-8">
 
     <div class="govuk-grid-column-full">
+        {% if data['phase'] == "1" %}
 
         <div class="govuk-inset-text">
-            Your next payment is due to be made in the week commencing <b>05-Jul-2023</b> for {{ data['maintitle'] }}. You will be notified when that payment amount has been calculated.
+            <h3 class="govuk-heading-m">Next payment:</h3>
+            <p>Your quarterly SFI payment for April to June 2022 is <b>£289.65</b></p>
+
+            <p>We will pay this into your account on <b>10 July 2022</b>.</p>
         </div>
+
+        {% elif data['phase'] == "2" %}
+        <div class="govuk-inset-text">
+            <h3 class="govuk-heading-m">Next payment:</h3>
+            <p>Your quarterly SFI payment for July to September 2022 will be calcuated <b>w/c 30 September 2022</b>.</p>
+
+            <p>You will receive a notification when this calculation has been made.</p>
+        </div>
+        {% else %}
+        {% endif %}
+
 
         <br />
 
-        <table class="govuk-table">
+        <br />
+
+        <br />
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    Sort and filter payments
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                <form id="paymentstable" action="/1/payments-toggle-form" method="POST">
+                    <div class="govuk-grid-column-one-quarter">
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="sort">
+                                Sort by
+                            </label>
+                            <select class="govuk-select" id="sort" name="sort">
+                                <option value="scheme">Payment scheme</option>
+                                <option value="date" selected>Payment date</option>
+                                <option value="status">Payment status</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="govuk-grid-column-one-quarter">
+                        <div class="govuk-form-group">
+                            <p> Show:</p>
+                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+
+                                    <input class="govuk-checkboxes__input togz" id="paid-tog" name="paid" type="checkbox" value="show" {{ checked("paid", "show") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="paid">
+                                        Paid
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="govuk-grid-column-one-quarter">
+                        <div class="govuk-form-group">
+                            <p>&nbsp;</p>
+                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                                <div class="govuk-checkboxes__item">
+
+                                    <input class="govuk-checkboxes__input" id="pending-tog" name="pending" type="checkbox" value="show" {{ checked("pending", "show") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                        Pending
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="govuk-grid-column-one-quarter">
+                        <div class="govuk-form-group">
+                            <p>&nbsp;</p>
+                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                                <div class="govuk-checkboxes__item">
+
+                                    <input class="govuk-checkboxes__input" id="scheduled-tog" name="scheduled" type="checkbox" value="show" {{ checked("scheduled", "show") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                        Scheduled
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <button style="float: right;" class="govuk-button" data-module="govuk-button">
+                        Update table
+                    </button>
+
+                </form>
+            </div>
+        </details>
+
+        <!-- <form id="paymentstable" action="/1/payments-toggle-form" method="POST">
+            <div class="govuk-grid-column-one-quarter">
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="sort">
+                        Sort by
+                    </label>
+                    <select class="govuk-select" id="sort" name="sort">
+                        <option value="scheme">Payment scheme</option>
+                        <option value="date" selected>Payment date</option>
+                        <option value="status">Payment status</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-form-group">
+                    <p> Show:</p>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+
+                            <input class="govuk-checkboxes__input togz" id="paid-tog" name="paid" type="checkbox" value="show" {{ checked("paid", "show") }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="paid">
+                                Paid
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-form-group">
+                    <p>&nbsp;</p>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                        <div class="govuk-checkboxes__item">
+
+                            <input class="govuk-checkboxes__input" id="pending-tog" name="pending" type="checkbox" value="show" {{ checked("pending", "show") }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                Pending
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-form-group">
+                    <p>&nbsp;</p>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                        <div class="govuk-checkboxes__item">
+
+                            <input class="govuk-checkboxes__input" id="scheduled-tog" name="scheduled" type="checkbox" value="show" {{ checked("scheduled", "show") }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                Scheduled
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <button style="float: right;" class="govuk-button" data-module="govuk-button">
+                Update table
+            </button>
+
+        </form>  -->
+
+    </div>
+    <div class="govuk-grid-column-full govuk-!-padding-top-4">
+
+        <table class="govuk-table govuk-!-padding-top-8">
 
             <thead class="govuk-table__head">
+
                 <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Calculation reference</th>
+                    <th scope="col" class="govuk-table__header">Payment reference number</th>
                     <th scope="col" class="govuk-table__header">Payment date</th>
                     <th scope="col" class="govuk-table__header">Scheme</th>
                     <th scope="col" class="govuk-table__header">Amount</th>
@@ -66,41 +278,100 @@
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">31773</td>
-                    <td class="govuk-table__cell">07-Apr-2023</td>
-                    <td class="govuk-table__cell">{{ data['maintitle'] }} 2023 - 1 of 4</td>
-                    <td class="govuk-table__cell">£375.80 <br />
 
-
-                    </td>
-
+                {% if data['paid'] == "show" %}
+                <tr class="govuk-table__row paid toggleDiv">
+                    <td class="govuk-table__cell">13493</td>
+                    <td class="govuk-table__cell">28 May 2021</td>
+                    <td class="govuk-table__cell">Basic Payment Scheme 2021</td>
+                    <td class="govuk-table__cell">£1,475.00 <br /> </td>
                     <td class="govuk-table__cell">
-                        <a href="payment-statement-31773.html">View payment breakdown</a>
+                        No payment statement available
                     </td>
                     <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
-                            Payment made
+                            Paid
                         </strong></td>
                     <td class="govuk-table__cell">&nbsp;</td>
                 </tr>
-                <tr class="govuk-table__row">
+
+
+                {% else %}
+                {% endif %}
+
+                {% if data['paid'] == "show" %}
+
+                <tr class="govuk-table__row paidrow">
+                    <td class="govuk-table__cell">17893</td>
+                    <td class="govuk-table__cell">30 May 2022</td>
+                    <td class="govuk-table__cell">Basic Payment Scheme 2022</td>
+                    <td class="govuk-table__cell">£1,376.00 <br /> </td>
+                    <td class="govuk-table__cell">
+                        <a href="#" target="_blank">View payment statement (PDF)</a>
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+                            Paid
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+
+                {% else %}
+                {% endif %}
+                {% if data['pending'] == "show" and data['phase'] == "1" %}
+                <tr class="govuk-table__row pending">
+                    <td class="govuk-table__cell">31773</td>
+                    <td class="govuk-table__cell">10 July 2022</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }} Year 1 - 1 of 4</td>
+                    <td class="govuk-table__cell">£289.65 <br /> </td>
+                    <td class="govuk-table__cell">
+                        <a href="payment-statement-31773.html" target="_blank">View payment statement (PDF)</a>
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">
+                            Pending
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                {% else %}
+                {% endif %}
+
+                {% if data['paid'] == "show" and data['phase'] == "2" %}
+                <tr class="govuk-table__row pending">
+                    <td class="govuk-table__cell">31773</td>
+                    <td class="govuk-table__cell">10 July 2022</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }} Year 1 - 1 of 4</td>
+                    <td class="govuk-table__cell">£289.65 <br /> </td>
+                    <td class="govuk-table__cell">
+                        <a href="payment-statement-31773.html" target="_blank">View payment statement (PDF)</a>
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+                            Paid
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                {% else %}
+                {% endif %}
+
+                {% if data['scheduled'] == "show" %}
+                <tr class="govuk-table__row scheduled">
                     <td class="govuk-table__cell">-</td>
-                    <td class="govuk-table__cell">w/c 05-Jul-2023</td>
-                    <td class="govuk-table__cell">{{ data['maintitle'] }} 2023 - 2 of 4</td>
+                    <td class="govuk-table__cell">w/c 12 Oct 2022</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }} Year 1 - 2 of 4</td>
                     <td class="govuk-table__cell">-
                     </td>
                     <td class="govuk-table__cell">
-                        Calculation expected w/c 20-May-2023
+                        Calculation expected w/c 30 Sep 2022
                     </td>
                     <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
                             Scheduled
                         </strong></td>
                     <td class="govuk-table__cell">&nbsp;</td>
                 </tr>
-                <tr class="govuk-table__row">
+                {% else %}
+                {% endif %}
+                {% if data['scheduled'] == "show" %}
+                <tr class="govuk-table__row scheduled">
                     <td class="govuk-table__cell">-</td>
-                    <td class="govuk-table__cell">w/c 08-Oct-2023</td>
-                    <td class="govuk-table__cell">{{ data['maintitle'] }} 2023 - 3 of 4</td>
+                    <td class="govuk-table__cell">w/c 07 Jan 2023</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }} Year 1 - 3 of 4</td>
                     <td class="govuk-table__cell">- </td>
                     <td class="govuk-table__cell">- </td>
                     <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
@@ -108,11 +379,13 @@
                         </strong></td>
                     <td class="govuk-table__cell">&nbsp;</td>
                 </tr>
-
-                <tr class="govuk-table__row">
+                {% else %}
+                {% endif %}
+                {% if data['scheduled'] == "show" %}
+                <tr class="govuk-table__row scheduled">
                     <td class="govuk-table__cell">-</td>
-                    <td class="govuk-table__cell">w/c 04-Jan-2024</td>
-                    <td class="govuk-table__cell">{{ data['maintitle'] }} 2023 - 4 of 4</td>
+                    <td class="govuk-table__cell">w/c 04 April 2022</td>
+                    <td class="govuk-table__cell">{{ data['maintitle'] }} Year 1 - 4 of 4</td>
                     <td class="govuk-table__cell">- </td>
                     <td class="govuk-table__cell">- </td>
                     <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
@@ -120,19 +393,23 @@
                         </strong></td>
                     <td class="govuk-table__cell">&nbsp;</td>
                 </tr>
+                {% else %}
+                {% endif %}
 
             </tbody>
         </table>
 
-        <p class="govuk-body-s govuk-!-padding-top-6">
-            Potentially a sentence here explaining that the table is only showing schedules payments for the next 12 months. </p>
-        <p class="govuk-body-s">
-            Also clarifying that agreements may well exceed that timeframe?
-        </p>
+        <br />
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Export this view as a PDF
+        </button>
 
     </div>
 
 </div>
+
+
 
 
 {% endblock %}
