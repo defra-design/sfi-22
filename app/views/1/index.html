@@ -68,13 +68,17 @@
 {% endblock %}
 
 {% block acc4 %}
-<ul class="govuk-list govuk-list--bullet">
-    <li><a href="sms-1.html">SMS 1 - payment calculated</a></li>
-    <li><a href="sms-2.html">SMS 2 - payment made</a></li>
-    <li><a href="account-business-overview.html">Business overview</a> </li>
-    <li><a href="payments.html">Payments</a> </li>
-    <li><a href="payment-statement-31773.html">Payement statement</a> </li>
 
+<p>The user flow is:
+</p>
+<ul class="govuk-list govuk-list--bullet">
+    <li><a href="/1/sms-1.html">SMS 1 - payment calculated</a></li>
+    <li><a href="/1/account-business-overview.html">Business overview</a> </li>
+    <li><a href="/1/payments.html">Payments</a> </li>
+    <li><a href="/1/payment-statement-31773.html">Payment statement</a> </li>
+    <li>Payment is made </li>
+    <li><a href="/1/sms-2.html">SMS 2 - payment made</a></li>
+    <li><a href="/1/payment-statement-31773.html">Payment statement</a> - now updated </li>
 </ul>
 {% endblock %}
 

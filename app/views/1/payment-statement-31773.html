@@ -49,7 +49,7 @@
             {{ data['maintitle'] }} 2023
         </h1>
         <span class="govuk-caption-xl">
-            Claim statement
+            Payment statement
         </span>
     </div>
 
@@ -205,29 +205,8 @@
 
     <div class="govuk-grid-column-full">
 
-        <p>We calculated the total SFI payment amount by adding together payments for all the standards which are part of your agreement.
+        <p>We calculated the total SFI payment amount by adding together payments for all the standards which are part of your agreement, as shown in this table.
         </p>
-
-        <h3 class="govuk-heading-m">Arable and horticultural soil standard</h3>
-
-        <p>You have:</p>
-
-        <ul class="govuk-list govuk-list--bullet">
-            <li>5 hectares of land in this standard at the introductory level</li>
-            <li>10 hectares of land in this standard at the intermediate level</li>
-        </ul>
-
-        <p>You have no reductions, giving you an annual payment of £510.00 and a quarterly payment of £127.50.</p>
-
-        <h3 class="govuk-heading-m govuk-!-padding-top-4">Improved grasslands soil standard</h3>
-
-        <p>You have 15 hectares of land in this standard at the introductory level. You have a £50.00 reduction, giving you an annual payment of £370.00 and a quarterly payment of £92.50.</p>
-
-        <h3 class="govuk-heading-m govuk-!-padding-top-4">Moorland standard</h3>
-
-        <p>You have 12 hectares of land in this standard at the introductory level. You have no reductions, giving you an annual payment of £388.60 and a quarterly payment of £97.15.</p>
-
-        <h3 class="govuk-heading-m govuk-!-padding-top-4">Summary</h3>
 
         <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -235,10 +214,10 @@
                     <th scope="col" class="govuk-table__header app-custom-class">Standard</th>
                     <th scope="col" class="govuk-table__header app-custom-class">Level</th>
                     <th scope="col" class="govuk-table__header app-custom-class">Land area (ha)</th>
-                    <th scope="col" class="govuk-table__header app-custom-class">Value</th>
-                    <th scope="col" class="govuk-table__header app-custom-class">Reductions</th>
-                    <th scope="col" class="govuk-table__header app-custom-class">Annual total</th>
-                    <th scope="col" class="govuk-table__header app-custom-class">Quarterly total</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Annual value</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Quarterly value</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Quarterly reducion</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Quarterly payment</th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
@@ -247,8 +226,8 @@
                     <td class="govuk-table__cell">Introductory</td>
                     <td class="govuk-table__cell">5.00</td>
                     <td class="govuk-table__cell">£110.00</td>
+                    <td class="govuk-table__cell">£27.50</td>
                     <td class="govuk-table__cell">£0.00</td>
-                    <td class="govuk-table__cell">£110.00</td>
                     <td class="govuk-table__cell">£27.50</td>
                 </tr>
                 <tr class="govuk-table__row">
@@ -256,8 +235,8 @@
                     <td class="govuk-table__cell">Intermediate</td>
                     <td class="govuk-table__cell">10.00</td>
                     <td class="govuk-table__cell">£400.00</td>
+                    <td class="govuk-table__cell">£100.00</td>
                     <td class="govuk-table__cell">£0.00</td>
-                    <td class="govuk-table__cell">£400.00</td>
                     <td class="govuk-table__cell">£100.00</td>
                 </tr>
                 <tr class="govuk-table__row">
@@ -265,8 +244,8 @@
                     <td class="govuk-table__cell">Introductory</td>
                     <td class="govuk-table__cell">15.00</td>
                     <td class="govuk-table__cell">£420.00</td>
-                    <td class="govuk-table__cell">£50.00</td>
-                    <td class="govuk-table__cell">£370.00</td>
+                    <td class="govuk-table__cell">£105.00</td>
+                    <td class="govuk-table__cell">£50.00 (1)</td>
                     <td class="govuk-table__cell">£92.50</td>
                 </tr>
                 <tr class="govuk-table__row">
@@ -274,28 +253,28 @@
                     <td class="govuk-table__cell">Introductory</td>
                     <td class="govuk-table__cell">12.00</td>
                     <td class="govuk-table__cell">£388.60</td>
+                    <td class="govuk-table__cell">£97.15</td>
                     <td class="govuk-table__cell">£0.00</td>
-                    <td class="govuk-table__cell">£388.60</td>
                     <td class="govuk-table__cell">£97.15</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__header">Total</td>
                     <td class="govuk-table__header"></td>
                     <td class="govuk-table__header">37.00</td>
-                    <td class="govuk-table__header">£1208.60</td>
+                    <td class="govuk-table__header">£1318.50</td>
+                    <td class="govuk-table__header">£329.65</td>
                     <td class="govuk-table__header">£50.00</td>
-                    <td class="govuk-table__header">£1158.60</td>
-                    <td class="govuk-table__header">£289.65</td>
+                    <td class="govuk-table__header">£279.65</td>
                 </tr>
             </tbody>
         </table>
 
         <p>Reductions can be made for:</p>
 
-        <ul class="govuk-list govuk-list--bullet">
-            <li>reason 1</li>
-            <li>reason 2</li>
-            <li>reason 3</li>
+        <ul class="govuk-list">
+            <li>(1) Land area has changed</li>
+            <li>(2) Ineligible parcel due to rotation of Countryside Stewardship options</li>
+            <li>(3) Change in ambition level</li>
         </ul>
 
     </div>
