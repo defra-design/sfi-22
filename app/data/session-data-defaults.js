@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
     indexlink: "/index",
-    updated: "01-Jul-22",
+    updated: "04-Jul-22",
     maintitle: "Sustainable Farming Incentive",
     team: [
         {
@@ -705,9 +705,9 @@ module.exports = {
             url: "/1",
             status: "building",
             desc: "Prototype to test payment concepts.",
-            updated: "01-Jul-22",
-            start: "04-Jul-22",
-            end: "06-Jul-22",
+            updated: "04-Jul-22",
+            start: "07-Jul-22",
+            end: "08-Jul-22",
             participants: "TBC",
             home: "sms-1",
             standards: [
