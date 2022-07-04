@@ -703,7 +703,7 @@ module.exports = {
         {
             id: 1,
             url: "/1",
-            status: "building",
+            status: "built",
             desc: "Prototype to test payment concepts.",
             updated: "04-Jul-22",
             start: "07-Jul-22",
